@@ -8,11 +8,15 @@ import {
 } from "@/components/ui/dialog";
 
 interface ContactMeDialogProps {
-  name: string;
+  fullName: string;
   email: string;
 }
 
-export default function ContactMeDialog({ name, email }: ContactMeDialogProps) {
+
+export default function ContactMeDialog({
+  fullName,
+  email,
+}: ContactMeDialogProps) {
   return (
     <Dialog>
       <DialogTrigger>
@@ -54,7 +58,7 @@ export default function ContactMeDialog({ name, email }: ContactMeDialogProps) {
               bär därför inget ansvar för utrustningens skick eller säkerhet.
             </p>
           </div>
-          <p className="flex justify-center text-lg md:pt-6 pt-2">{name}</p>
+          <p className="flex justify-center text-lg md:pt-6 pt-2">{fullName}</p>
           <div className="flex justify-center">
             <a
               className="flex w-fit justify-center hover:underline text-blue-600"

@@ -20,9 +20,11 @@ export default async function Post({ post }: PostProps) {
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: post.postType,
   });
-  const { name, email } = await getNameAndEmailFromUserId({
+  const { firstName, lastName, email } = await getNameAndEmailFromUserId({
     userId: post.userId,
   });
+  const fullName = firstName + " " + lastName;
+
   const postUserRole = await getUserRoleFromUserId({ userId: post.userId });
   if (postUserRole) {
     return (
@@ -71,10 +73,10 @@ export default async function Post({ post }: PostProps) {
           >
             <User className="md:block hidden" size={18} />
             <User className="md:hidden block" size={12} />
-            <p className="md:text-xl text-sm pl-1">{name}</p>
+            <p className="md:text-xl text-sm pl-1">{fullName}</p>
           </Link>
           <div className="flex justify-between items-center">
-            <ContactMeDialog name={name} email={email} />
+            <ContactMeDialog fullName={fullName} email={email} />
           </div>
           <PostModerationActions
             postId={post.id}
