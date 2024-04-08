@@ -63,19 +63,17 @@ export function PostExpiresInAWeekCustomMail({
           <Section>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Link>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
             </Link>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}.html`}
-            >
+            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
               Gå till inlägg
             </Link>
           </Section>
@@ -104,19 +102,17 @@ export function PostExpiresInAWeekMail({
           <Section>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Link>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
             </Link>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}.html`}
-            >
+            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
               Gå till inlägg
             </Link>
           </Section>
@@ -145,19 +141,17 @@ export function PostExpiresTommorowCustomMail({
           <Section>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Link>
             <Link
               className="pr-4"
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}.html`}
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
             </Link>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}.html`}
-            >
+            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
               Gå till inlägg
             </Link>
           </Section>
@@ -185,18 +179,18 @@ export function PostExpiresTommorowMail({
           </Text>
           <Section>
             <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}.html`}
+              className="pr-4"
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Link>
             <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}.html`}
+              className="pr-4"
+              href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
             </Link>
-            <Link
-              href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}.html`}
-            >
+            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
               Gå till inlägg
             </Link>
           </Section>
