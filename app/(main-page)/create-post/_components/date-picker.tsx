@@ -22,7 +22,7 @@ export default function DatePicker({ date, setDate }: DatePickerProps) {
       <PopoverTrigger asChild>
         <Button
           className={cn(
-            "w-[230px] justify-start text-left font-normal",
+            "md:w-[260px] w-[150px] justify-start text-left font-normal bg-primary bg-opacity-40",
             !date && "text-muted-foreground"
           )}
         >

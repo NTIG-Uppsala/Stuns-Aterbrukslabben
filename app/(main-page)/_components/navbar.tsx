@@ -1,4 +1,4 @@
-import { BookUser, LockKeyhole } from "lucide-react";
+import { BookUser, LockKeyhole, PlusSquare } from "lucide-react";
 import Link from "next/link";
 
 import { checkRole } from "@/utils/check-role";
@@ -36,6 +36,17 @@ export default function Navbar() {
               </p>
             </Link>
           )}
+          <Link href="/create-post">
+            <PlusSquare className="md:hidden block" />
+            <p
+              className={cn(
+                "text-xl font-medium md:block hidden",
+                source_sans_3.className
+              )}
+            >
+              Skapa inlägg
+            </p>
+          </Link>
           <Link href={`/profile/${userId}`}>
             <BookUser strokeWidth={1} className="md:hidden block" />
             <p

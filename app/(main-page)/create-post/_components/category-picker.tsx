@@ -32,7 +32,7 @@ export default function CategoryPicker({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            "w-[300px] justify-between capitalize",
+            "w-full justify-between capitalize bg-primary bg-opacity-40",
             !category && "text-muted-foreground normal-case"
           )}
         >
@@ -42,7 +42,7 @@ export default function CategoryPicker({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0">
+      <PopoverContent className="w-[552px] p-0">
         <Command>
           <CommandList>
             {list.map((listItem) => (

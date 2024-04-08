@@ -18,6 +18,7 @@ export default async function getNameAndEmailFromUserId({
   const firstName = returnedUser?.firstName
     ? returnedUser.firstName
     : "Kunde inte hitta förnamn";
+
   const lastName = returnedUser?.lastName
     ? returnedUser.lastName
     : "Kunde inte hitta efternamn";

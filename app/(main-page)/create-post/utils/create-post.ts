@@ -14,8 +14,6 @@ export default async function createPost({ data }: CreatePostProps) {
     return { error: "Kunde inte hämta userId" };
   }
 
-  console.log(data);
-
   try {
     await db.post.create({
       data: {
