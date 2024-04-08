@@ -27,7 +27,7 @@ export default async function getSoonExpiringPosts() {
     return dateToEpoch(post.expiresAt) === dateToEpoch(tommorow);
   });
   const postsExperingToday = posts.filter((post) => {
-    return dateToEpoch(post.expiresAt) === dateToEpoch(today);
+    return dateToEpoch(post.expiresAt) <= dateToEpoch(today);
   });
 
   return {

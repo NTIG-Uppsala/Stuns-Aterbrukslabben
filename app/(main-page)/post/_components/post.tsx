@@ -92,7 +92,7 @@ export default async function Post({ post }: PostProps) {
     );
   } else {
     return (
-      <div className="flex w-full h-[52vh] items-end justify-center text-center">
+      <div className="flex w-full h-[48vh] items-end justify-center text-center">
         <div className="flex flex-col max-w-screen-sm gap-y-2 px-3">
           <h1 className="text-xl font-medium">Oj då, något gick fel...</h1>
           <p className="text-pretty">

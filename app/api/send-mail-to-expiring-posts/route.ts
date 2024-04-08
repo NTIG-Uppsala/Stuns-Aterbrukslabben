@@ -8,7 +8,7 @@ import {
 } from "@/emails/expiring-posts-emails";
 import getSoonExpiringPosts from "../_utils/get-soon-expiring-posts";
 import { sendMailToExpiringPosts } from "../_utils/send-mail-to-expiring-posts";
-import deletePostsById from "../_utils/delete-posts-by-id";
+import deletePostsByIds from "../../../utils/delete-posts-by-id";
 import addAndGetFromSoonExpieringPosts from "../_utils/add-and-get-from-soon-expiering-posts";
 
 export async function POST() {
@@ -65,7 +65,7 @@ export async function POST() {
     }
   });
 
-  const postsToDelete: number[] = [];
+  const postsToDeleteIds: number[] = [];
 
   postsExperingToday.forEach((post) => {
     if (post.hasCustomExpirationDate) {
@@ -85,10 +85,10 @@ export async function POST() {
         }),
       });
     }
-    postsToDelete.push(post.id);
+    postsToDeleteIds.push(post.id);
   });
 
-  await deletePostsById({ postsIds: postsToDelete });
+  await deletePostsByIds({ postsIds: postsToDeleteIds });
 
   return Response.json({
     message: "Mails sent and posts deleted",
