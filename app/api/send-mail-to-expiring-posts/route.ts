@@ -15,7 +15,7 @@ import deletePostsByIds from "../../../utils/delete-posts-by-id";
 import addAndGetFromSoonExpieringPosts from "../_utils/add-and-get-from-soon-expiering-posts";
 
 export async function POST() {
-  const mailAutomationSecret = process.env.MailAutomationSecret;
+  const mailAutomationSecret = process.env.MAIL_AUTOMATION_SECRET;
   const headersPayload = headers();
   const secret = headersPayload.get("secret");
   if (secret !== mailAutomationSecret) {
