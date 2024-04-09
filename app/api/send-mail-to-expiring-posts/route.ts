@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 import {
   PostExpiredCustomMail,
   PostExpiredMail,
@@ -6,12 +8,22 @@ import {
   PostExpiresTommorowCustomMail,
   PostExpiresTommorowMail,
 } from "@/emails/expiring-posts-emails";
+
 import getSoonExpiringPosts from "../_utils/get-soon-expiring-posts";
 import { sendMailToExpiringPosts } from "../_utils/send-mail-to-expiring-posts";
 import deletePostsByIds from "../../../utils/delete-posts-by-id";
 import addAndGetFromSoonExpieringPosts from "../_utils/add-and-get-from-soon-expiering-posts";
 
 export async function POST() {
+  const mailAutomationSecret = process.env.MailAutomationSecret;
+  const headersPayload = headers();
+  const secret = headersPayload.get("secret");
+  if (secret !== mailAutomationSecret) {
+    return Response.json({
+      message: "Unauthorized",
+    });
+  }
+
   const { postsExperingInOneWeek, postsExperingTommorow, postsExperingToday } =
     await getSoonExpiringPosts();
 
