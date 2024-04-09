@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import FormHint from "./form-hint";
 
 import municipalities from "@/data/municipalities.json";
 
@@ -63,7 +64,7 @@ export default function CreatePostComponent({
   return (
     <div className="bg-secondary mx-auto md:p-6 p-3 md:w-[600px] w-[360px] mt-20 rounded-2xl">
       <form className="flex flex-col gap-y-5" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-center md:text-2xl text-xl ">SKAPA ETT INLÄGG</h1>
+        <h1 className="text-center md:text-3xl text-xl ">SKAPA ETT INLÄGG</h1>
         <Controller
           name="postTypeRadioButton"
           control={control}
@@ -73,16 +74,20 @@ export default function CreatePostComponent({
             <PostTypeRadioButton postType={value} setPostType={onChange} />
           )}
         />
-
         <div className="flex md:gap-x-8 gap-x-4 justify-between">
           <div className="flex flex-col w-full">
             <label className="font-medium md:text-base text-sm">Förnamn</label>
             <input
-              {...register("firstName", { required: true })}
+              {...register("firstName", { required: "Förnamn saknas" })}
               className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
               value={firstName}
               readOnly
             />
+            {errors.firstName && (
+              <p className="text-red-500 md:text-base text-sm" role="alert">
+                {errors.firstName.message}
+              </p>
+            )}
           </div>
           <div className="flex flex-col w-full">
             <label className="font-medium md:text-base text-sm">
@@ -92,7 +97,6 @@ export default function CreatePostComponent({
               {...register("lastName", { required: true })}
               className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
               value={lastName}
-              placeholder="hej"
               readOnly
             />
           </div>
@@ -100,29 +104,38 @@ export default function CreatePostComponent({
         <div className="flex w-full flex-col">
           <label className="font-medium md:text-base text-sm">Mejladress</label>
           <input
-            {...register("email", { required: true })}
+            {...register("email", { required: "Mejladress saknas" })}
             type="email"
             className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
             value={email}
             readOnly
           />
-        </div>
-        <div className="flex w-full flex-col">
-          <label className="font-medium md:text-base text-sm">Titel</label>
-          <input
-            {...register("title", {
-              required: "Titel krävs",
-              maxLength: { value: 40, message: "Max 40 tecken" },
-            })}
-            className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
-            placeholder="Skriv titel här..."
-          />
-          {errors.title && (
+          {errors.email && (
             <p className="text-red-500 md:text-base text-sm" role="alert">
-              {errors.title.message}
+              {errors.email.message}
             </p>
           )}
+          <div className="flex justify-end pt-3">
+            <FormHint width={25} height={25} />
+          </div>
+          <div className="flex w-full flex-col">
+            <label className="font-medium md:text-base text-sm">Titel</label>
+            <input
+              {...register("title", {
+                required: "Titel krävs",
+                maxLength: { value: 40, message: "Max 40 tecken" },
+              })}
+              className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
+              placeholder="Skriv titel här..."
+            />
+            {errors.title && (
+              <p className="text-red-500 md:text-base text-sm" role="alert">
+                {errors.title.message}
+              </p>
+            )}
+          </div>
         </div>
+
         <div className="flex w-full flex-col">
           <label className="font-medium md:text-base text-sm">
             Beskrivning

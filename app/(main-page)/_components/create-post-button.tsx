@@ -9,7 +9,7 @@ export default function CreatePostButton() {
     >
       <Plus className="md:block hidden" width={20} height={20} />
       <Plus className="md:hidden block" width={15} height={15} />
-      <p className="md:text-lg text-xs ">Skapa ett inlägg</p>
+      <p className="md:text-lg text-xs ">Skapa inlägg</p>
     </Link>
   );
 }
