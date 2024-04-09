@@ -19,10 +19,10 @@ export default function Logo() {
         className="md:hidden block"
         src={logo}
         alt="Website logo"
-        width={20}
-        height={20}
+        width={35}
+        height={35}
       />
-      <div className={cn("md:text-2xl text-sm", prompt.className)}>Återbrukslabbet</div>
+      <div className={cn("md:text-2xl text-lg", prompt.className)}>Återbrukslabbet</div>
     </Link>
   );
 }
