@@ -37,7 +37,7 @@ export default function Navbar() {
             </Link>
           )}
           <Link href="/create-post">
-            <PlusSquare className="md:hidden block" />
+            <PlusSquare strokeWidth={1} className="md:hidden block" />
             <p
               className={cn(
                 "text-xl font-medium md:block hidden",
