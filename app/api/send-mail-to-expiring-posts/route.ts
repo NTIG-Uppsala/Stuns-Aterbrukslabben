@@ -24,10 +24,10 @@ export async function POST() {
     });
   }
 
-  const { postsExperingInOneWeek, postsExpiringTomorrow, postsExpiringToday } =
+  const { postsExpiringInOneWeek, postsExpiringTomorrow, postsExpiringToday } =
     await getSoonExpiringPosts();
 
-  postsExperingInOneWeek.forEach(async (post) => {
+  postsExpiringInOneWeek.forEach(async (post) => {
     const postLink = await addAndGetFromSoonExpiringPosts({ post });
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({

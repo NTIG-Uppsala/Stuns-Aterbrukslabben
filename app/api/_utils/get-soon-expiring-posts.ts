@@ -19,7 +19,7 @@ export default async function getSoonExpiringPosts() {
     return date.setHours(0, 0, 0, 0);
   }
 
-  const postsExperingInOneWeek = posts.filter((post) => {
+  const postsExpiringInOneWeek = posts.filter((post) => {
     return dateToEpoch(post.expiresAt) === dateToEpoch(inSevenDays);
   });
   const postsExpiringTomorrow = posts.filter((post) => {
@@ -30,7 +30,7 @@ export default async function getSoonExpiringPosts() {
   });
 
   return {
-    postsExperingInOneWeek,
+    postsExpiringInOneWeek,
     postsExpiringTomorrow,
     postsExpiringToday,
   };
