@@ -1,7 +1,7 @@
 #!/bin/bash
 
-RESULT=$(curl --location --request POST "http://localhost:3000/api/send-mail-to-expiring-posts" \ --header "secret: ${MAIL_AUTOMATION_SECRET}")
+RESULT=$(curl --location --request POST "http://localhost:3000/api/send-mail-to-expiring-posts" \ --header "secret: YOUR SECRET KEY HERE")
 
 CURRENT_DATE=$(date)
 
-"$CURRENT_DATE - $RESULT" >> /results.txt
+echo "$CURRENT_DATE - $RESULT" >> expiring-post-mail-automation/results

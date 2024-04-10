@@ -20,7 +20,7 @@ export async function POST() {
   const secret = headersPayload.get("secret");
   if (secret !== mailAutomationSecret) {
     return Response.json({
-      message: "Unauthorized",
+      message: "Secret key dosn't match",
     });
   }
 
