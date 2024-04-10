@@ -1,7 +1,9 @@
 export default function TermsOfServicePage() {
   return (
     <div className="flex flex-col md:max-w-3xl max-w-[360px] mx-auto md:px-6 px-4 md:text-sm text-xs py-4 md:mt-16 mt-12 rounded-md bg-secondary">
-      <h1 className="md:text-2xl text-base">Användarvillkor och integritetspolicy</h1>
+      <h1 className="md:text-2xl text-base">
+        Användarvillkor och integritetspolicy
+      </h1>
       <p className="mt-2 font-semibold">Användarvillkor för Återbrukslabbet</p>
       <p>
         Genom att skapa ett användarkonto på Återbrukslabbet godkänner du
@@ -54,8 +56,14 @@ export default function TermsOfServicePage() {
           ditt godkännande av de ändrade villkoren.
         </li>
       </ol>
-      <p className="mt-4">Genom att skapa ett användarkonto på Återbrukslabbet samtycker du till dessa användarvillkor och förbinder dig att följa dem. Om du inte godkänner villkoren, vänligen avstå från att använda tjänsten.</p>
-      <p className="md:text-lg text-base mt-4">Tack för att du valt Återbrukslabbet!</p>
+      <p className="mt-4">
+        Genom att skapa ett användarkonto på Återbrukslabbet samtycker du till
+        dessa användarvillkor och förbinder dig att följa dem. Om du inte
+        godkänner villkoren, vänligen avstå från att använda tjänsten.
+      </p>
+      <p className="md:text-lg text-base mt-4">
+        Tack för att du valt Återbrukslabbet!
+      </p>
     </div>
   );
 }
