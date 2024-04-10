@@ -240,7 +240,7 @@ export default function CreatePostComponent({
             />
           </div>
         </div>
-        <div className="flex justify-between pt-5">
+        <div className="flex justify-between mt-5">
           <Link
             href="/"
             className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm"
