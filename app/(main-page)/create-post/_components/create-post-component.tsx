@@ -1,6 +1,6 @@
 "use client";
 
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -16,11 +16,13 @@ import FormHint from "./form-hint";
 import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
+import Post from "../../post/_components/post";
 
 interface CreatePostComponentProps {
   firstName: string;
   lastName: string;
   email: string;
+  postUserRole: string;
 }
 
 interface FormInputs {
@@ -39,6 +41,7 @@ export default function CreatePostComponent({
   firstName,
   lastName,
   email,
+  postUserRole,
 }: CreatePostComponentProps) {
   const {
     control,
@@ -47,7 +50,26 @@ export default function CreatePostComponent({
     handleSubmit,
   } = useForm<FormInputs>();
 
+  const formData = useWatch({ control,});
+
+  const postData = {
+    id: 0,
+    userId: "hej",
+    title: formData.title,
+    description: formData.description,
+    postType: formData.postTypeRadioButton || "Erbjuds",
+    category: formData.categoryPicker,
+    location: formData.municipalityPicker,
+    imageThumbUrl: null,
+    imageFullUrl: null,
+    createdAt: new Date(Date.now()),
+    expiresAt: formData.datePicker,
+    hasCustomExpirationDate: formData.datePicker != undefined,
+  }
+
   const router = useRouter();
+
+  const fullName = firstName + " " + lastName;
 
   const categoryList = ["förbrukningsvara", "instrument/maskin", "inventarie"];
 
@@ -75,182 +97,196 @@ export default function CreatePostComponent({
   };
 
   return (
-    <div className="bg-secondary mx-auto md:p-6 p-3 md:w-[600px] w-[360px] mt-20 rounded-2xl">
-      <form className="flex flex-col gap-y-5" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-center md:text-3xl text-xl ">SKAPA ETT INLÄGG</h1>
-        <Controller
-          name="postTypeRadioButton"
-          control={control}
-          rules={{ required: true }}
-          defaultValue="Erbjuds"
-          render={({ field: { onChange, value } }) => (
-            <PostTypeRadioButton postType={value} setPostType={onChange} />
-          )}
-        />
-        <fieldset disabled>
-          <div className="flex md:gap-x-8 gap-x-4 justify-between">
-            <div className="flex flex-col w-full">
-              <FormLabel content="Förnamn" />
-              <input
-                {...register("firstName", { required: "Förnamn saknas" })}
-                className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-                value={firstName}
-              />
-              {errors.firstName && (
-                <ErrorParagraph content={errors.firstName.message} />
-              )}
-            </div>
-            <div className="flex flex-col w-full">
-              <div className="flex justify-between pr-1">
-                <FormLabel content="Efternamn" />
-                <FormHint
-                  content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
-                  width={25}
-                  height={25}
+    <div className="flex justify-between">
+      <div className="bg-secondary mx-auto md:p-6 p-3 md:w-[600px] w-[360px] mt-20 rounded-2xl">
+        <form
+          className="flex flex-col gap-y-5"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <h1 className="text-center md:text-3xl text-xl ">SKAPA ETT INLÄGG</h1>
+          <Controller
+            name="postTypeRadioButton"
+            control={control}
+            rules={{ required: true }}
+            defaultValue="Erbjuds"
+            render={({ field: { onChange, value } }) => (
+              <PostTypeRadioButton postType={value} setPostType={onChange} />
+            )}
+          />
+          <fieldset disabled>
+            <div className="flex md:gap-x-8 gap-x-4 justify-between">
+              <div className="flex flex-col w-full">
+                <FormLabel content="Förnamn" />
+                <input
+                  {...register("firstName", { required: "Förnamn saknas" })}
+                  className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
+                  value={firstName}
+                />
+                {errors.firstName && (
+                  <ErrorParagraph content={errors.firstName.message} />
+                )}
+              </div>
+              <div className="flex flex-col w-full">
+                <div className="flex justify-between pr-1">
+                  <FormLabel content="Efternamn" />
+                  <FormHint
+                    content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
+                    width={25}
+                    height={25}
+                  />
+                </div>
+
+                <input
+                  {...register("lastName")}
+                  className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
+                  value={lastName}
+                  readOnly
                 />
               </div>
+            </div>
+            <div className="flex w-full flex-col">
+              <FormLabel content="Mejladress" />
 
               <input
-                {...register("lastName")}
+                {...register("email", { required: "Mejladress saknas" })}
+                type="email"
                 className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-                value={lastName}
+                value={email}
                 readOnly
               />
-            </div>
-          </div>
-          <div className="flex w-full flex-col">
-            <FormLabel content="Mejladress" />
 
-            <input
-              {...register("email", { required: "Mejladress saknas" })}
-              type="email"
-              className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-              value={email}
-              readOnly
-            />
-
-            {errors.email && <ErrorParagraph content={errors.email.message} />}
-          </div>
-        </fieldset>
-        <div className="flex w-full flex-col">
-          <div className="flex justify-between pr-1">
-            <FormLabel content="Titel" />
-            <FormHint
-              content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag."
-              width={25}
-              height={25}
-            />
-          </div>
-          <input
-            {...register("title", {
-              required: "Titel saknas",
-              maxLength: { value: 40, message: "Max 40 tecken" },
-            })}
-            className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
-            placeholder="Skriv titel här..."
-          />
-          {errors.title && <ErrorParagraph content={errors.title.message} />}
-        </div>
-
-        <div className="flex w-full flex-col">
-          <div className="flex justify-between pr-1">
-            <FormLabel content="Beskrivning" />
-            <FormHint
-              content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag."
-              width={25}
-              height={25}
-            />
-          </div>
-          <textarea
-            {...register("description", {
-              required: "Beskrivning saknas",
-              maxLength: { value: 2000, message: "Max 2000 tecken" },
-            })}
-            className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
-            placeholder="Skriv beskrivning här..."
-          ></textarea>
-          {errors.description && (
-            <ErrorParagraph content={errors.description.message} />
-          )}
-        </div>
-        <div className="flex flex-col w-full">
-          <div className="flex justify-between pr-1">
-            <FormLabel content="Kategori" />
-            <FormHint
-              content="Välj den kategori som bäst överensstämmer med produkten"
-              width={25}
-              height={25}
-            />
-          </div>
-          <Controller
-            name="categoryPicker"
-            control={control}
-            rules={{ required: "Kategori ej vald" }}
-            render={({ field: { onChange, value } }) => (
-              <CategoryPicker
-                category={value}
-                setCategory={onChange}
-                list={categoryList}
-              />
-            )}
-          />
-          {errors.categoryPicker && (
-            <ErrorParagraph content={errors.categoryPicker.message} />
-          )}
-        </div>
-        <div className="flex justify-between">
-          <div className="flex flex-col">
-            <FormLabel content="Kommun" />
-            <Controller
-              name="municipalityPicker"
-              control={control}
-              rules={{ required: "Kommun ej vald" }}
-              render={({ field: { onChange, value } }) => (
-                <MunicipalityPicker
-                  municipality={value}
-                  setMunicipality={onChange}
-                  list={municipalities}
-                />
+              {errors.email && (
+                <ErrorParagraph content={errors.email.message} />
               )}
+            </div>
+          </fieldset>
+          <div className="flex w-full flex-col">
+            <div className="flex justify-between pr-1">
+              <FormLabel content="Titel" />
+              <FormHint
+                content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag."
+                width={25}
+                height={25}
+              />
+            </div>
+            <input
+              {...register("title", {
+                required: "Titel saknas",
+                maxLength: { value: 40, message: "Max 40 tecken" },
+              })}
+              className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
+              placeholder="Skriv titel här..."
             />
-            {errors.municipalityPicker && (
-              <ErrorParagraph content={errors.municipalityPicker.message} />
+            {errors.title && <ErrorParagraph content={errors.title.message} />}
+          </div>
+
+          <div className="flex w-full flex-col">
+            <div className="flex justify-between pr-1">
+              <FormLabel content="Beskrivning" />
+              <FormHint
+                content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag."
+                width={25}
+                height={25}
+              />
+            </div>
+            <textarea
+              {...register("description", {
+                required: "Beskrivning saknas",
+                maxLength: { value: 2000, message: "Max 2000 tecken" },
+              })}
+              className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
+              placeholder="Skriv beskrivning här..."
+            ></textarea>
+            {errors.description && (
+              <ErrorParagraph content={errors.description.message} />
             )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <div className="flex justify-between pr-1">
-              <FormLabel content="Slutdatum (frivilligt)" />
+              <FormLabel content="Kategori" />
               <FormHint
-                content="Anger det datum då inlägget automatiskt ska tas bort."
+                content="Välj den kategori som bäst överensstämmer med produkten"
                 width={25}
                 height={25}
               />
             </div>
             <Controller
-              name="datePicker"
+              name="categoryPicker"
               control={control}
+              rules={{ required: "Kategori ej vald" }}
               render={({ field: { onChange, value } }) => (
-                <DatePicker date={value} setDate={onChange} />
+                <CategoryPicker
+                  category={value}
+                  setCategory={onChange}
+                  list={categoryList}
+                />
               )}
             />
+            {errors.categoryPicker && (
+              <ErrorParagraph content={errors.categoryPicker.message} />
+            )}
           </div>
-        </div>
-        <div className="flex justify-between mt-5">
-          <Link
-            href="/"
-            className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm"
-          >
-            Avbryt
-          </Link>
-          <button
-            disabled={isSubmitting}
-            className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
-            type="submit"
-          >
-            Skapa
-          </button>
-        </div>
-      </form>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <FormLabel content="Kommun" />
+              <Controller
+                name="municipalityPicker"
+                control={control}
+                rules={{ required: "Kommun ej vald" }}
+                render={({ field: { onChange, value } }) => (
+                  <MunicipalityPicker
+                    municipality={value}
+                    setMunicipality={onChange}
+                    list={municipalities}
+                  />
+                )}
+              />
+              {errors.municipalityPicker && (
+                <ErrorParagraph content={errors.municipalityPicker.message} />
+              )}
+            </div>
+            <div className="flex flex-col">
+              <div className="flex justify-between pr-1">
+                <FormLabel content="Slutdatum (frivilligt)" />
+                <FormHint
+                  content="Anger det datum då inlägget automatiskt ska tas bort."
+                  width={25}
+                  height={25}
+                />
+              </div>
+              <Controller
+                name="datePicker"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <DatePicker date={value} setDate={onChange} />
+                )}
+              />
+            </div>
+          </div>
+          <div className="flex justify-between mt-5">
+            <Link
+              href="/"
+              className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm"
+            >
+              Avbryt
+            </Link>
+            <button
+              disabled={isSubmitting}
+              className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
+              type="submit"
+            >
+              Skapa
+            </button>
+          </div>
+        </form>
+      </div>
+      <div className="w-full">      <Post
+        post={postData}
+        email={email}
+        fullName={fullName}
+        postUserRole={postUserRole}
+      />
+      </div>
     </div>
   );
 }

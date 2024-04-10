@@ -1,31 +1,30 @@
+"use client";
+
 import { Clock, MapPin, User } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import type { Post } from "@prisma/client";
 
 import ContactMeDialog from "./contact-me-dialog";
 import creationDateToString from "../../utils/creation-date-to-string";
 import getPostTypeSpecificData from "../../utils/get-post-type-specific-data";
-import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
-import PostModerationActions from "./post-moderation-actions";
 
 interface PostProps {
   post: Post;
+  email: string;
+  fullName: string;
+  postUserRole: string
 }
 
-export default async function Post({ post }: PostProps) {
+export default function Post({ post, email, fullName, postUserRole }: PostProps) {
   const creationDateString = creationDateToString(post.createdAt);
-  const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
-    postType: post.postType,
-  });
-  const { firstName, lastName, email } = await getNameAndEmailFromUserId({
-    userId: post.userId,
-  });
-  const fullName = firstName + " " + lastName;
 
-  const postUserRole = await getUserRoleFromUserId({ userId: post.userId });
+  const { postTypeColor, expirationDateText } =
+    getPostTypeSpecificData({
+      postType: post.postType,
+    });
+
   if (postUserRole) {
     return (
       <article className="mt-5 md:pt-10 pt-3 md:px-16 px-6 md:pb-6 pb-4 md:max-w-screen-md max-w-[360px] bg-secondary rounded-2xl mx-auto">
@@ -78,12 +77,6 @@ export default async function Post({ post }: PostProps) {
           <div className="flex justify-between items-center">
             <ContactMeDialog fullName={fullName} email={email} />
           </div>
-          <PostModerationActions
-            postId={post.id}
-            postEmail={email}
-            postTitle={post.title}
-            postUserRole={postUserRole}
-          />
         </div>
       </article>
     );

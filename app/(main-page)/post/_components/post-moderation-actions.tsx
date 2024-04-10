@@ -22,7 +22,7 @@ export default function PostModerationActions({
         }`;
 
     return (
-      <div className="flex md:text-base text-sm pt-3 gap-x-3">
+      <div className="w-fit bg-secondary py-2 px-10 flex md:text-base text-sm gap-x-3 rounded-b-md">
         <p className="font-semibold">{roleText}</p>
         <DeletePostButton
           postEmail={postEmail}

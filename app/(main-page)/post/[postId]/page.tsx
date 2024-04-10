@@ -1,7 +1,10 @@
 import Link from "next/link";
 
+import getNameAndEmailFromUserId from "../../utils/get-name-and-email-from-user-id";
+import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import getPostData from "../../utils/get-post-data";
 import Post from "../_components/post";
+import PostModerationActions from "../_components/post-moderation-actions";
 
 interface PostIdPageProps {
   params: {
@@ -11,8 +14,31 @@ interface PostIdPageProps {
 
 export default async function PostIdPage({ params }: PostIdPageProps) {
   const post = await getPostData(Number(params.postId));
+
   if (post) {
-    return <Post post={post} />;
+    const { firstName, lastName, email } = await getNameAndEmailFromUserId({
+      userId: post.userId,
+    });
+    const postUserRole = await getUserRoleFromUserId({ userId: post.userId });
+    const fullName = firstName + " " + lastName;
+    return (
+      <div>
+        <Post
+          post={post}
+          email={email}
+          fullName={fullName}
+          postUserRole={postUserRole}
+        />
+        <div className="w-full flex justify-center">
+        <PostModerationActions
+          postId={post.id}
+          postEmail={email}
+          postTitle={post.title}
+          postUserRole={postUserRole}
+        />
+        </div>
+      </div>
+    );
   } else {
     return (
       <div className="flex w-full h-[52vh] items-end justify-center text-center">
