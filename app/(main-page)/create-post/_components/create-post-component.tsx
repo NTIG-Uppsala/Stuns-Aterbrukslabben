@@ -85,15 +85,15 @@ export default function CreatePostComponent({
             <PostTypeRadioButton postType={value} setPostType={onChange} />
           )}
         />
+        <fieldset disabled>
         <div className="flex md:gap-x-8 gap-x-4 justify-between">
           <div className="flex flex-col w-full">
             <label className="font-medium md:text-base text-sm">Förnamn</label>
-            <input
-              {...register("firstName", { required: "Förnamn saknas" })}
-              className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-              value={firstName}
-              readOnly
-            />
+              <input
+                {...register("firstName", { required: "Förnamn saknas" })}
+                className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
+                value={firstName}
+              />
             {errors.firstName && (
               <p className="text-red-500 md:text-base text-sm" role="alert">
                 {errors.firstName.message}
@@ -111,29 +111,34 @@ export default function CreatePostComponent({
                 height={25}
               />
             </div>
-            <input
-              {...register("lastName")}
-              className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-              value={lastName}
-              readOnly
-            />
+
+              <input
+                {...register("lastName")}
+                className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
+                value={lastName}
+                readOnly
+              />
+
           </div>
         </div>
         <div className="flex w-full flex-col">
           <label className="font-medium md:text-base text-sm">Mejladress</label>
-          <input
-            {...register("email", { required: "Mejladress saknas" })}
-            type="email"
-            className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
-            value={email}
-            readOnly
-          />
+
+            <input
+              {...register("email", { required: "Mejladress saknas" })}
+              type="email"
+              className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
+              value={email}
+              readOnly
+            />
+
           {errors.email && (
             <p className="text-red-500 md:text-base text-sm" role="alert">
               {errors.email.message}
             </p>
           )}
         </div>
+        </fieldset>
         <div className="flex w-full flex-col">
           <div className="flex justify-between pr-1">
             <label className="font-medium md:text-base text-sm">Titel</label>
