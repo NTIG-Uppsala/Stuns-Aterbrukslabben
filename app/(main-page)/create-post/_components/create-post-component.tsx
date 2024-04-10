@@ -247,11 +247,7 @@ export default function CreatePostComponent({
           >
             Avbryt
           </Link>
-          <input
-            className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm cursor-pointer"
-            type="submit"
-            value="Skapa"
-          />
+          <button className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm" type="submit">Skapa</button>
         </div>
       </form>
     </div>
