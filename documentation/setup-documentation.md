@@ -30,6 +30,10 @@ npm install
 
 ![Image of social connections in clerk](clerk-social-connections.png)
 
+- In the clerk dashboard you will also have to enable users to set their fist and last name. This option is under Email, Phone, Username in the User & Authentication tab in the clerk dashboard. Make sure to set the first and last name to be required by users to sign up for the website.
+
+![Image of name settings in clerk](clerk-name-settings.png)
+
 ### Setting up the .env file
 
 - First, go to the API Keys tab in the clerk dashboard to find your NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY and copy them.
