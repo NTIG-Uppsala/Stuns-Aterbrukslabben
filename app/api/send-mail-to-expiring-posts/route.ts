@@ -5,14 +5,14 @@ import {
   PostExpiredMail,
   PostExpiresInAWeekCustomMail,
   PostExpiresInAWeekMail,
-  PostExpiresTommorowCustomMail,
-  PostExpiresTommorowMail,
+  PostExpiresTomorrowCustomMail,
+  PostExpiresTomorrowMail,
 } from "@/emails/expiring-posts-emails";
 
 import getSoonExpiringPosts from "../_utils/get-soon-expiring-posts";
 import { sendMailToExpiringPosts } from "../_utils/send-mail-to-expiring-posts";
 import deletePostsByIds from "../../../utils/delete-posts-by-id";
-import addAndGetFromSoonExpieringPosts from "../_utils/add-and-get-from-soon-expiering-posts";
+import addAndGetFromSoonExpiringPosts from "../_utils/add-and-get-from-soon-expiring-posts";
 
 export async function POST() {
   const mailAutomationSecret = process.env.MAIL_AUTOMATION_SECRET;
@@ -24,11 +24,11 @@ export async function POST() {
     });
   }
 
-  const { postsExperingInOneWeek, postsExperingTommorow, postsExperingToday } =
+  const { postsExperingInOneWeek, postsExpiringTomorrow, postsExpiringToday } =
     await getSoonExpiringPosts();
 
   postsExperingInOneWeek.forEach(async (post) => {
-    const postLink = await addAndGetFromSoonExpieringPosts({ post });
+    const postLink = await addAndGetFromSoonExpiringPosts({ post });
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({
         post,
@@ -52,13 +52,13 @@ export async function POST() {
     }
   });
 
-  postsExperingTommorow.forEach(async (post) => {
-    const postLink = await addAndGetFromSoonExpieringPosts({ post });
+  postsExpiringTomorrow.forEach(async (post) => {
+    const postLink = await addAndGetFromSoonExpiringPosts({ post });
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({
         post,
         subject: "Ditt inlägg går ut imorgon",
-        mailTemplate: PostExpiresTommorowCustomMail({
+        mailTemplate: PostExpiresTomorrowCustomMail({
           postTitle: post.title,
           postLink,
           postId: post.id,
@@ -68,7 +68,7 @@ export async function POST() {
       sendMailToExpiringPosts({
         post,
         subject: "Ditt inlägg går ut imorgon",
-        mailTemplate: PostExpiresTommorowMail({
+        mailTemplate: PostExpiresTomorrowMail({
           postTitle: post.title,
           postLink,
           postId: post.id,
@@ -79,7 +79,7 @@ export async function POST() {
 
   const postsToDeleteIds: number[] = [];
 
-  postsExperingToday.forEach((post) => {
+  postsExpiringToday.forEach((post) => {
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({
         post,

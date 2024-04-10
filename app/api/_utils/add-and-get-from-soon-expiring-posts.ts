@@ -1,13 +1,13 @@
 import { db } from "@/lib/db";
 import { Post } from "@prisma/client";
 
-interface AddAndGetFromSoonExpieringPostsProps {
+interface AddAndGetFromSoonExpiringPostsProps {
   post: Post;
 }
 
-export default async function addAndGetFromSoonExpieringPosts({
+export default async function addAndGetFromSoonExpiringPosts({
   post,
-}: AddAndGetFromSoonExpieringPostsProps) {
+}: AddAndGetFromSoonExpiringPostsProps) {
   const alreadyExists = await db.soonExpiringPosts.findFirst({
     where: {
       postId: post.id,

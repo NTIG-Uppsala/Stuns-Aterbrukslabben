@@ -122,7 +122,7 @@ export function PostExpiresInAWeekMail({
   );
 }
 
-export function PostExpiresTommorowCustomMail({
+export function PostExpiresTomorrowCustomMail({
   postTitle,
   postLink,
   postId,
@@ -161,7 +161,7 @@ export function PostExpiresTommorowCustomMail({
   );
 }
 
-export function PostExpiresTommorowMail({
+export function PostExpiresTomorrowMail({
   postTitle,
   postLink,
   postId,
