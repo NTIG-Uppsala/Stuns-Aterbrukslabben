@@ -5,7 +5,6 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-
 import municipalities from "@/data/municipalities.json";
 
 import CategoryPicker from "./category-picker";
@@ -258,7 +257,13 @@ export default function CreatePostComponent({
           >
             Avbryt
           </Link>
-          <button disabled={isSubmitting} className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm" type="submit">Skapa</button>
+          <button
+            disabled={isSubmitting}
+            className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
+            type="submit"
+          >
+            Skapa
+          </button>
         </div>
       </form>
     </div>
