@@ -17,10 +17,9 @@ interface PostProps {
 
 export default async function Post({ post }: PostProps) {
   const creationDateString = creationDateToString(post.createdAt);
-  const { postTypeColor, expirationDateText, disclaimerText } =
-    getPostTypeSpecificData({
-      postType: post.postType,
-    });
+  const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
+    postType: post.postType,
+  });
   const { name, email } = await getNameAndEmailFromUserId({
     userId: post.userId,
   });
@@ -75,11 +74,7 @@ export default async function Post({ post }: PostProps) {
             <p className="md:text-xl text-sm pl-1">{name}</p>
           </Link>
           <div className="flex justify-between items-center">
-            <ContactMeDialog
-              name={name}
-              email={email}
-              disclaimerText={disclaimerText}
-            />
+            <ContactMeDialog name={name} email={email} />
           </div>
           <PostModerationActions
             postId={post.id}

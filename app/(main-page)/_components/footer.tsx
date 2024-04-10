@@ -10,7 +10,7 @@ export default function Footer() {
           href="/terms-of-service"
           className="md:text-base text-sm font-semibold hover:underline"
         >
-          Villkor
+          Användarvillkor
         </Link>
       </div>
     </footer>
