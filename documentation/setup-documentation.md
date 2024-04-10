@@ -107,7 +107,7 @@ npx prisma migrate dev
 
 ## Set up webhooks
 
-This application uses webhooks to assign the member role on account creation.
+This application uses webhooks to assign the member role on account creation and to delete posts on account deletion.
 
 ### Set up endpoint
 
@@ -145,7 +145,7 @@ This application uses resend to send emails.
 
 - Also add a variable named NEXT_PUBLIC_SITE_URL and put the home page url as its value.
 
-- It should look like this. Note that the "example" in RESEND_SENDING_MAIL can be anything you want.
+- It should look like this. Note that the "example" in RESEND_SENDING_MAIL can be anything you want. The "yourdomain.com" should be the domain you verified with Resend.
 
 ```bash
 NEXT_PUBLIC_SITE_URL=YOUR URL HERE
