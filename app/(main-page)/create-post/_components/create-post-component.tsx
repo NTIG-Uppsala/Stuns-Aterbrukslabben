@@ -4,13 +4,13 @@ import { Controller, useForm } from "react-hook-form";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import FormHint from "./form-hint";
 
 import municipalities from "@/data/municipalities.json";
 
 import CategoryPicker from "./category-picker";
 import createPost from "../utils/create-post";
 import DatePicker from "./date-picker";
+import FormHint from "./form-hint";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
 
@@ -90,9 +90,16 @@ export default function CreatePostComponent({
             )}
           </div>
           <div className="flex flex-col w-full">
-            <label className="font-medium md:text-base text-sm">
-              Efternamn
-            </label>
+            <div className="flex justify-between pr-1">
+              <label className="font-medium md:text-base text-sm">
+                Efternamn
+              </label>
+              <FormHint
+                content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
+                width={25}
+                height={25}
+              />
+            </div>
             <input
               {...register("lastName", { required: true })}
               className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
@@ -115,31 +122,42 @@ export default function CreatePostComponent({
               {errors.email.message}
             </p>
           )}
-          <div className="flex justify-end pt-3">
-            <FormHint width={25} height={25} />
-          </div>
-          <div className="flex w-full flex-col">
+        </div>
+        <div className="flex w-full flex-col">
+          <div className="flex justify-between pr-1">
             <label className="font-medium md:text-base text-sm">Titel</label>
-            <input
-              {...register("title", {
-                required: "Titel krävs",
-                maxLength: { value: 40, message: "Max 40 tecken" },
-              })}
-              className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
-              placeholder="Skriv titel här..."
+            <FormHint
+              content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag."
+              width={25}
+              height={25}
             />
-            {errors.title && (
-              <p className="text-red-500 md:text-base text-sm" role="alert">
-                {errors.title.message}
-              </p>
-            )}
           </div>
+          <input
+            {...register("title", {
+              required: "Titel krävs",
+              maxLength: { value: 40, message: "Max 40 tecken" },
+            })}
+            className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
+            placeholder="Skriv titel här..."
+          />
+          {errors.title && (
+            <p className="text-red-500 md:text-base text-sm" role="alert">
+              {errors.title.message}
+            </p>
+          )}
         </div>
 
         <div className="flex w-full flex-col">
-          <label className="font-medium md:text-base text-sm">
-            Beskrivning
-          </label>
+          <div className="flex justify-between pr-1">
+            <label className="font-medium md:text-base text-sm">
+              Beskrivning
+            </label>
+            <FormHint
+              content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag."
+              width={25}
+              height={25}
+            />
+          </div>
           <textarea
             {...register("description", {
               required: "Beskrivning krävs",
@@ -155,7 +173,14 @@ export default function CreatePostComponent({
           )}
         </div>
         <div className="flex flex-col w-full">
-          <label className="font-medium md:text-base text-sm"> Kategori </label>
+          <div className="flex justify-between pr-1">
+            <label className="font-medium md:text-base text-sm">Kategori</label>
+            <FormHint
+              content="Välj den kategori som bäst överensstämmer med produkten"
+              width={25}
+              height={25}
+            />
+          </div>
           <Controller
             name="categoryPicker"
             control={control}
@@ -196,9 +221,16 @@ export default function CreatePostComponent({
             )}
           </div>
           <div className="flex flex-col">
-            <label className="font-medium md:text-base text-sm">
-              Slutdatum (frivilligt)
-            </label>
+            <div className="flex justify-between pr-1">
+              <label className="font-medium md:text-base text-sm">
+                Slutdatum (frivilligt)
+              </label>
+              <FormHint
+                content="Anger det datum då inlägget automatiskt ska tas bort."
+                width={25}
+                height={25}
+              />
+            </div>
             <Controller
               name="datePicker"
               control={control}
