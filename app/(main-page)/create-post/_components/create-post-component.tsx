@@ -101,7 +101,7 @@ export default function CreatePostComponent({
               />
             </div>
             <input
-              {...register("lastName", { required: true })}
+              {...register("lastName")}
               className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
               value={lastName}
               readOnly
@@ -134,7 +134,7 @@ export default function CreatePostComponent({
           </div>
           <input
             {...register("title", {
-              required: "Titel krävs",
+              required: "Titel saknas",
               maxLength: { value: 40, message: "Max 40 tecken" },
             })}
             className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
@@ -160,7 +160,7 @@ export default function CreatePostComponent({
           </div>
           <textarea
             {...register("description", {
-              required: "Beskrivning krävs",
+              required: "Beskrivning saknas",
               maxLength: { value: 2000, message: "Max 2000 tecken" },
             })}
             className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
@@ -184,7 +184,7 @@ export default function CreatePostComponent({
           <Controller
             name="categoryPicker"
             control={control}
-            rules={{ required: "Kategori krävs" }}
+            rules={{ required: "Kategori ej vald" }}
             render={({ field: { onChange, value } }) => (
               <CategoryPicker
                 category={value}
@@ -205,7 +205,7 @@ export default function CreatePostComponent({
             <Controller
               name="municipalityPicker"
               control={control}
-              rules={{ required: "Kommun krävs" }}
+              rules={{ required: "Kommun ej vald" }}
               render={({ field: { onChange, value } }) => (
                 <MunicipalityPicker
                   municipality={value}
