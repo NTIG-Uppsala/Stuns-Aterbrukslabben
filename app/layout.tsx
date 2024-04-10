@@ -16,6 +16,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  svSE.footerPageLink__terms =
+    "Genom att använda denna webbplats godkänner du vår användarvillkor och sekretesspolicy.";
   return (
     <ClerkProvider localization={svSE}>
       <html lang="en">
