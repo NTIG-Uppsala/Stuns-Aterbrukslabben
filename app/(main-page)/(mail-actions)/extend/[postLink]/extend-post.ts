@@ -4,7 +4,7 @@ interface ExtendSoonExpiringPostProps {
   postId: number;
 }
 
-export default async function extendSoonExpireingPost({
+export default async function extendSoonExpiringPost({
   postId,
 }: ExtendSoonExpiringPostProps) {
   const newDate = new Date(new Date().setMonth(new Date().getMonth() + 6));
