@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import municipalities from "@/data/municipalities.json";
 
@@ -13,7 +14,6 @@ import DatePicker from "./date-picker";
 import FormHint from "./form-hint";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
-import { useState } from "react";
 
 interface CreatePostComponentProps {
   firstName: string;
@@ -58,6 +58,7 @@ export default function CreatePostComponent({
     if (result && result.error) {
       toast.error(result.error);
     } else if (result && result.data) {
+      // Uses a faster refresh method if window exists. (Window might be missing on server side components)
       if (window) {
         window.location.href = "/";
       } else {
