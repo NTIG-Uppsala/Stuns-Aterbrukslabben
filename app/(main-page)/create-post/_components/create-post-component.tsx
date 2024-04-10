@@ -5,6 +5,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
+
 import municipalities from "@/data/municipalities.json";
 
 import CategoryPicker from "./category-picker";
@@ -13,6 +14,7 @@ import DatePicker from "./date-picker";
 import FormHint from "./form-hint";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
+import { useState } from "react";
 
 interface CreatePostComponentProps {
   firstName: string;
@@ -48,17 +50,26 @@ export default function CreatePostComponent({
 
   const categoryList = ["förbrukningsvara", "instrument/maskin", "inventarie"];
 
+  // UseState to prohibit multiple successful submissions of the form
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const onSubmit = async (data: FormInputs) => {
+    setIsSubmitting(true);
     const result = await createPost({ data });
     if (result && result.error) {
       toast.error(result.error);
     } else if (result && result.data) {
-      router.push("/");
-      router.refresh();
+      if (window) {
+        window.location.href = "/";
+      } else {
+        router.push("/");
+        router.refresh();
+      }
       toast.success(result.data);
     } else {
       toast.error("Något gick fel");
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -247,7 +258,7 @@ export default function CreatePostComponent({
           >
             Avbryt
           </Link>
-          <button className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm" type="submit">Skapa</button>
+          <button disabled={isSubmitting} className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm" type="submit">Skapa</button>
         </div>
       </form>
     </div>
