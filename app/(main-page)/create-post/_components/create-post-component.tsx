@@ -11,7 +11,9 @@ import municipalities from "@/data/municipalities.json";
 import CategoryPicker from "./category-picker";
 import createPost from "../utils/create-post";
 import DatePicker from "./date-picker";
+import ErrorParagraph from "./error-paragraph";
 import FormHint from "./form-hint";
+import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
 
@@ -86,31 +88,27 @@ export default function CreatePostComponent({
           )}
         />
         <fieldset disabled>
-        <div className="flex md:gap-x-8 gap-x-4 justify-between">
-          <div className="flex flex-col w-full">
-            <label className="font-medium md:text-base text-sm">Förnamn</label>
+          <div className="flex md:gap-x-8 gap-x-4 justify-between">
+            <div className="flex flex-col w-full">
+              <FormLabel content="Förnamn" />
               <input
                 {...register("firstName", { required: "Förnamn saknas" })}
                 className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                 value={firstName}
               />
-            {errors.firstName && (
-              <p className="text-red-500 md:text-base text-sm" role="alert">
-                {errors.firstName.message}
-              </p>
-            )}
-          </div>
-          <div className="flex flex-col w-full">
-            <div className="flex justify-between pr-1">
-              <label className="font-medium md:text-base text-sm">
-                Efternamn
-              </label>
-              <FormHint
-                content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
-                width={25}
-                height={25}
-              />
+              {errors.firstName && (
+                <ErrorParagraph content={errors.firstName.message} />
+              )}
             </div>
+            <div className="flex flex-col w-full">
+              <div className="flex justify-between pr-1">
+                <FormLabel content="Efternamn" />
+                <FormHint
+                  content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
+                  width={25}
+                  height={25}
+                />
+              </div>
 
               <input
                 {...register("lastName")}
@@ -118,11 +116,10 @@ export default function CreatePostComponent({
                 value={lastName}
                 readOnly
               />
-
+            </div>
           </div>
-        </div>
-        <div className="flex w-full flex-col">
-          <label className="font-medium md:text-base text-sm">Mejladress</label>
+          <div className="flex w-full flex-col">
+            <FormLabel content="Mejladress" />
 
             <input
               {...register("email", { required: "Mejladress saknas" })}
@@ -132,16 +129,12 @@ export default function CreatePostComponent({
               readOnly
             />
 
-          {errors.email && (
-            <p className="text-red-500 md:text-base text-sm" role="alert">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
+            {errors.email && <ErrorParagraph content={errors.email.message} />}
+          </div>
         </fieldset>
         <div className="flex w-full flex-col">
           <div className="flex justify-between pr-1">
-            <label className="font-medium md:text-base text-sm">Titel</label>
+            <FormLabel content="Titel" />
             <FormHint
               content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag."
               width={25}
@@ -156,18 +149,12 @@ export default function CreatePostComponent({
             className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
             placeholder="Skriv titel här..."
           />
-          {errors.title && (
-            <p className="text-red-500 md:text-base text-sm" role="alert">
-              {errors.title.message}
-            </p>
-          )}
+          {errors.title && <ErrorParagraph content={errors.title.message} />}
         </div>
 
         <div className="flex w-full flex-col">
           <div className="flex justify-between pr-1">
-            <label className="font-medium md:text-base text-sm">
-              Beskrivning
-            </label>
+            <FormLabel content="Beskrivning" />
             <FormHint
               content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag."
               width={25}
@@ -183,14 +170,12 @@ export default function CreatePostComponent({
             placeholder="Skriv beskrivning här..."
           ></textarea>
           {errors.description && (
-            <p className="text-red-500 md:text-base text-sm" role="alert">
-              {errors.description.message}
-            </p>
+            <ErrorParagraph content={errors.description.message} />
           )}
         </div>
         <div className="flex flex-col w-full">
           <div className="flex justify-between pr-1">
-            <label className="font-medium md:text-base text-sm">Kategori</label>
+            <FormLabel content="Kategori" />
             <FormHint
               content="Välj den kategori som bäst överensstämmer med produkten"
               width={25}
@@ -210,14 +195,12 @@ export default function CreatePostComponent({
             )}
           />
           {errors.categoryPicker && (
-            <p className="text-red-500 md:text-base text-sm" role="alert">
-              {errors.categoryPicker.message}
-            </p>
+            <ErrorParagraph content={errors.categoryPicker.message} />
           )}
         </div>
         <div className="flex justify-between">
           <div className="flex flex-col">
-            <label className="font-medium md:text-base text-sm">Kommun</label>
+            <FormLabel content="Kommun" />
             <Controller
               name="municipalityPicker"
               control={control}
@@ -231,16 +214,12 @@ export default function CreatePostComponent({
               )}
             />
             {errors.municipalityPicker && (
-              <p className="text-red-500 md:text-base text-sm" role="alert">
-                {errors.municipalityPicker.message}
-              </p>
+              <ErrorParagraph content={errors.municipalityPicker.message} />
             )}
           </div>
           <div className="flex flex-col">
             <div className="flex justify-between pr-1">
-              <label className="font-medium md:text-base text-sm">
-                Slutdatum (frivilligt)
-              </label>
+              <FormLabel content="Slutdatum (frivilligt)" />
               <FormHint
                 content="Anger det datum då inlägget automatiskt ska tas bort."
                 width={25}
