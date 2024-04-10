@@ -2,13 +2,13 @@ import Link from "next/link";
 import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
 import extendSoonExpireingPost from "./extentend-post";
 
-interface PageProps {
+interface ExtendPostByMailPageProps {
   params: {
     postLink: string;
   };
 }
 
-export default async function ExtendPostByMailPage({ params }: PageProps) {
+export default async function ExtendPostByMailPage({ params }: ExtendPostByMailPageProps) {
   const soonExpiringPost = await getSoonExpiringPost({
     postLink: params.postLink,
   });

@@ -2,13 +2,13 @@ import Link from "next/link";
 import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
 import deletePostsByIds from "@/utils/delete-posts-by-id";
 
-interface PageProps {
+interface DeletePostByMailPageProps {
   params: {
     postLink: string;
   };
 }
 
-export default async function DeletePostByMailPage({ params }: PageProps) {
+export default async function DeletePostByMailPage({ params }: DeletePostByMailPageProps) {
   const soonExpiringPost = await getSoonExpiringPost({
     postLink: params.postLink,
   });

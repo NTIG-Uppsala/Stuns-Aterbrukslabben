@@ -1,12 +1,12 @@
 import { db } from "@/lib/db";
 
-interface ExtendSoonExpireingPostProps {
+interface ExtendSoonExpiringPostProps {
   postId: number;
 }
 
 export default async function extendSoonExpireingPost({
   postId,
-}: ExtendSoonExpireingPostProps) {
+}: ExtendSoonExpiringPostProps) {
   const newDate = new Date(new Date().setMonth(new Date().getMonth() + 6));
   try {
     await db.post.update({
