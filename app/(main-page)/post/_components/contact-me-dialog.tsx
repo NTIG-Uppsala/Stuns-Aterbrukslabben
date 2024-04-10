@@ -45,11 +45,10 @@ export default function ContactMeDialog({ name, email }: ContactMeDialogProps) {
               vars hälsorisker ännu inte är kända.
             </li>
             <li>
-              Säkerställ så att utrustning och material rengjorts från
-              hälsovådliga ämnen, kemikalier och biologiskt material som
-              utrustningen tidigare varit i kontakt med. Tänk särskilt på att
-              utrustning som använts i forskning kan ha kontaminerats med ämnen
-              vars hälsorisker ännu inte är kända.
+              Vid nyttjande av begagnad utrustning är det användaren som bär
+              ansvar för den egna säkerheten. Återbrukslabbet förmedlar endast
+              kontakt mellan den som skänker, respektive tar emot utrustning och
+              bär därför inget ansvar för utrustningens skick eller säkerhet.
             </li>
           </ul>
           <p className="flex justify-center text-lg md:pt-6 pt-2">{name}</p>
