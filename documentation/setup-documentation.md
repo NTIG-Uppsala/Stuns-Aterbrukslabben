@@ -28,11 +28,11 @@ npm install
 
 - When creating a clerk application you will need to choose which sign in options that can be used to access your application. This project uses Google, Linkedin and email. Other connections won't be tested and aren't guaranteed to work. This option can be changed later in the User & Authentication tab in the clerk dashboard.
 
-![Image of social connections in clerk](clerk-social-connections.png)
+![Image of social connections in clerk](images/clerk-social-connections.png)
 
 - In the clerk dashboard you will also have to enable users to set their fist and last name. This option is under Email, Phone, Username in the User & Authentication tab in the clerk dashboard. Make sure to set the first and last name to be required by users to sign up for the website.
 
-![Image of name settings in clerk](clerk-name-settings.png)
+![Image of name settings in clerk](images/clerk-name-settings.png)
 
 ### Setting up the .env file
 
@@ -50,7 +50,7 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
 Your `.env` file should now look like this.
 
-![Image of environment file](environment-file.png)
+![Image of environment file](images/environment-file.png)
 
 ### How to create an admin account
 
@@ -60,11 +60,11 @@ On the website there exists an admin dashboard that is only accessible to users 
 
 - Scroll down to the metadata settings and edit the public metadata of the user you want to set as admin.
 
-![Metadata settings](metadata-settings.png)
+![Metadata settings](images/metadata-settings.png)
 
 - Give the user the role admin as seen in the image below and click on save. That user should now be able to access the admin dashboard on the website.
 
-![Public metadata](public-metadata.png)
+![Public metadata](images/public-metadata.png)
 
 ## Set up database with prisma
 
@@ -75,7 +75,7 @@ On the website there exists an admin dashboard that is only accessible to users 
 
 - Paste the database url and the direct url into the `.env` file in the root of your project. You will also need `?pgbouncer=true&connection_limit=1` at the end of the DATABASE_URL. Your `.env` file should now look like this.
 
-![Image of environment file with database and direct url](database-environment-file.png)
+![Image of environment file with database and direct url](images/database-environment-file.png)
 
 - Run this command to generate the database in prisma
 
