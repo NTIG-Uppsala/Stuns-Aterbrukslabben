@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import makeRandomId from "@/utils/make-random-id";
 import { Post } from "@prisma/client";
 
 interface AddAndGetFromSoonExpiringPostsProps {
@@ -18,7 +19,7 @@ export default async function addAndGetFromSoonExpiringPosts({
     return alreadyExists.postLink;
   }
 
-  const postLink = makeRandomLink(20);
+  const postLink = makeRandomId({ length: 20 });
   await db.soonExpiringPosts.create({
     data: {
       postId: post.id,
@@ -26,17 +27,4 @@ export default async function addAndGetFromSoonExpiringPosts({
     },
   });
   return postLink;
-}
-
-function makeRandomLink(length: number) {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
-  }
-  return result;
 }
