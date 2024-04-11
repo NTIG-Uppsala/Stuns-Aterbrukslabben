@@ -18,11 +18,21 @@ import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
 import Post from "../../post/_components/post";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 interface CreatePostComponentProps {
   firstName: string;
   lastName: string;
   email: string;
   postUserRole: string;
+  userId: string;
 }
 
 interface FormInputs {
@@ -42,6 +52,7 @@ export default function CreatePostComponent({
   lastName,
   email,
   postUserRole,
+  userId,
 }: CreatePostComponentProps) {
   const {
     control,
@@ -50,22 +61,23 @@ export default function CreatePostComponent({
     handleSubmit,
   } = useForm<FormInputs>();
 
-  const formData = useWatch({ control,});
+  // Watches the form inputs so that they can be used on the post preview
+  const formData = useWatch({ control });
 
   const postData = {
     id: 0,
-    userId: "hej",
-    title: formData.title,
-    description: formData.description,
+    userId: userId,
+    title: formData.title || "",
+    description: formData.description || null,
     postType: formData.postTypeRadioButton || "Erbjuds",
-    category: formData.categoryPicker,
-    location: formData.municipalityPicker,
+    category: formData.categoryPicker || "",
+    location: formData.municipalityPicker || "",
     imageThumbUrl: null,
     imageFullUrl: null,
-    createdAt: new Date(Date.now()),
-    expiresAt: formData.datePicker,
+    createdAt: new Date(),
+    expiresAt: formData.datePicker || new Date(),
     hasCustomExpirationDate: formData.datePicker != undefined,
-  }
+  };
 
   const router = useRouter();
 
@@ -97,8 +109,8 @@ export default function CreatePostComponent({
   };
 
   return (
-    <div className="flex justify-between">
-      <div className="bg-secondary mx-auto md:p-6 p-3 md:w-[600px] w-[360px] mt-20 rounded-2xl">
+    <div className="flex flex-wrap justify-center gap-x-20 md:gap-y-6 gap-y-3 max-w-screen-xl mx-auto mt-10">
+      <div className="bg-secondary md:p-6 p-3 md:w-[600px] w-[360px] rounded-2xl">
         <form
           className="flex flex-col gap-y-5"
           onSubmit={handleSubmit(onSubmit)}
@@ -127,13 +139,9 @@ export default function CreatePostComponent({
                 )}
               </div>
               <div className="flex flex-col w-full">
-                <div className="flex justify-between pr-1">
+                <div className="flex justify-between">
                   <FormLabel content="Efternamn" />
-                  <FormHint
-                    content="Förnamn, efternamn och mejladress kan ändras via din profilsida"
-                    width={25}
-                    height={25}
-                  />
+                  <FormHint content="Förnamn, efternamn och mejladress kan ändras via din profilsida" />
                 </div>
 
                 <input
@@ -161,13 +169,9 @@ export default function CreatePostComponent({
             </div>
           </fieldset>
           <div className="flex w-full flex-col">
-            <div className="flex justify-between pr-1">
+            <div className="flex justify-between">
               <FormLabel content="Titel" />
-              <FormHint
-                content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag."
-                width={25}
-                height={25}
-              />
+              <FormHint content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag." />
             </div>
             <input
               {...register("title", {
@@ -181,13 +185,9 @@ export default function CreatePostComponent({
           </div>
 
           <div className="flex w-full flex-col">
-            <div className="flex justify-between pr-1">
+            <div className="flex justify-between">
               <FormLabel content="Beskrivning" />
-              <FormHint
-                content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag."
-                width={25}
-                height={25}
-              />
+              <FormHint content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag." />
             </div>
             <textarea
               {...register("description", {
@@ -202,13 +202,9 @@ export default function CreatePostComponent({
             )}
           </div>
           <div className="flex flex-col w-full">
-            <div className="flex justify-between pr-1">
+            <div className="flex justify-between">
               <FormLabel content="Kategori" />
-              <FormHint
-                content="Välj den kategori som bäst överensstämmer med produkten"
-                width={25}
-                height={25}
-              />
+              <FormHint content="Välj den kategori som bäst överensstämmer med produkten" />
             </div>
             <Controller
               name="categoryPicker"
@@ -246,13 +242,9 @@ export default function CreatePostComponent({
               )}
             </div>
             <div className="flex flex-col">
-              <div className="flex justify-between pr-1">
+              <div className="flex justify-between">
                 <FormLabel content="Slutdatum (frivilligt)" />
-                <FormHint
-                  content="Anger det datum då inlägget automatiskt ska tas bort."
-                  width={25}
-                  height={25}
-                />
+                <FormHint content="Anger det datum då inlägget automatiskt ska tas bort." />
               </div>
               <Controller
                 name="datePicker"
@@ -270,6 +262,25 @@ export default function CreatePostComponent({
             >
               Avbryt
             </Link>
+            <Dialog>
+              <DialogTrigger className="md:hidden block bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm">
+                Se inlägg
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Are you absolutely sure?</DialogTitle>
+                  <DialogDescription className="text-black">
+                    <Post
+                      post={postData}
+                      email={email}
+                      fullName={fullName}
+                      postUserRole={postUserRole}
+                    />
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+
             <button
               disabled={isSubmitting}
               className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
@@ -280,12 +291,13 @@ export default function CreatePostComponent({
           </div>
         </form>
       </div>
-      <div className="w-full">      <Post
-        post={postData}
-        email={email}
-        fullName={fullName}
-        postUserRole={postUserRole}
-      />
+      <div className="w-[600px] md:block hidden">
+        <Post
+          post={postData}
+          email={email}
+          fullName={fullName}
+          postUserRole={postUserRole}
+        />
       </div>
     </div>
   );

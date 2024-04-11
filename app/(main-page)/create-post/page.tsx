@@ -11,7 +11,7 @@ export default async function createPostPage() {
     const { firstName, lastName, email } = await getNameAndEmailFromUserId({
       userId,
     });
-    const postUserRole = await getUserRoleFromUserId({userId});
+    const postUserRole = await getUserRoleFromUserId({ userId });
 
     return (
       <div>
@@ -20,6 +20,7 @@ export default async function createPostPage() {
           lastName={lastName}
           email={email}
           postUserRole={postUserRole}
+          userId={userId}
         />
       </div>
     );

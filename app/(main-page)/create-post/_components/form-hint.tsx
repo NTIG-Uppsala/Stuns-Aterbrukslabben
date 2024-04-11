@@ -8,22 +8,29 @@ import {
 } from "@/components/ui/tooltip";
 
 interface FormHintProps {
-  width: number;
-  height: number;
   content: string;
 }
 
-export default function FormHint({ width, height, content }: FormHintProps) {
+export default function FormHint({ content }: FormHintProps) {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger type="button">
-          <HelpCircle strokeWidth={1} width={width} height={height} />
+          <HelpCircle
+            className="md:block hidden"
+            strokeWidth={1}
+            width={25}
+            height={25}
+          />
+          <HelpCircle
+            className="md:hidden block"
+            strokeWidth={1}
+            width={20}
+            height={20}
+          />
         </TooltipTrigger>
         <TooltipContent side="bottom" className="w-[170px]">
-          <p className="text-xs text-center">
-            {content}
-          </p>
+          <p className="text-xs text-center">{content}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

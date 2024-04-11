@@ -37,7 +37,7 @@ export default function MunicipalityPicker({
           role="combobox"
           aria-expanded={open}
           className={cn(
-            "md:w-[260px] w-[150px] justify-between capitalize bg-primary bg-opacity-40",
+            "md:w-[260px] w-[160px] justify-between capitalize bg-primary bg-opacity-40",
             !municipality && "text-muted-foreground normal-case"
           )}
         >
@@ -47,7 +47,7 @@ export default function MunicipalityPicker({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="md:w-[260px] w-[150px] p-0">
+      <PopoverContent className="md:w-[260px] w-[160px] p-0">
         <Command>
           <CommandInput placeholder="Sök kommuner...." />
           <CommandList>
