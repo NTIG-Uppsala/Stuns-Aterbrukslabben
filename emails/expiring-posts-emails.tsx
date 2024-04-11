@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, Button, Link, Section } from "@react-email/components";
+import { Text, Link, Section } from "@react-email/components";
 
 import EmailTemplate from "./components/email-template";
 
@@ -13,8 +13,8 @@ interface ChangeRoleEmailProps {
 export function PostExpiredCustomMail({ postTitle }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} har tagits bort`}
-      header={`Ditt inlägg ${postTitle} har blivit bortaget`}
+      preview={`Ditt inlägg "${postTitle}" har tagits bort`}
+      header={`Ditt inlägg "${postTitle}" har blivit bortaget`}
       main={
         <>
           <Text>
@@ -30,8 +30,8 @@ export function PostExpiredCustomMail({ postTitle }: ChangeRoleEmailProps) {
 export function PostExpiredMail({ postTitle }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} har tagits bort`}
-      header={`Ditt inlägg ${postTitle} har blivit bortaget`}
+      preview={`Ditt inlägg "${postTitle}" har tagits bort`}
+      header={`Ditt inlägg "${postTitle}" har blivit bortaget`}
       main={
         <>
           <Text>
@@ -51,8 +51,8 @@ export function PostExpiresInAWeekCustomMail({
 }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} kommer tas bort om en vecka`}
-      header={`Ditt inlägg ${postTitle} tas snart bort`}
+      preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
+      header={`Ditt inlägg "${postTitle}" tas snart bort`}
       main={
         <>
           <Text>
@@ -90,8 +90,8 @@ export function PostExpiresInAWeekMail({
 }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} kommer tas bort om en vecka`}
-      header={`Ditt inlägg ${postTitle} tas snart bort`}
+      preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
+      header={`Ditt inlägg "${postTitle}" tas snart bort`}
       main={
         <>
           <Text>
@@ -129,8 +129,8 @@ export function PostExpiresTomorrowCustomMail({
 }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} kommer tas bort imorgon`}
-      header={`Ditt inlägg ${postTitle} tas bort imorgon`}
+      preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
+      header={`Ditt inlägg "${postTitle}" tas bort imorgon`}
       main={
         <>
           <Text>
@@ -168,8 +168,8 @@ export function PostExpiresTomorrowMail({
 }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg ${postTitle} kommer tas bort imorgon`}
-      header={`Ditt inlägg ${postTitle} tas bort imorgon`}
+      preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
+      header={`Ditt inlägg "${postTitle}" tas bort imorgon`}
       main={
         <>
           <Text>
