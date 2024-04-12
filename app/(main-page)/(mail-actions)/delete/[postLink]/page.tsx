@@ -1,6 +1,8 @@
 import Link from "next/link";
-import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
+
 import deletePostsByIds from "@/utils/delete-posts-by-id";
+
+import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
 
 interface DeletePostByMailPageProps {
   params: {

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
+
 import extendSoonExpiringPost from "./extend-post";
+import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
 
 interface ExtendPostByMailPageProps {
   params: {
