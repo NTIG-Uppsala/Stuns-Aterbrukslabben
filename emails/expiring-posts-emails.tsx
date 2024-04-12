@@ -14,12 +14,12 @@ export function PostExpiredCustomMail({ postTitle }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" har tagits bort`}
-      header={`Ditt inlägg "${postTitle}" har blivit bortaget`}
+      header={`Ditt inlägg "${postTitle}" har blivit borttaget`}
       main={
         <>
           <Text>
             Din valda tidsperiod har nu löpt ut. Och eftersom inlägget inte
-            förlängdes har det nu blivit bortaget.
+            förlängdes har det nu blivit borttaget.
           </Text>
         </>
       }
@@ -31,12 +31,13 @@ export function PostExpiredMail({ postTitle }: ChangeRoleEmailProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" har tagits bort`}
-      header={`Ditt inlägg "${postTitle}" har blivit bortaget`}
+      header={`Ditt inlägg "${postTitle}" har blivit borttaget`}
       main={
         <>
           <Text>
-            Det har nu gått 6 månader sen du la ut ditt inlägg. Eftersom
-            inlägget inte förlängdes har det nu blivit bortaget.
+            Det har nu gått 6 månader sen du publicerade inlägget eller förnyade
+            dens utgångsdatum. Eftersom inlägget inte förlängdes har det nu
+            blivit borttaget.
           </Text>
         </>
       }
@@ -95,9 +96,10 @@ export function PostExpiresInAWeekMail({
       main={
         <>
           <Text>
-            Det har snart gått 6 månader sen du la upp ditt inlägg. Om inlägget
-            fortfarande är aktuellt, kan du förlänga det genom att uppdatera
-            det. Annars kommer det att tas bort om en vecka.
+            Det har snart gått 6 månader sen du publicerade inlägget eller
+            förnyade dens utgångsdatum. Om inlägget fortfarande är aktuellt, kan
+            du förlänga det genom att uppdatera det. Annars kommer det att tas
+            bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
