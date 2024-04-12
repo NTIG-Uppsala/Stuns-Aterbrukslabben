@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, Link, Section } from "@react-email/components";
+import { Text, Link, Section, Button } from "@react-email/components";
 
 import EmailTemplate from "./components/email-template";
 
@@ -60,23 +60,23 @@ export function PostExpiresInAWeekCustomMail({
             fortfarande är aktuellt, kan du förlänga det genom att uppdatera
             det. Annars kommer det att tas bort om en vecka.
           </Text>
-          <Section>
-            <Link
-              className="pr-4"
+          <Section className="mb-6">
+            <Button
+              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
-            </Link>
-            <Link
-              className="pr-4"
+            </Button>
+            <Button
+              className="p-3 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
-            </Link>
-            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-              Gå till inlägg
-            </Link>
+            </Button>
           </Section>
+          <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
+            Gå till inlägg
+          </Link>
         </>
       }
     />
@@ -99,23 +99,23 @@ export function PostExpiresInAWeekMail({
             fortfarande är aktuellt, kan du förlänga det genom att uppdatera
             det. Annars kommer det att tas bort om en vecka.
           </Text>
-          <Section>
-            <Link
-              className="pr-4"
+          <Section className="mb-6">
+            <Button
+              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
-            </Link>
-            <Link
-              className="pr-4"
+            </Button>
+            <Button
+              className="p-3 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
-            </Link>
-            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-              Gå till inlägg
-            </Link>
+            </Button>
           </Section>
+          <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
+            Gå till inlägg
+          </Link>
         </>
       }
     />
@@ -138,23 +138,23 @@ export function PostExpiresTomorrowCustomMail({
             fortfarande är aktuellt, kan du förlänga det genom att uppdatera
             det. Annars kommer det att tas bort imorgon.
           </Text>
-          <Section>
-            <Link
-              className="pr-4"
+          <Section className="mb-6">
+            <Button
+              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
-            </Link>
-            <Link
-              className="pr-4"
+            </Button>
+            <Button
+              className="p-3 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
-            </Link>
-            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-              Gå till inlägg
-            </Link>
+            </Button>
           </Section>
+          <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
+            Gå till inlägg
+          </Link>
         </>
       }
     />
@@ -177,23 +177,23 @@ export function PostExpiresTomorrowMail({
             fortfarande är aktuellt, kan du förlänga det genom att uppdatera
             det. Annars kommer det att tas bort imorgon.
           </Text>
-          <Section>
-            <Link
-              className="pr-4"
+          <Section className="mb-6">
+            <Button
+              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
-            </Link>
-            <Link
-              className="pr-4"
+            </Button>
+            <Button
+              className="p-3 rounded-md bg-gray-500 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
-            </Link>
-            <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-              Gå till inlägg
-            </Link>
+            </Button>
           </Section>
+          <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
+            Gå till inlägg
+          </Link>
         </>
       }
     />
