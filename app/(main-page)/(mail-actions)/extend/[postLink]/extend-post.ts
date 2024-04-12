@@ -1,3 +1,5 @@
+"use server";
+
 import { db } from "@/lib/db";
 
 interface ExtendSoonExpiringPostProps {
@@ -7,14 +9,16 @@ interface ExtendSoonExpiringPostProps {
 export default async function extendSoonExpiringPost({
   postId,
 }: ExtendSoonExpiringPostProps) {
-  const newDate = new Date(new Date().setMonth(new Date().getMonth() + 6));
+  const newExpirationDate = new Date(
+    new Date().setMonth(new Date().getMonth() + 6)
+  );
   try {
     await db.post.update({
       where: {
         id: postId,
       },
       data: {
-        expiresAt: newDate,
+        expiresAt: newExpirationDate,
       },
     });
     await db.soonExpiringPosts.deleteMany({
@@ -22,7 +26,7 @@ export default async function extendSoonExpiringPost({
         postId: postId,
       },
     });
-    return { data: newDate.toLocaleDateString() };
+    return { data: newExpirationDate.toLocaleDateString() };
   } catch (err) {
     return { error: "Failed to extend post" };
   }
