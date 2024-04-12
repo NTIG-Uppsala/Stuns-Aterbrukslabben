@@ -19,12 +19,12 @@ export default async function addAndGetFromSoonExpiringPosts({
     return alreadyExists.postLink;
   }
 
-  const postLink = makeRandomId({ length: 20 });
+  const postLinkId = makeRandomId({ length: 20 });
   await db.soonExpiringPosts.create({
     data: {
       postId: post.id,
-      postLink,
+      postLink: postLinkId,
     },
   });
-  return postLink;
+  return postLinkId;
 }

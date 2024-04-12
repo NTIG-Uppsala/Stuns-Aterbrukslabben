@@ -1,4 +1,5 @@
 import { clerkClient } from "@clerk/nextjs";
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import getUserEmail from "@/utils/get-user-email";
 import { type Post } from "@prisma/client";
 import sendMail from "@/utils/send-mail";
@@ -14,11 +15,10 @@ export async function sendMailToExpiringPosts({
   subject,
   mailTemplate,
 }: SendMailToExpiringPostsProps) {
-  const postUser = await clerkClient.users.getUser(post.userId);
-  const userEmail = getUserEmail({ user: postUser });
+  const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
 
   sendMail({
-    toMail: userEmail,
+    toMail: email,
     subject,
     mailTemplate,
   });

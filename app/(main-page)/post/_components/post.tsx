@@ -6,7 +6,7 @@ import { Post } from "@prisma/client";
 
 import creationDateToString from "../../utils/creation-date-to-string";
 import ContactMeDialog from "./contact-me-dialog";
-import getNameAndEmailFromUserId from "../../utils/get-name-and-email-from-user-id";
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import getPostTypeSpecificData from "../../utils/get-post-type-specific-data";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostModerationActions from "./post-moderation-actions";
