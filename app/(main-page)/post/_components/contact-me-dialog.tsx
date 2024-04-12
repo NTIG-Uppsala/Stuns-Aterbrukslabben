@@ -10,16 +10,18 @@ import {
 interface ContactMeDialogProps {
   fullName: string;
   email: string;
+  disabled?: boolean;
 }
 
 
 export default function ContactMeDialog({
   fullName,
   email,
+  disabled,
 }: ContactMeDialogProps) {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger disabled={disabled}>
         <div className="flex md:h-10 md:w-40 h-8 w-32 md:text-xl text-base rounded-lg bg-primary justify-center items-center">
           Kontakta mig
         </div>

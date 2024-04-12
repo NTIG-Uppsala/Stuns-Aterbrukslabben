@@ -3,7 +3,7 @@ import Link from "next/link";
 import getNameAndEmailFromUserId from "../../utils/get-name-and-email-from-user-id";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import getPostData from "../../utils/get-post-data";
-import Post from "../_components/post";
+import PostComponent from "../_components/post-component";
 import PostModerationActions from "../_components/post-moderation-actions";
 
 interface PostIdPageProps {
@@ -22,20 +22,15 @@ export default async function PostIdPage({ params }: PostIdPageProps) {
     const postUserRole = await getUserRoleFromUserId({ userId: post.userId });
     const fullName = firstName + " " + lastName;
     return (
-      <div>
-        <Post
-          post={post}
-          email={email}
-          fullName={fullName}
-          postUserRole={postUserRole}
-        />
-        <div className="w-full flex justify-center">
-        <PostModerationActions
-          postId={post.id}
-          postEmail={email}
-          postTitle={post.title}
-          postUserRole={postUserRole}
-        />
+      <div className="md:max-w-screen-md max-w-[360px] mt-5 mx-auto">
+        <PostComponent post={post} email={email} fullName={fullName} />
+        <div className="w-full flex justify-end md:mt-[-24px] mt-[-16px]">
+          <PostModerationActions
+            postId={post.id}
+            postEmail={email}
+            postTitle={post.title}
+            postUserRole={postUserRole}
+          />
         </div>
       </div>
     );

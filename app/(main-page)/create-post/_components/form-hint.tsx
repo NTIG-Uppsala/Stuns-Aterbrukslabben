@@ -7,32 +7,44 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 interface FormHintProps {
   content: string;
 }
 
 export default function FormHint({ content }: FormHintProps) {
   return (
-    <TooltipProvider>
-      <Tooltip delayDuration={100}>
-        <TooltipTrigger type="button">
-          <HelpCircle
-            className="md:block hidden"
-            strokeWidth={1}
-            width={25}
-            height={25}
-          />
-          <HelpCircle
-            className="md:hidden block"
-            strokeWidth={1}
-            width={20}
-            height={20}
-          />
-        </TooltipTrigger>
-        <TooltipContent side="bottom" className="w-[170px]">
-          <p className="text-xs text-center">{content}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <div>
+      <TooltipProvider>
+        <Tooltip delayDuration={100}>
+          <TooltipTrigger className="md:block hidden" type="button">
+            <HelpCircle strokeWidth={2} width={20} height={20} />
+          </TooltipTrigger>
+          <TooltipContent
+            side="bottom"
+            className="w-[170px] text-sm text-center"
+          >
+            {content}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+
+      <Popover>
+        <PopoverTrigger className="md:hidden block">
+          <HelpCircle strokeWidth={2} width={20} height={20} />
+        </PopoverTrigger>
+        <PopoverContent
+          align="end"
+          className="p-2 w-[170px] text-xs text-center"
+        >
+          {content}
+        </PopoverContent>
+      </Popover>
+    </div>
   );
 }

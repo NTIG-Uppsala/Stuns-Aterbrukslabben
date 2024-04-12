@@ -2,7 +2,6 @@ import { getUserId } from "@/utils/get-user-id";
 
 import CreatePostComponent from "./_components/create-post-component";
 import getNameAndEmailFromUserId from "../utils/get-name-and-email-from-user-id";
-import getUserRoleFromUserId from "../utils/get-user-role-from-user-id";
 
 export default async function createPostPage() {
   const userId = getUserId();
@@ -11,7 +10,6 @@ export default async function createPostPage() {
     const { firstName, lastName, email } = await getNameAndEmailFromUserId({
       userId,
     });
-    const postUserRole = await getUserRoleFromUserId({ userId });
 
     return (
       <div>
@@ -19,7 +17,6 @@ export default async function createPostPage() {
           firstName={firstName}
           lastName={lastName}
           email={email}
-          postUserRole={postUserRole}
           userId={userId}
         />
       </div>

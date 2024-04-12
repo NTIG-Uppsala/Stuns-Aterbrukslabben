@@ -1,14 +1,15 @@
 "use client";
 
 import { Controller, useForm, useWatch } from "react-hook-form";
-import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import municipalities from "@/data/municipalities.json";
 
+import CancelAlertDialog from "./cancel-alert-dialog";
 import CategoryPicker from "./category-picker";
+import CreateAlertDialog from "./create-alert-dialog";
 import createPost from "../utils/create-post";
 import DatePicker from "./date-picker";
 import ErrorParagraph from "./error-paragraph";
@@ -16,22 +17,13 @@ import FormHint from "./form-hint";
 import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
 import PostTypeRadioButton from "./post-type-radio-button";
-import Post from "../../post/_components/post";
-
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import PostComponent from "../../post/_components/post-component";
+import PostDialog from "./post-dialog";
 
 interface CreatePostComponentProps {
   firstName: string;
   lastName: string;
   email: string;
-  postUserRole: string;
   userId: string;
 }
 
@@ -51,7 +43,6 @@ export default function CreatePostComponent({
   firstName,
   lastName,
   email,
-  postUserRole,
   userId,
 }: CreatePostComponentProps) {
   const {
@@ -67,8 +58,8 @@ export default function CreatePostComponent({
   const postData = {
     id: 0,
     userId: userId,
-    title: formData.title || "",
-    description: formData.description || null,
+    title: formData.title || "Titel",
+    description: formData.description || "Beskrivning",
     postType: formData.postTypeRadioButton || "Erbjuds",
     category: formData.categoryPicker || "",
     location: formData.municipalityPicker || "",
@@ -112,6 +103,7 @@ export default function CreatePostComponent({
     <div className="flex flex-wrap justify-center gap-x-20 md:gap-y-6 gap-y-3 max-w-screen-xl mx-auto mt-10">
       <div className="bg-secondary md:p-6 p-3 md:w-[600px] w-[360px] rounded-2xl">
         <form
+          id="create-post-form"
           className="flex flex-col gap-y-5"
           onSubmit={handleSubmit(onSubmit)}
         >
@@ -125,36 +117,38 @@ export default function CreatePostComponent({
               <PostTypeRadioButton postType={value} setPostType={onChange} />
             )}
           />
-          <fieldset disabled>
-            <div className="flex md:gap-x-8 gap-x-4 justify-between">
-              <div className="flex flex-col w-full">
-                <FormLabel content="Förnamn" />
+          <div className="flex md:gap-x-8 gap-x-4 justify-between">
+            <div className="flex flex-col w-full">
+              <FormLabel content="Förnamn" />
+              <fieldset disabled>
                 <input
                   {...register("firstName", { required: "Förnamn saknas" })}
                   className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                   value={firstName}
                 />
-                {errors.firstName && (
-                  <ErrorParagraph content={errors.firstName.message} />
-                )}
+              </fieldset>
+              {errors.firstName && (
+                <ErrorParagraph content={errors.firstName.message} />
+              )}
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex justify-between">
+                <FormLabel content="Efternamn" />
+                <FormHint content="Förnamn, efternamn och mejladress kan ändras via din profilsida" />
               </div>
-              <div className="flex flex-col w-full">
-                <div className="flex justify-between">
-                  <FormLabel content="Efternamn" />
-                  <FormHint content="Förnamn, efternamn och mejladress kan ändras via din profilsida" />
-                </div>
-
+              <fieldset disabled>
                 <input
                   {...register("lastName")}
                   className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                   value={lastName}
                   readOnly
                 />
-              </div>
+              </fieldset>
             </div>
-            <div className="flex w-full flex-col">
-              <FormLabel content="Mejladress" />
-
+          </div>
+          <div className="flex w-full flex-col">
+            <FormLabel content="Mejladress" />
+            <fieldset disabled>
               <input
                 {...register("email", { required: "Mejladress saknas" })}
                 type="email"
@@ -162,12 +156,10 @@ export default function CreatePostComponent({
                 value={email}
                 readOnly
               />
+            </fieldset>
 
-              {errors.email && (
-                <ErrorParagraph content={errors.email.message} />
-              )}
-            </div>
-          </fieldset>
+            {errors.email && <ErrorParagraph content={errors.email.message} />}
+          </div>
           <div className="flex w-full flex-col">
             <div className="flex justify-between">
               <FormLabel content="Titel" />
@@ -224,7 +216,10 @@ export default function CreatePostComponent({
           </div>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <FormLabel content="Kommun" />
+              <div className="flex justify-between">
+                <FormLabel content="Kommun" />
+                <FormHint content="Välj den kommun där produkten kan hämtas/överlämnas" />
+              </div>
               <Controller
                 name="municipalityPicker"
                 control={control}
@@ -256,47 +251,27 @@ export default function CreatePostComponent({
             </div>
           </div>
           <div className="flex justify-between mt-5">
-            <Link
-              href="/"
-              className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm"
-            >
-              Avbryt
-            </Link>
-            <Dialog>
-              <DialogTrigger className="md:hidden block bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm">
-                Se inlägg
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Are you absolutely sure?</DialogTitle>
-                  <DialogDescription className="text-black">
-                    <Post
-                      post={postData}
-                      email={email}
-                      fullName={fullName}
-                      postUserRole={postUserRole}
-                    />
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
-
-            <button
-              disabled={isSubmitting}
-              className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
-              type="submit"
-            >
-              Skapa
-            </button>
+            <PostDialog postData={postData} email={email} fullName={fullName} />
+            <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
+              <CancelAlertDialog />
+              {/* <button
+                disabled={isSubmitting}
+                className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
+                type="submit"
+              >
+                Skapa
+              </button> */}
+              <CreateAlertDialog isSubmitting={isSubmitting} />
+            </div>
           </div>
         </form>
       </div>
       <div className="w-[600px] md:block hidden">
-        <Post
+        <PostComponent
           post={postData}
           email={email}
           fullName={fullName}
-          postUserRole={postUserRole}
+          isPreview={true}
         />
       </div>
     </div>
