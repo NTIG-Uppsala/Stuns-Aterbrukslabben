@@ -58,8 +58,8 @@ export function PostExpiresInAWeekCustomMail({
         <>
           <Text>
             Din valda tidsperiod för inlägget har snart gått ut. Om inlägget
-            fortfarande är aktuellt, kan du förlänga det genom att uppdatera
-            det. Annars kommer det att tas bort om en vecka.
+            fortfarande är aktuellt, kan du förlänga det genom att trycka på
+            förläng knappen. Annars kommer det att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -98,8 +98,8 @@ export function PostExpiresInAWeekMail({
           <Text>
             Det har snart gått 6 månader sen du publicerade inlägget eller
             förnyade dens utgångsdatum. Om inlägget fortfarande är aktuellt, kan
-            du förlänga det genom att uppdatera det. Annars kommer det att tas
-            bort om en vecka.
+            du förlänga det genom att trycka på förläng knappen. Annars kommer
+            det att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -137,8 +137,10 @@ export function PostExpiresTomorrowCustomMail({
         <>
           <Text>
             Din valda tidsperiod för inlägget tar slut imorgon. Om inlägget
-            fortfarande är aktuellt, kan du förlänga det genom att uppdatera
-            det. Annars kommer det att tas bort imorgon.
+            fortfarande är aktuellt, Din valda tidsperiod för inlägget har snart
+            gått ut. Om inlägget fortfarande är aktuellt, kan du förlänga det
+            genom att trycka på förläng knappen. Annars kommer det att tas bort
+            imorgon.
           </Text>
           <Section className="mb-6">
             <Button
@@ -176,8 +178,10 @@ export function PostExpiresTomorrowMail({
         <>
           <Text>
             Det har snart gått 6 månader sen du la upp ditt inlägg. Om inlägget
-            fortfarande är aktuellt, kan du förlänga det genom att uppdatera
-            det. Annars kommer det att tas bort imorgon.
+            fortfarande är aktuellt, Din valda tidsperiod för inlägget har snart
+            gått ut. Om inlägget fortfarande är aktuellt, kan du förlänga det
+            genom att trycka på förläng knappen. Annars kommer det att tas bort
+            imorgon.
           </Text>
           <Section className="mb-6">
             <Button
