@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 
 import deletePostsByIds from "@/utils/delete-posts-by-ids";
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import {
   PostExpiredCustomMail,
   PostExpiredMail,
@@ -9,10 +10,10 @@ import {
   PostExpiresTomorrowCustomMail,
   PostExpiresTomorrowMail,
 } from "@/emails/expiring-posts-emails";
+import sendMail from "@/utils/send-mail";
 
 import addPostToExpiringPosts from "../_utils/add-post-to-expiring-posts";
 import findSoonExpiringPosts from "../_utils/find-soon-expiring-posts";
-import { sendMailToExpiringPosts } from "../_utils/send-mail-to-expiring-posts";
 
 export async function POST() {
   const mailAutomationSecret = process.env.MAIL_AUTOMATION_SECRET;
@@ -29,9 +30,10 @@ export async function POST() {
 
   postsExpiringInOneWeek.forEach(async (post) => {
     const postLink = await addPostToExpiringPosts({ post });
+    const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg går ut om en vecka",
         mailTemplate: PostExpiresInAWeekCustomMail({
           postTitle: post.title,
@@ -40,8 +42,8 @@ export async function POST() {
         }),
       });
     } else {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg går ut om en vecka",
         mailTemplate: PostExpiresInAWeekMail({
           postTitle: post.title,
@@ -54,9 +56,10 @@ export async function POST() {
 
   postsExpiringTomorrow.forEach(async (post) => {
     const postLink = await addPostToExpiringPosts({ post });
+    const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg går ut imorgon",
         mailTemplate: PostExpiresTomorrowCustomMail({
           postTitle: post.title,
@@ -65,8 +68,8 @@ export async function POST() {
         }),
       });
     } else {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg går ut imorgon",
         mailTemplate: PostExpiresTomorrowMail({
           postTitle: post.title,
@@ -79,18 +82,19 @@ export async function POST() {
 
   const postsToDeleteIds: number[] = [];
 
-  postsExpiringToday.forEach((post) => {
+  postsExpiringToday.forEach(async (post) => {
+    const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg har tagits bort",
         mailTemplate: PostExpiredCustomMail({
           postTitle: post.title,
         }),
       });
     } else {
-      sendMailToExpiringPosts({
-        post,
+      sendMail({
+        toMail: email,
         subject: "Ditt inlägg har tagits bort",
         mailTemplate: PostExpiredMail({
           postTitle: post.title,
