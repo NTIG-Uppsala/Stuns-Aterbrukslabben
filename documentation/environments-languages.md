@@ -1,4 +1,4 @@
-# Environments and Languages 
+# Environments and Languages
 
 ## Development Environment
 
@@ -14,5 +14,13 @@
 
 ## Coding Standard
 
-- This project uses ESLint for linting
-- This project uses Prettier - (Version 10.1.0), a Visual Studio Extension for formatting
+- This project uses ESLint for linting.
+- This project uses Prettier - (Version 10.1.0), a Visual Studio Extension for formatting.
+- This project uses kebab-case for file names.
+- This project uses PascalCase for Next.js components and Props.
+- This project uses camelCase for variables and non-component functions.
+- This project uses 2 spaces for indentation.
+- Imports are sorted alphabetically in following groups:
+  - Built-in imports
+  - External imports
+  - Internal imports
