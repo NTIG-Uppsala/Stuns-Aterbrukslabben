@@ -153,7 +153,7 @@ RESEND_API_KEY=YOUR API KEY HERE
 RESEND_SENDING_MAIL=example@yourdomain.com
 ```
 
-### Set up automatic expiring post emails
+### Set up automatic emails for expiring posts
 
 **This is a linux solution. It may work on mac but is not tested. If you wish to automate it on windows you'd have to make a script that sends a post request to the api endpoint "http://YOUR_URL/api/send-mail-to-expiring-posts" with a secret in the header**
 
@@ -165,7 +165,7 @@ RESEND_SENDING_MAIL=example@yourdomain.com
 cp -r expiring-post-mail-automation ~/
 ```
 
-- Open the newly made copy of expiring-post-mail-automation.sh file and exchange "YOUR SECRET KEY HERE" to your secret. If you dont use the home directory you will have to edit the path of the output of the file to align with your path.
+- Open the newly made copy of expiring-post-mail-automation.sh file and exchange "YOUR SECRET KEY HERE" to the MAIL_AUTOMATION_SECRET in your `.env` file. If you dont use the home directory you will have to edit the path of the output of the file to align with your path.
 
 - Exit the file and enter these two commands, make sure to exchange "YOUR_USERNAME" to your profile name.
 
