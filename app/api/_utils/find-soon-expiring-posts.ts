@@ -10,7 +10,7 @@ export default async function findSoonExpiringPosts() {
   const posts = await db.post.findMany({
     where: {
       expiresAt: {
-        // Finds posts that expire whitin a week. (Before the 8th day att 00:00)
+        // Finds posts that expire within a week. (Before the 8th day at 00:00)
         lte: inEightDays,
       },
     },
