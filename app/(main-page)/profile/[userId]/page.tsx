@@ -1,7 +1,7 @@
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import { getUserId } from "@/utils/get-user-id";
 import Pagination from "@/components/pagination";
 
-import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import getPostDataFromDb from "../../utils/get-post-data-from-db";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostContainer from "../../_components/post-container";

@@ -2,11 +2,11 @@ import { Clock, MapPin, User } from "lucide-react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import { Post } from "@prisma/client";
 
 import ContactMeDialog from "./contact-me-dialog";
 import creationDateToString from "../../utils/creation-date-to-string";
-import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import getPostTypeSpecificData from "../../utils/get-post-type-specific-data";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostModerationActions from "./post-moderation-actions";

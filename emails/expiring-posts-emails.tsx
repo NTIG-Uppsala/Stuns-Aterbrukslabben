@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text, Link, Section, Button } from "@react-email/components";
+import { Button, Link, Section, Text } from "@react-email/components";
 
 import EmailTemplate from "./components/email-template";
 
