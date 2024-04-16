@@ -2,13 +2,13 @@ import { db } from "@/lib/db";
 import makeRandomId from "@/utils/make-random-id";
 import { Post } from "@prisma/client";
 
-interface AddAndGetFromSoonExpiringPostsProps {
+interface AddPostToExpiringPostsProps {
   post: Post;
 }
 
-export default async function addAndGetFromSoonExpiringPosts({
+export default async function addPostToExpiringPosts({
   post,
-}: AddAndGetFromSoonExpiringPostsProps) {
+}: AddPostToExpiringPostsProps) {
   const alreadyExists = await db.soonExpiringPosts.findFirst({
     where: {
       postId: post.id,

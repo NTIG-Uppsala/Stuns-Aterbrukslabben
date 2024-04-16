@@ -10,7 +10,7 @@ import {
   PostExpiresTomorrowMail,
 } from "@/emails/expiring-posts-emails";
 
-import addAndGetFromSoonExpiringPosts from "../_utils/add-and-get-from-soon-expiring-posts";
+import addPostToExpiringPosts from "../_utils/add-post-to-expiring-posts";
 import findSoonExpiringPosts from "../_utils/find-soon-expiring-posts";
 import { sendMailToExpiringPosts } from "../_utils/send-mail-to-expiring-posts";
 
@@ -28,7 +28,7 @@ export async function POST() {
     await findSoonExpiringPosts();
 
   postsExpiringInOneWeek.forEach(async (post) => {
-    const postLink = await addAndGetFromSoonExpiringPosts({ post });
+    const postLink = await addPostToExpiringPosts({ post });
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({
         post,
@@ -53,7 +53,7 @@ export async function POST() {
   });
 
   postsExpiringTomorrow.forEach(async (post) => {
-    const postLink = await addAndGetFromSoonExpiringPosts({ post });
+    const postLink = await addPostToExpiringPosts({ post });
     if (post.hasCustomExpirationDate) {
       sendMailToExpiringPosts({
         post,
