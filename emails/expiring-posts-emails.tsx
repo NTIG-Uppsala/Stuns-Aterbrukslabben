@@ -18,8 +18,8 @@ export function PostExpiredCustomMail({ postTitle }: ExpiringPostsEmailsProps) {
       main={
         <>
           <Text>
-            Din valda tidsperiod för ditt inlägg har nu gått ut. Eftersom inlägget inte
-            förlängdes har det nu blivit borttaget.
+            Din valda tidsperiod för ditt inlägg har nu gått ut. Eftersom
+            inlägget inte förlängdes har det nu blivit borttaget.
           </Text>
         </>
       }
