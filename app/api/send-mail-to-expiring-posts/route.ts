@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 
-import deletePostsByIds from "@/utils/delete-posts-by-id";
+import deletePostsByIds from "@/utils/delete-posts-by-ids";
 import {
   PostExpiredCustomMail,
   PostExpiredMail,

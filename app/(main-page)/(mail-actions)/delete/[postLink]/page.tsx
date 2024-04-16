@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import deletePostsByIds from "@/utils/delete-posts-by-id";
+import deletePostsByIds from "@/utils/delete-posts-by-ids";
 
 import getSoonExpiringPost from "../../utils/get-soon-expiring-post";
 

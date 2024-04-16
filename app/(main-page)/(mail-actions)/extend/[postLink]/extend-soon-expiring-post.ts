@@ -28,6 +28,6 @@ export default async function extendSoonExpiringPost({
     });
     return { data: newExpirationDate.toLocaleDateString() };
   } catch (err) {
-    return { error: "Failed to extend post" };
+    return { error: "Failed to extend expiration date of post" };
   }
 }
