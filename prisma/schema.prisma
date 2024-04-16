@@ -24,7 +24,7 @@ model Post {
   createdAt           DateTime   @default(now())
   expiresAt           DateTime   @default(dbgenerated("NOW() + interval '6 months'"))
   hasCustomExpirationDate  Boolean @default(false)
-  soonExpieringPosts  SoonExpiringPosts[]
+  soonExpiringPosts  SoonExpiringPosts[]
 }
 
 model SoonExpiringPosts {
