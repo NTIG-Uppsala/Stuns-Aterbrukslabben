@@ -4,13 +4,13 @@ import { Button, Link, Section, Text } from "@react-email/components";
 
 import EmailTemplate from "./components/email-template";
 
-interface PostExpiredCustomMailProps {
+interface ExpiringPostsEmailsProps {
   postTitle: string;
   postId?: number;
   postLink?: string;
 }
 
-export function PostExpiredCustomMail({ postTitle }: PostExpiredCustomMailProps) {
+export function PostExpiredCustomMail({ postTitle }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" har tagits bort`}
@@ -18,7 +18,7 @@ export function PostExpiredCustomMail({ postTitle }: PostExpiredCustomMailProps)
       main={
         <>
           <Text>
-            Din valda tidsperiod har nu löpt ut. Och eftersom inlägget inte
+            Din valda tidsperiod för ditt inlägg har nu gått ut. Eftersom inlägget inte
             förlängdes har det nu blivit borttaget.
           </Text>
         </>
@@ -27,7 +27,7 @@ export function PostExpiredCustomMail({ postTitle }: PostExpiredCustomMailProps)
   );
 }
 
-export function PostExpiredMail({ postTitle }: PostExpiredCustomMailProps) {
+export function PostExpiredMail({ postTitle }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" har tagits bort`}
@@ -49,7 +49,7 @@ export function PostExpiresInAWeekCustomMail({
   postTitle,
   postLink,
   postId,
-}: PostExpiredCustomMailProps) {
+}: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
@@ -88,7 +88,7 @@ export function PostExpiresInAWeekMail({
   postTitle,
   postLink,
   postId,
-}: PostExpiredCustomMailProps) {
+}: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
@@ -128,7 +128,7 @@ export function PostExpiresTomorrowCustomMail({
   postTitle,
   postLink,
   postId,
-}: PostExpiredCustomMailProps) {
+}: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
@@ -168,7 +168,7 @@ export function PostExpiresTomorrowMail({
   postTitle,
   postLink,
   postId,
-}: PostExpiredCustomMailProps) {
+}: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
       preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
