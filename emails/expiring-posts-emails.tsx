@@ -36,7 +36,7 @@ export function PostExpiredMail({ postTitle }: ChangeRoleEmailProps) {
         <>
           <Text>
             Det har nu gått 6 månader sen du publicerade inlägget eller förnyade
-            dens utgångsdatum. Eftersom inlägget inte förlängdes har det nu
+            dess utgångsdatum. Eftersom inlägget inte förlängdes har det nu
             blivit borttaget.
           </Text>
         </>
@@ -57,9 +57,9 @@ export function PostExpiresInAWeekCustomMail({
       main={
         <>
           <Text>
-            Din valda tidsperiod för inlägget har snart gått ut. Om inlägget
-            fortfarande är aktuellt, kan du förlänga det genom att trycka på
-            förläng knappen. Annars kommer det att tas bort om en vecka.
+            Din valda tidsperiod för inlägget har snart gått ut. Du kan förlänga
+            inlägget om det fortfarande är aktuellt eller så kan du ta bort
+            inlägget. Om inget görs kommer inlägget att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -97,9 +97,9 @@ export function PostExpiresInAWeekMail({
         <>
           <Text>
             Det har snart gått 6 månader sen du publicerade inlägget eller
-            förnyade dens utgångsdatum. Om inlägget fortfarande är aktuellt, kan
-            du förlänga det genom att trycka på förläng knappen. Annars kommer
-            det att tas bort om en vecka.
+            förnyade dess utgångsdatum. Du kan förlänga inlägget om det
+            fortfarande är aktuellt eller så kan du ta bort inlägget. Om inget
+            görs kommer inlägget att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -136,11 +136,10 @@ export function PostExpiresTomorrowCustomMail({
       main={
         <>
           <Text>
-            Din valda tidsperiod för inlägget tar slut imorgon. Om inlägget
-            fortfarande är aktuellt, Din valda tidsperiod för inlägget har snart
-            gått ut. Om inlägget fortfarande är aktuellt, kan du förlänga det
-            genom att trycka på förläng knappen. Annars kommer det att tas bort
-            imorgon.
+            Din valda tidsperiod för inlägget tar slut imorgon. Din valda
+            tidsperiod för inlägget har snart gått ut. Du kan förlänga inlägget
+            om det fortfarande är aktuellt eller så kan du ta bort inlägget. Om
+            inget görs kommer inlägget att tas bort imorgon.
           </Text>
           <Section className="mb-6">
             <Button
@@ -177,10 +176,9 @@ export function PostExpiresTomorrowMail({
       main={
         <>
           <Text>
-            Det har snart gått 6 månader sen du la upp ditt inlägg. Om inlägget
-            fortfarande är aktuellt, Din valda tidsperiod för inlägget har snart
-            gått ut. Om inlägget fortfarande är aktuellt, kan du förlänga det
-            genom att trycka på förläng knappen. Annars kommer det att tas bort
+            Det har snart gått 6 månader sen du la upp ditt inlägg. Du kan
+            förlänga inlägget om det fortfarande är aktuellt eller så kan du ta
+            bort inlägget. Om inget görs kommer inlägget att tas bort imorgon.
             imorgon.
           </Text>
           <Section className="mb-6">
