@@ -175,10 +175,10 @@ export function PostExpiresTomorrowMail({
       main={
         <>
           <Text>
-            Det har snart gått 6 månader sen du la upp ditt inlägg. Du kan
-            förlänga inlägget om det fortfarande är aktuellt eller så kan du ta
-            bort inlägget. Om inget görs kommer inlägget att tas bort imorgon.
-            imorgon.
+            Det har snart gått 6 månader sen du publicerade inlägget eller
+            förnyade dess utgångsdatum. Du kan förlänga inlägget om det
+            fortfarande är aktuellt eller så kan du ta bort inlägget. Om inget
+            görs kommer inlägget att tas bort imorgon.
           </Text>
           <Section className="mb-6">
             <Button
