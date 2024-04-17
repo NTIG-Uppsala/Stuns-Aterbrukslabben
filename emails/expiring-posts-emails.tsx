@@ -63,13 +63,13 @@ export function PostExpiresInAWeekCustomMail({
           </Text>
           <Section className="mb-6">
             <Button
-              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
+              className="p-3 mr-4 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Button>
             <Button
-              className="p-3 rounded-md bg-gray-500 text-black"
+              className="p-3 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
@@ -103,13 +103,13 @@ export function PostExpiresInAWeekMail({
           </Text>
           <Section className="mb-6">
             <Button
-              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
+              className="p-3 mr-4 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Button>
             <Button
-              className="p-3 rounded-md bg-gray-500 text-black"
+              className="p-3 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
@@ -142,13 +142,13 @@ export function PostExpiresTomorrowCustomMail({
           </Text>
           <Section className="mb-6">
             <Button
-              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
+              className="p-3 mr-4 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Button>
             <Button
-              className="p-3 rounded-md bg-gray-500 text-black"
+              className="p-3 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
@@ -182,13 +182,13 @@ export function PostExpiresTomorrowMail({
           </Text>
           <Section className="mb-6">
             <Button
-              className="p-3 mr-4 rounded-md bg-gray-500 text-black"
+              className="p-3 mr-4 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/extend/${postLink}`}
             >
               Förläng
             </Button>
             <Button
-              className="p-3 rounded-md bg-gray-500 text-black"
+              className="p-3 rounded-md bg-gray-300 text-black"
               href={`${process.env.NEXT_PUBLIC_SITE_URL}/delete/${postLink}`}
             >
               Ta bort
