@@ -28,7 +28,7 @@ export async function POST() {
   const { postsExpiringInOneWeek, postsExpiringTomorrow, postsExpiringToday } =
     await findSoonExpiringPosts();
 
-  postsExpiringInOneWeek.forEach(async (post) => {
+  for (const post of postsExpiringInOneWeek) {
     const postLink = await addPostToExpiringPosts({ post });
     const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
@@ -52,9 +52,9 @@ export async function POST() {
         }),
       });
     }
-  });
+  }
 
-  postsExpiringTomorrow.forEach(async (post) => {
+  for (const post of postsExpiringTomorrow) {
     const postLink = await addPostToExpiringPosts({ post });
     const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
@@ -78,11 +78,11 @@ export async function POST() {
         }),
       });
     }
-  });
+  }
 
   const postsToDeleteIds: number[] = [];
 
-  postsExpiringToday.forEach(async (post) => {
+  for (const post of postsExpiringToday) {
     const { email } = await getNameAndEmailFromUserId({ userId: post.userId });
     if (post.hasCustomExpirationDate) {
       sendMail({
@@ -102,8 +102,7 @@ export async function POST() {
       });
     }
     postsToDeleteIds.push(post.id);
-  });
-
+  }
   await deletePostsByIds({ postsIds: postsToDeleteIds });
   const mailAmount =
     postsExpiringInOneWeek.length +
