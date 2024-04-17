@@ -180,7 +180,7 @@ chown YOUR_USERNAME: expiring-post-mail-automation.sh
 crontab -e
 ```
 
-- At the bottom of the file paste this line of code
+- At the bottom of the file paste this cronjob
 
 ```bash
 0 12 * * * /bin/bash ~/expiring-post-mail-automation/expiring-post-mail-automation.sh
