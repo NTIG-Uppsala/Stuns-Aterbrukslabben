@@ -150,7 +150,7 @@ This application uses resend to send emails.
 ```bash
 NEXT_PUBLIC_SITE_URL=YOUR URL HERE
 RESEND_API_KEY=YOUR API KEY HERE
-RESEND_SENDING_MAIL=example@yourdomain.com
+RESEND_SENDING_MAIL="example@yourdomain.com"
 ```
 
 ### Set up automatic emails for expiring posts

@@ -136,10 +136,9 @@ export function PostExpiresTomorrowCustomMail({
       main={
         <>
           <Text>
-            Din valda tidsperiod för inlägget tar slut imorgon. Din valda
-            tidsperiod för inlägget har snart gått ut. Du kan förlänga inlägget
-            om det fortfarande är aktuellt eller så kan du ta bort inlägget. Om
-            inget görs kommer inlägget att tas bort imorgon.
+            Din valda tidsperiod för inlägget tar slut imorgon. Du kan förlänga
+            inlägget om det fortfarande är aktuellt eller så kan du ta bort
+            inlägget. Om inget görs kommer inlägget att tas bort imorgon.
           </Text>
           <Section className="mb-6">
             <Button
