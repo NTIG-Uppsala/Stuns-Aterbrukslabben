@@ -2,7 +2,7 @@
 
 import { checkRole } from "@/utils/check-role";
 import { db } from "@/lib/db";
-import DeletePostEmail from "@/emails/deleted-post-email";
+import DeletedPostEmail from "@/emails/deleted-post-email";
 
 import sendMail from "./send-mail";
 
@@ -27,7 +27,7 @@ export default async function deletePost({
     sendMail({
       toMail: postEmail,
       subject: "Ditt inlägg har blivit borttaget",
-      mailTemplate: DeletePostEmail({ comment: comment, title: postTitle }),
+      mailTemplate: DeletedPostEmail({ comment: comment, title: postTitle }),
     });
   } catch {
     return { error: "Kunde inte skicka e-post" };

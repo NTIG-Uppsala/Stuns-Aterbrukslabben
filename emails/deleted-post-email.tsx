@@ -9,18 +9,18 @@ interface DeletedPostEmailProps {
   title: string;
 }
 
-export default function DeletePostEmail({
+export default function DeletedPostEmail({
   comment,
   title,
 }: DeletedPostEmailProps) {
   return (
     <EmailTemplate
       preview="Ditt inlägg har blivit borttaget"
-      header={`Ditt inlägg "${title}" har blivit bortaget`}
+      header={`Ditt inlägg "${title}" har blivit borttaget`}
       main={
         <>
           <Text>
-            Detta kan bero på att inlägget var olämpligt för sidan och/eller mot
+            Detta kan bero på att inlägget var olämpligt för sidan och/eller
             brutit våra regler. Om du tror att det har skett ett fel och inte
             känner igen detta kan du höra av dig till oss.
           </Text>
