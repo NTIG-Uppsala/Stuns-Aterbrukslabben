@@ -105,8 +105,12 @@ export async function POST() {
   });
 
   await deletePostsByIds({ postsIds: postsToDeleteIds });
+  const mailAmount =
+    postsExpiringInOneWeek.length +
+    postsExpiringTomorrow.length +
+    postsExpiringToday.length;
 
   return Response.json({
-    message: "Mails sent and posts deleted",
+    message: `${mailAmount} mails sent and ${postsToDeleteIds.length} posts deleted`,
   });
 }
