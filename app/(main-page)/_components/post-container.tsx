@@ -18,6 +18,7 @@ export default async function PostContainer({ posts }: PostContainerProps) {
               postId={post.id}
               description={post.description}
               postType={post.postType}
+              category={post.category}
               location={post.location}
               creationDate={post.createdAt}
               expirationDate={post.expiresAt}
