@@ -1,7 +1,7 @@
 "use server";
 
-import { getUserId } from "@/utils/get-user-id";
 import { db } from "@/lib/db";
+import { getUserId } from "@/utils/get-user-id";
 
 interface CreatePostProps {
   data: any;
