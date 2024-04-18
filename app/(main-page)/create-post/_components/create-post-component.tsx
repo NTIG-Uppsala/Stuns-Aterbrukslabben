@@ -169,6 +169,15 @@ export default function CreatePostComponent({
               {...register("title", {
                 required: "Titel saknas",
                 maxLength: { value: 40, message: "Max 40 tecken" },
+                validate: {
+                  emailValidation: (value) =>
+                    value.match(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/g) == null ||
+                    "Du får inte ha en mejladress i titeln",
+                  phoneValidation: (value) =>
+                    value.match(
+                      /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/
+                    ) == null || "Du får inte ha ett telefonnummer i titeln",
+                },
               })}
               className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
               placeholder="Skriv titel här..."
@@ -185,6 +194,15 @@ export default function CreatePostComponent({
               {...register("description", {
                 required: "Beskrivning saknas",
                 maxLength: { value: 2000, message: "Max 2000 tecken" },
+                validate: {
+                  emailValidation: (value) =>
+                    value.match(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/g) == null ||
+                    "Du får inte ha en mejladress i beskrivningen",
+                  phoneValidation: (value) =>
+                    value.match(
+                      /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/
+                    ) == null || "Du får inte ha ett telefonnummer i beskrivningen",
+                },
               })}
               className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
               placeholder="Skriv beskrivning här..."
