@@ -11,7 +11,7 @@ export default async function createPost({ data }: CreatePostProps) {
   const userId = getUserId();
 
   if (!userId) {
-    return { error: "Kunde inte hämta userId" };
+    return { error: "Kunde inte hämta användarinformation" };
   }
 
   try {
