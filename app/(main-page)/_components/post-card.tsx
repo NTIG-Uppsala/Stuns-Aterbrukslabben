@@ -64,7 +64,7 @@ export default function PostCard({
                 ></div>
                 <p className="md:text-sm text-[9px]">{postType}</p>
               </div>
-              <p className="md:text-sm text-[8px] line-clamp-1 break-all">
+              <p className="md:text-sm text-[8px] capitalize line-clamp-1 break-all">
                 {location}
               </p>
             </div>
