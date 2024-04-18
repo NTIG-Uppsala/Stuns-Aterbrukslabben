@@ -35,10 +35,10 @@ export default function PostCategoryButtons() {
         </button>
         <div className="md:hidden w-[1px] h-5/6 bg-black bg-opacity-20"></div>
         <button
-          onClick={() => handlePostCategoryChange("Förbrukningsvara")}
+          onClick={() => handlePostCategoryChange("förbrukningsvara")}
           className={clsx(
             "bg-primary hover:bg-opacity-100 bg-opacity-0 md:px-3 px-[6px] md:py-[8px] py-1",
-            searchParams.get("category") === "Förbrukningsvara" &&
+            searchParams.get("category") === "förbrukningsvara" &&
               "bg-opacity-100"
           )}
         >
@@ -46,10 +46,10 @@ export default function PostCategoryButtons() {
         </button>
         <div className="md:hidden w-[1px] h-5/6 bg-black bg-opacity-20"></div>
         <button
-          onClick={() => handlePostCategoryChange("Instrument/Maskin")}
+          onClick={() => handlePostCategoryChange("instrument/maskin")}
           className={clsx(
             "bg-primary hover:bg-opacity-100 bg-opacity-0 md:px-3 px-[6px] md:py-[8px] py-1",
-            searchParams.get("category") === "Instrument/Maskin" &&
+            searchParams.get("category") === "instrument/maskin" &&
               "bg-opacity-100"
           )}
         >
@@ -57,10 +57,10 @@ export default function PostCategoryButtons() {
         </button>
         <div className="md:hidden w-[1px] h-5/6 bg-black bg-opacity-20"></div>
         <button
-          onClick={() => handlePostCategoryChange("Inventarie")}
+          onClick={() => handlePostCategoryChange("inventarie")}
           className={clsx(
             "bg-primary hover:bg-opacity-100 bg-opacity-0 rounded-e-md md:px-3 px-[6px] md:py-[8px] py-1",
-            searchParams.get("category") === "Inventarie" && "bg-opacity-100"
+            searchParams.get("category") === "inventarie" && "bg-opacity-100"
           )}
         >
           Inventarie
