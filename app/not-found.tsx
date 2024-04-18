@@ -19,7 +19,7 @@ export default async function NotFound() {
           överens med dit du ville.
         </p>
         <Link className="text-blue-500 pt-1" href="/">
-          Till startsidan
+          Gå till startsidan
         </Link>
       </div>
       <Footer />
