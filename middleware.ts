@@ -4,7 +4,15 @@ import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   // Routes that can be accessed while signed out
-  publicRoutes: ["/", "/terms-of-service", "/api/webhooks(.*)"],
+  publicRoutes: [
+    "/",
+    "/terms-of-service",
+    "/api/webhooks(.*)",
+    "/api/send-mail-to-expiring-posts(.*)",
+    "/delete(.*)",
+    "/extend(.*)",
+  ],
+
   afterAuth(auth, req) {
     if (!auth.userId && !auth.isPublicRoute) {
       const path = new URL(req.url).pathname;

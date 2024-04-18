@@ -24,4 +24,12 @@ model Post {
   createdAt           DateTime   @default(now())
   expiresAt           DateTime   @default(dbgenerated("NOW() + interval '6 months'"))
   hasCustomExpirationDate  Boolean @default(false)
+  soonExpiringPosts  SoonExpiringPosts[]
+}
+
+model SoonExpiringPosts {
+  id                  Int        @id @default(autoincrement())
+  post                Post       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId              Int
+  postLink            String
 }
