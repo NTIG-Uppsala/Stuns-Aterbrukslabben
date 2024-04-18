@@ -27,7 +27,7 @@ export default async function createPost({ data }: CreatePostProps) {
         hasCustomExpirationDate: data.datePicker !== undefined,
       },
     });
-    return { data: "Inlägg skapat" };
+    return { data: "Inlägg " + data.title + " skapat" };
   } catch {
     return { error: "Kunde inte skapa inlägget" };
   }
