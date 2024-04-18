@@ -22,9 +22,7 @@ export default async function NotFound() {
           Till startsidan
         </Link>
       </div>
-      <div className="">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
