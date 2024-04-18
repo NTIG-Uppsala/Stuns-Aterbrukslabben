@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import {
   AlertDialog,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export default function CancelAlertDialog() {
+  const router = useRouter();
   return (
     <AlertDialog>
       <AlertDialogTrigger className="bg-destructive text-white py-1 md:px-4 px-3 md:text-base text-sm rounded-sm">
@@ -30,11 +31,14 @@ export default function CancelAlertDialog() {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>
-            Fortsätt redigera
-          </AlertDialogCancel>
-          <AlertDialogAction className="bg-destructive text-white">
-            <Link href="/">Avbryt</Link>
+          <AlertDialogCancel>Fortsätt redigera</AlertDialogCancel>
+          <AlertDialogAction
+            onClick={() => {
+              router.push("/");
+            }}
+            className="bg-destructive text-white"
+          >
+            Avbryt
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
