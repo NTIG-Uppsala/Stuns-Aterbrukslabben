@@ -9,7 +9,7 @@ export default async function NotFound() {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Navbar />
-      <div className="flex flex-col text-center h-[72vh] items-center justify-center px-5">
+      <div className="flex flex-col text-center items-center justify-center px-5">
         <Logo />
         <h1 className="font-semibold text-2xl pt-4 text-pretty">
           Ojdå... sidan kunde inte hittas
@@ -19,7 +19,7 @@ export default async function NotFound() {
           överens med dit du ville.
         </p>
         <Link className="text-blue-500 pt-1" href="/">
-          Gå till startsidan
+          Till startsidan
         </Link>
       </div>
       <div className="">
