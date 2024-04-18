@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { PostCategory } from "@/types/globals";
 
 import creationDateToString from "../utils/creation-date-to-string";
 import getPostColorAndExpirationText from "../utils/get-post-type-specific-data";
@@ -11,7 +12,7 @@ interface PostProps {
   postId: number;
   description: string | null;
   postType: string;
-  category: string;
+  category: PostCategory;
   location: string;
   expirationDate: Date;
   creationDate: Date;
@@ -47,11 +48,11 @@ export default function PostCard({
           <section className="col-span-4">
             <Image
               src={
-                category === "Inventarie"
+                category === "inventarie"
                   ? "/images/inventory.webp"
-                  : category === "Förbrukningsvara"
+                  : category === "förbrukningsvara"
                   ? "/images/consumables.webp"
-                  : category === "Instrument/Maskin"
+                  : category === "instrument/maskin"
                   ? "/images/instrument.webp"
                   : ""
               }
