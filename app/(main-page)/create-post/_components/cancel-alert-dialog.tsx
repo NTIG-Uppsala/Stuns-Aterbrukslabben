@@ -30,7 +30,7 @@ export default function CancelAlertDialog() {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel className="bg-primary">
+          <AlertDialogCancel>
             Fortsätt redigera
           </AlertDialogCancel>
           <AlertDialogAction className="bg-destructive text-white">
