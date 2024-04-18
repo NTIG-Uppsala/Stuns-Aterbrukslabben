@@ -1,6 +1,6 @@
 import SearchBar from "@/components/search-bar";
 
-import CreatePostButton from "./create-post-button";
+import CreatePostLink from "./create-post-link";
 import PostCategoryButtons from "./post-category-buttons";
 import PostSortSelect from "./post-sort-select";
 import PostTypeButtons from "./post-type-buttons";
@@ -21,7 +21,7 @@ export default function FilterContainer({
       <SearchBar labelText={labelText} itemsFoundCount={postCount} />
       <div className="flex justify-between items-center w-full">
         <PostTypeButtons />
-        <CreatePostButton />
+        <CreatePostLink />
       </div>
       <section className="flex justify-between w-full gap-x-2">
         <PostCategoryButtons />
