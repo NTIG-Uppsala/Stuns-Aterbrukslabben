@@ -16,7 +16,7 @@ import ErrorParagraph from "./error-paragraph";
 import FormHint from "./form-hint";
 import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
-import PostTypeRadioButton from "./post-type-radio-button";
+import PostTypePicker from "./post-type-picker";
 import PostComponent from "../../post/_components/post-component";
 import PostDialog from "./post-dialog";
 
@@ -28,7 +28,7 @@ interface CreatePostComponentProps {
 }
 
 interface FormInputs {
-  postTypeRadioButton: string;
+  postTypePicker: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -60,7 +60,7 @@ export default function CreatePostComponent({
     userId: userId,
     title: formData.title || "Titel",
     description: formData.description || "Beskrivning",
-    postType: formData.postTypeRadioButton || "Erbjuds",
+    postType: formData.postTypePicker || "Erbjuds",
     category: formData.categoryPicker || "",
     location: formData.municipalityPicker || "",
     imageThumbUrl: null,
@@ -104,12 +104,12 @@ export default function CreatePostComponent({
         >
           <h1 className="text-center md:text-3xl text-xl ">SKAPA ETT INLÄGG</h1>
           <Controller
-            name="postTypeRadioButton"
+            name="postTypePicker"
             control={control}
             rules={{ required: true }}
             defaultValue="Erbjuds"
             render={({ field: { onChange, value } }) => (
-              <PostTypeRadioButton postType={value} setPostType={onChange} />
+              <PostTypePicker postType={value} setPostType={onChange} />
             )}
           />
           <div className="flex md:gap-x-8 gap-x-4 justify-between">

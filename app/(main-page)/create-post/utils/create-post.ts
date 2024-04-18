@@ -20,7 +20,7 @@ export default async function createPost({ data }: CreatePostProps) {
         userId: userId,
         title: data.title,
         description: data.description,
-        postType: data.postTypeRadioButton,
+        postType: data.postTypePicker,
         category: data.categoryPicker,
         location: data.municipalityPicker,
         expiresAt: data.datePicker,

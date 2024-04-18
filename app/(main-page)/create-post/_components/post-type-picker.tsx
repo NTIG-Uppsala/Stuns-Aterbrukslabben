@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
 
-interface PostTypeRadioButtonProps {
+interface PostTypePickerProps {
   postType: string;
   setPostType: (...event: any[]) => void;
 }
 
-export default function PostTypeRadioButton({
+export default function PostTypePicker({
   postType,
   setPostType,
-}: PostTypeRadioButtonProps) {
+}: PostTypePickerProps) {
   return (
     <div className="grid grid-cols-2 md:w-60 w-52 mx-auto md:text-lg text-sm">
       <input
