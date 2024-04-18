@@ -24,10 +24,9 @@ export default function PostComponent({
   isPreview,
 }: PostProps) {
   const creationDateString = creationDateToString(post.createdAt);
-  const { postTypeColor, expirationDateText, disclaimerText } =
-    getPostTypeSpecificData({
-      postType: post.postType,
-    });
+  const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
+    postType: post.postType,
+  });
   return (
     <article className="md:pt-10 pt-3 md:px-16 px-6 md:pb-6 pb-4 md:max-w-screen-md max-w-[360px] bg-secondary rounded-2xl mx-auto">
       {/* Post image should replace the div below */}
@@ -84,7 +83,6 @@ export default function PostComponent({
           <ContactMeDialog
             fullName={fullName}
             email={email}
-            disclaimerText={disclaimerText}
             disabled={isPreview}
           />
         </div>

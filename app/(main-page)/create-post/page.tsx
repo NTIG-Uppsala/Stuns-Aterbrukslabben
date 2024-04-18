@@ -1,7 +1,7 @@
 import { getUserId } from "@/utils/get-user-id";
 
 import CreatePostComponent from "./_components/create-post-component";
-import getNameAndEmailFromUserId from "../utils/get-name-and-email-from-user-id";
+import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 
 export default async function createPostPage() {
   const userId = getUserId();
