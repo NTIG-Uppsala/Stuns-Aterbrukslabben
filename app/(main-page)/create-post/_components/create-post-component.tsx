@@ -253,7 +253,7 @@ export default function CreatePostComponent({
             <div className="flex flex-col">
               <div className="flex justify-between">
                 <FormLabel content="Slutdatum (frivilligt)" />
-                <FormHint content="Anger det datum då inlägget automatiskt ska tas bort." />
+                <FormHint content="Ange sista datum då inlägget är aktuellt. Om ej ifylld får du en påminnelse efter sex månader." />
               </div>
               <Controller
                 name="datePicker"
@@ -268,13 +268,6 @@ export default function CreatePostComponent({
             <PostDialog postData={postData} email={email} fullName={fullName} />
             <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
               <CancelAlertDialog />
-              {/* <button
-                disabled={isSubmitting}
-                className="bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm"
-                type="submit"
-              >
-                Skapa
-              </button> */}
               <CreateAlertDialog isSubmitting={isSubmitting} />
             </div>
           </div>
