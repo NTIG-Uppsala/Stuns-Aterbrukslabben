@@ -85,13 +85,8 @@ export default function CreatePostComponent({
     if (result && result.error) {
       toast.error(result.error);
     } else if (result && result.data) {
-      // Uses a faster refresh method if window exists. (Window might be missing on server side components)
-      if (window) {
-        window.location.href = "/";
-      } else {
-        router.push("/");
-        router.refresh();
-      }
+      router.push("/");
+      router.refresh();
       toast.success(result.data);
     } else {
       toast.error("Något gick fel");
@@ -201,7 +196,8 @@ export default function CreatePostComponent({
                   phoneValidation: (value) =>
                     value.match(
                       /[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}/
-                    ) == null || "Du får inte ha ett telefonnummer i beskrivningen",
+                    ) == null ||
+                    "Du får inte ha ett telefonnummer i beskrivningen",
                 },
               })}
               className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
