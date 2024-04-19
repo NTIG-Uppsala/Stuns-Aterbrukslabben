@@ -34,6 +34,7 @@ export default function FormHint({ content }: FormHintProps) {
         </Tooltip>
       </TooltipProvider>
 
+      {/* Mobile */}
       <Popover>
         <PopoverTrigger className="md:hidden block">
           <HelpCircle strokeWidth={2} width={20} height={20} />
