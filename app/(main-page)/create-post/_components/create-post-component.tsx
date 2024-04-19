@@ -9,8 +9,8 @@ import municipalities from "@/data/municipalities.json";
 
 import CancelFormAlertDialog from "./cancel-form-alert-dialog";
 import CategoryPicker from "./category-picker";
-import CreatePostAlertDialog from "./create-post-alert-dialog";
 import createPost from "../utils/create-post";
+import CreatePostAlertDialog from "./create-post-alert-dialog";
 import DatePicker from "./date-picker";
 import FormErrorParagraph from "./form-error-paragraph";
 import FormHint from "./form-hint";
