@@ -9,7 +9,7 @@ import municipalities from "@/data/municipalities.json";
 
 import CancelFormAlertDialog from "./cancel-form-alert-dialog";
 import CategoryPicker from "./category-picker";
-import CreateAlertDialog from "./create-alert-dialog";
+import CreatePostAlertDialog from "./create-post-alert-dialog";
 import createPost from "../utils/create-post";
 import DatePicker from "./date-picker";
 import ErrorParagraph from "./error-paragraph";
@@ -268,7 +268,7 @@ export default function CreatePostComponent({
             <PostDialog postData={postData} email={email} fullName={fullName} />
             <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
               <CancelFormAlertDialog />
-              <CreateAlertDialog isSubmitting={isSubmitting} />
+              <CreatePostAlertDialog isSubmitting={isSubmitting} />
             </div>
           </div>
         </form>

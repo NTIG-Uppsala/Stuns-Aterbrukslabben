@@ -12,13 +12,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-interface CreateAlertDialogProps {
+interface CreatePostAlertDialogProps {
   isSubmitting?: boolean;
 }
 
-export default function CreateAlertDialog({
+export default function CreatePostAlertDialog({
   isSubmitting,
-}: CreateAlertDialogProps) {
+}: CreatePostAlertDialogProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm">
