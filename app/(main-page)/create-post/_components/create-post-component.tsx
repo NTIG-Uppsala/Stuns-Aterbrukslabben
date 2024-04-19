@@ -246,9 +246,9 @@ export default function CreatePostComponent({
                 rules={{ required: "Kommun ej vald" }}
                 render={({ field: { onChange, value } }) => (
                   <MunicipalityPicker
-                    municipality={value}
-                    setMunicipality={onChange}
-                    list={municipalities}
+                    currentMunicipality={value}
+                    setCurrentMunicipality={onChange}
+                    itemsList={municipalities}
                   />
                 )}
               />
