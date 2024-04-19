@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import municipalities from "@/data/municipalities.json";
 
-import CancelAlertDialog from "./cancel-alert-dialog";
+import CancelFormAlertDialog from "./cancel-form-alert-dialog";
 import CategoryPicker from "./category-picker";
 import CreateAlertDialog from "./create-alert-dialog";
 import createPost from "../utils/create-post";
@@ -218,9 +218,9 @@ export default function CreatePostComponent({
               rules={{ required: "Kategori ej vald" }}
               render={({ field: { onChange, value } }) => (
                 <CategoryPicker
-                  category={value}
-                  setCategory={onChange}
-                  list={categoryList}
+                  currentCategory={value}
+                  setCurrentCategory={onChange}
+                  Itemslist={categoryList}
                 />
               )}
             />
@@ -267,7 +267,7 @@ export default function CreatePostComponent({
           <div className="flex justify-between mt-5">
             <PostDialog postData={postData} email={email} fullName={fullName} />
             <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
-              <CancelAlertDialog />
+              <CancelFormAlertDialog />
               <CreateAlertDialog isSubmitting={isSubmitting} />
             </div>
           </div>

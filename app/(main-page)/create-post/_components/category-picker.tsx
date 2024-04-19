@@ -13,15 +13,15 @@ import {
 } from "@/components/ui/popover";
 
 interface CategoryPickerProps {
-  category: string;
-  setCategory: (...event: any[]) => void;
-  list: string[];
+  currentCategory: string;
+  setCurrentCategory: (...event: any[]) => void;
+  Itemslist: string[];
 }
 
 export default function CategoryPicker({
-  category,
-  setCategory,
-  list,
+  currentCategory,
+  setCurrentCategory,
+  Itemslist,
 }: CategoryPickerProps) {
   const [open, setOpen] = useState(false);
 
@@ -33,11 +33,11 @@ export default function CategoryPicker({
           aria-expanded={open}
           className={cn(
             "w-full justify-between capitalize bg-primary bg-opacity-40",
-            !category && "text-muted-foreground normal-case"
+            !currentCategory && "text-muted-foreground normal-case"
           )}
         >
-          {category
-            ? list.find((listItem) => listItem === category)
+          {currentCategory
+            ? Itemslist.find((listItem) => listItem === currentCategory)
             : "Välj kategori"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -45,20 +45,22 @@ export default function CategoryPicker({
       <PopoverContent className="md:w-[552px] w-[336px] p-0">
         <Command>
           <CommandList>
-            {list.map((listItem) => (
+            {Itemslist.map((listItem) => (
               <CommandItem
                 key={listItem}
                 value={listItem}
                 className="capitalize"
-                onSelect={(currentValue) => {
-                  setCategory(currentValue === category ? "" : currentValue);
+                onSelect={(selectedValue) => {
+                  setCurrentCategory(
+                    selectedValue === currentCategory ? "" : selectedValue
+                  );
                   setOpen(false);
                 }}
               >
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    category === listItem ? "opacity-100" : "opacity-0"
+                    currentCategory === listItem ? "opacity-100" : "opacity-0"
                   )}
                 />
                 {listItem}
