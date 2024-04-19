@@ -33,7 +33,7 @@ export default function PostPreviewForMobile({
           <DialogTitle>Förhandsvisning</DialogTitle>
           <DialogDescription className="text-black text-start">
             <PostComponent
-              post={postData}
+              postData={postData}
               email={email}
               fullName={fullName}
               isPreview={true}

@@ -287,7 +287,7 @@ export default function CreatePostComponent({
       </div>
       <div className="w-[600px] md:block hidden">
         <PostComponent
-          post={postData}
+          postData={postData}
           email={email}
           fullName={fullName}
           isPreview={true}

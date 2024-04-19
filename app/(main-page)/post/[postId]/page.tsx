@@ -14,22 +14,24 @@ interface PostIdPageProps {
 }
 
 export default async function PostIdPage({ params }: PostIdPageProps) {
-  const post = await getPostData(Number(params.postId));
+  const postData = await getPostData(Number(params.postId));
 
-  if (post) {
+  if (postData) {
     const { firstName, lastName, email } = await getNameAndEmailFromUserId({
-      userId: post.userId,
+      userId: postData.userId,
     });
-    const postUserRole = await getUserRoleFromUserId({ userId: post.userId });
+    const postUserRole = await getUserRoleFromUserId({
+      userId: postData.userId,
+    });
     const fullName = firstName + " " + lastName;
     return (
       <div className="md:max-w-screen-md max-w-[360px] mt-5 mx-auto">
-        <PostComponent post={post} email={email} fullName={fullName} />
+        <PostComponent postData={postData} email={email} fullName={fullName} />
         <div className="w-full flex justify-end md:mt-[-24px] mt-[-16px]">
           <PostModerationActions
-            postId={post.id}
+            postId={postData.id}
             postEmail={email}
-            postTitle={post.title}
+            postTitle={postData.title}
             postUserRole={postUserRole}
           />
         </div>

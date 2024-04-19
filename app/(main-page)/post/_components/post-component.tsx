@@ -11,21 +11,21 @@ import creationDateToString from "../../utils/creation-date-to-string";
 import getPostTypeSpecificData from "../../utils/get-post-type-specific-data";
 
 interface PostComponentProps {
-  post: Post;
+  postData: Post;
   email: string;
   fullName: string;
   isPreview?: boolean;
 }
 
 export default function PostComponent({
-  post,
+  postData,
   email,
   fullName,
   isPreview,
 }: PostComponentProps) {
-  const creationDateString = creationDateToString(post.createdAt);
+  const creationDateString = creationDateToString(postData.createdAt);
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
-    postType: post.postType,
+    postType: postData.postType,
   });
   return (
     <article className="md:pt-10 pt-3 md:px-16 px-6 md:pb-6 pb-4 md:max-w-screen-md max-w-[360px] bg-secondary rounded-2xl mx-auto">
@@ -36,7 +36,7 @@ export default function PostComponent({
           <section className="flex gap-x-1 items-center capitalize">
             <MapPin className="md:block hidden shrink-0" size={16} />
             <MapPin className="md:hidden block shrink-0" size={12} />
-            {post.location}
+            {postData.location}
           </section>
           <section className="flex text-end gap-x-1 text-nowrap items-center">
             <Clock className="md:block hidden" size={16} />
@@ -52,23 +52,23 @@ export default function PostComponent({
                 postTypeColor
               )}
             />
-            {post.postType}
+            {postData.postType}
           </section>
-          {post.hasCustomExpirationDate && (
+          {postData.hasCustomExpirationDate && (
             <section className="text-red-500 text-end">
               <p>{expirationDateText}</p>
-              <p>{post.expiresAt.toLocaleDateString("sv-SE")}</p>
+              <p>{postData.expiresAt.toLocaleDateString("sv-SE")}</p>
             </section>
           )}
         </div>
         <h1 className="w-full md:text-3xl text-2xl break-words">
-          {post.title}
+          {postData.title}
         </h1>
         <p className="w-full md:text-base text-xs md:pt-2 break-words">
-          {post.description}
+          {postData.description}
         </p>
         <Link
-          href={`/profile/${post.userId}`}
+          href={`/profile/${postData.userId}`}
           className={cn(
             "flex w-fit items-center mt-4 hover:opacity-70",
             isPreview ? "pointer-events-none" : ""
