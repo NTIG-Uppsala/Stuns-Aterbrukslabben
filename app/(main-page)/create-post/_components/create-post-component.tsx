@@ -12,7 +12,7 @@ import CategoryPicker from "./category-picker";
 import CreatePostAlertDialog from "./create-post-alert-dialog";
 import createPost from "../utils/create-post";
 import DatePicker from "./date-picker";
-import ErrorParagraph from "./error-paragraph";
+import FormErrorParagraph from "./form-error-paragraph";
 import FormHint from "./form-hint";
 import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
@@ -122,8 +122,8 @@ export default function CreatePostComponent({
                   value={firstName}
                 />
               </fieldset>
-              {errors.firstName && (
-                <ErrorParagraph content={errors.firstName.message} />
+              {errors.firstName?.message && (
+                <FormErrorParagraph content={errors.firstName.message} />
               )}
             </div>
             <div className="flex flex-col w-full">
@@ -152,8 +152,9 @@ export default function CreatePostComponent({
                 readOnly
               />
             </fieldset>
-
-            {errors.email && <ErrorParagraph content={errors.email.message} />}
+            {errors.email?.message && (
+              <FormErrorParagraph content={errors.email.message} />
+            )}
           </div>
           <div className="flex w-full flex-col">
             <div className="flex justify-between">
@@ -177,7 +178,9 @@ export default function CreatePostComponent({
               className="bg-primary w-full md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
               placeholder="Skriv titel här..."
             />
-            {errors.title && <ErrorParagraph content={errors.title.message} />}
+            {errors.title?.message && (
+              <FormErrorParagraph content={errors.title.message} />
+            )}
           </div>
 
           <div className="flex w-full flex-col">
@@ -203,8 +206,8 @@ export default function CreatePostComponent({
               className="resize-none w-full h-32 bg-primary md:text-base text-sm bg-opacity-40 px-2 py-1 rounded-sm"
               placeholder="Skriv beskrivning här..."
             ></textarea>
-            {errors.description && (
-              <ErrorParagraph content={errors.description.message} />
+            {errors.description?.message && (
+              <FormErrorParagraph content={errors.description.message} />
             )}
           </div>
           <div className="flex flex-col w-full">
@@ -224,8 +227,8 @@ export default function CreatePostComponent({
                 />
               )}
             />
-            {errors.categoryPicker && (
-              <ErrorParagraph content={errors.categoryPicker.message} />
+            {errors.categoryPicker?.message && (
+              <FormErrorParagraph content={errors.categoryPicker.message} />
             )}
           </div>
           <div className="flex justify-between">
@@ -246,8 +249,10 @@ export default function CreatePostComponent({
                   />
                 )}
               />
-              {errors.municipalityPicker && (
-                <ErrorParagraph content={errors.municipalityPicker.message} />
+              {errors.municipalityPicker?.message && (
+                <FormErrorParagraph
+                  content={errors.municipalityPicker.message}
+                />
               )}
             </div>
             <div className="flex flex-col">
