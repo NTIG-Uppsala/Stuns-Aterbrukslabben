@@ -21,7 +21,7 @@ export default function FormHint({ content }: FormHintProps) {
     <>
       <TooltipProvider>
         <Tooltip delayDuration={100}>
-          <TooltipTrigger className="md:block hidden" type="button">
+          <TooltipTrigger className="xl:block hidden" type="button">
             <HelpCircle strokeWidth={2} width={20} height={20} />
           </TooltipTrigger>
           <TooltipContent
@@ -35,7 +35,7 @@ export default function FormHint({ content }: FormHintProps) {
 
       {/* Mobile */}
       <Popover>
-        <PopoverTrigger className="md:hidden block">
+        <PopoverTrigger className="xl:hidden block">
           <HelpCircle strokeWidth={2} width={20} height={20} />
         </PopoverTrigger>
         <PopoverContent
