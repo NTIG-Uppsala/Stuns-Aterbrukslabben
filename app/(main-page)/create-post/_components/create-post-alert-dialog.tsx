@@ -23,9 +23,9 @@ export default function CreatePostAlertDialog({
       <AlertDialogTrigger className="bg-primary py-1 md:px-4 px-3 md:text-base text-sm rounded-sm">
         Skapa
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="max-w-2xl">
         <AlertDialogHeader>
-          <AlertDialogTitle>Skapa inlägg?</AlertDialogTitle>
+          <AlertDialogTitle className="flex justify-center">Skapa inlägg?</AlertDialogTitle>
           <h1 className="md:text-base text-sm text-center text-pretty">
             När du skänker eller tar emot begagnad utrustning, tänk på följande
           </h1>
@@ -66,7 +66,7 @@ export default function CreatePostAlertDialog({
             form="create-post-form"
             type="submit"
           >
-            Skapa
+            Skapa inlägg
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

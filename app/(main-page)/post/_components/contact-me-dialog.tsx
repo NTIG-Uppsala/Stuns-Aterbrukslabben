@@ -25,7 +25,7 @@ export default function ContactMeDialog({
           Kontakta mig
         </div>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-w-2xl">
         <DialogHeader>
           <h1 className="md:text-lg text-sm text-center text-pretty">
             När du skänker eller tar emot begagnad utrustning, tänk på följande
