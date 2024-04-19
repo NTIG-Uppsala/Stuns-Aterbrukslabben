@@ -14,7 +14,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-export default function CancelAlertDialog() {
+export default function CancelFormAlertDialog() {
   const router = useRouter();
   return (
     <AlertDialog>
