@@ -1,16 +1,23 @@
 "use server";
 
 import { db } from "@/lib/db";
+import { getUserId } from "@/utils/get-user-id";
 
 interface CreatePostProps {
   data: any;
 }
 
 export default async function createPost({ data }: CreatePostProps) {
+  const userId = getUserId();
+
+  if (!userId) {
+    return { error: "Kunde inte hämta användarinformation" };
+  }
+
   try {
     await db.post.create({
       data: {
-        userId: data.userId,
+        userId: userId,
         title: data.title,
         description: data.description,
         postType: data.postTypePicker,
