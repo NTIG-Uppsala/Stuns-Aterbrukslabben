@@ -1,17 +1,16 @@
 import { HelpCircle } from "lucide-react";
 
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 interface FormHintProps {
   content: string;
@@ -19,7 +18,7 @@ interface FormHintProps {
 
 export default function FormHint({ content }: FormHintProps) {
   return (
-    <div>
+    <>
       <TooltipProvider>
         <Tooltip delayDuration={100}>
           <TooltipTrigger className="md:block hidden" type="button">
@@ -46,6 +45,6 @@ export default function FormHint({ content }: FormHintProps) {
           {content}
         </PopoverContent>
       </Popover>
-    </div>
+    </>
   );
 }
