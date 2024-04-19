@@ -109,7 +109,7 @@ export default function CreatePostComponent({
             rules={{ required: true }}
             defaultValue="Erbjuds"
             render={({ field: { onChange, value } }) => (
-              <PostTypePicker postType={value} setPostType={onChange} />
+              <PostTypePicker currentPostType={value} setPostType={onChange} />
             )}
           />
           <div className="flex md:gap-x-8 gap-x-4 justify-between">
@@ -273,7 +273,11 @@ export default function CreatePostComponent({
             </div>
           </div>
           <div className="flex justify-between mt-5">
-            <PostPreviewForMobile postData={postData} email={email} fullName={fullName} />
+            <PostPreviewForMobile
+              postData={postData}
+              email={email}
+              fullName={fullName}
+            />
             <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
               <CancelFormAlertDialog />
               <CreatePostAlertDialog isSubmitting={isSubmitting} />
