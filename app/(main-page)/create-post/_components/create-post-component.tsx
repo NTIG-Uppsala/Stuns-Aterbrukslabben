@@ -133,12 +133,15 @@ export default function CreatePostComponent({
               </div>
               <fieldset disabled>
                 <input
-                  {...register("lastName")}
+                  {...register("lastName", { required: "Efternamn saknas" })}
                   className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                   value={lastName}
                   readOnly
                 />
               </fieldset>
+              {errors.lastName?.message && (
+                <FormErrorParagraph content={errors.lastName.message} />
+              )}
             </div>
           </div>
           <div className="flex w-full flex-col">
