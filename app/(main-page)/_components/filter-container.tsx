@@ -19,7 +19,7 @@ export default function FilterContainer({
   return (
     <div className="flex flex-col md:gap-y-3 gap-y-2 mt-4">
       <SearchBar labelText={labelText} itemsFoundCount={postCount} />
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center gap-x-2 w-full">
         <PostTypeButtons />
         <CreatePostLink />
       </div>
