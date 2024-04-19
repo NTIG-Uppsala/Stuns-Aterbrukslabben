@@ -38,7 +38,7 @@ export default function PostComponent({
             ? "/images/consumables.webp"
             : postData.category === "instrument/maskin"
             ? "/images/instrument.webp"
-            : "/images/missing-image.webp"
+            : "/images/image-missing.webp"
         }
         alt="Inläggets bild"
         width={600}

@@ -54,7 +54,7 @@ export default function PostCard({
                   ? "/images/consumables.webp"
                   : category === "instrument/maskin"
                   ? "/images/instrument.webp"
-                  : "/images/missing-image.webp"
+                  : "/images/image-missing.webp"
               }
               alt="Inläggets bild"
               width={400}
