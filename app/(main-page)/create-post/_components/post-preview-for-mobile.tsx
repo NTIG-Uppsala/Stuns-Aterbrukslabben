@@ -12,17 +12,17 @@ import type { Post } from "@prisma/client";
 
 import PostComponent from "../../post/_components/post-component";
 
-interface PostDialogProps {
+interface PostPreviewForMobileProps {
   postData: Post;
   email: string;
   fullName: string;
 }
 
-export default function PostDialog({
+export default function PostPreviewForMobile({
   postData,
   email,
   fullName,
-}: PostDialogProps) {
+}: PostPreviewForMobileProps) {
   return (
     <Dialog>
       <DialogTrigger className="md:hidden block whitespace-nowrap bg-primary md:px-4 px-3 rounded-sm md:text-base text-sm">

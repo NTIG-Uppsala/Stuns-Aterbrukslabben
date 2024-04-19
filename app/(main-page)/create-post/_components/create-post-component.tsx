@@ -16,9 +16,9 @@ import FormErrorParagraph from "./form-error-paragraph";
 import FormHint from "./form-hint";
 import FormLabel from "./form-label";
 import MunicipalityPicker from "./municipality-picker";
-import PostTypePicker from "./post-type-picker";
 import PostComponent from "../../post/_components/post-component";
-import PostDialog from "./post-dialog";
+import PostPreviewForMobile from "./post-preview-for-mobile";
+import PostTypePicker from "./post-type-picker";
 
 interface CreatePostComponentProps {
   firstName: string;
@@ -273,7 +273,7 @@ export default function CreatePostComponent({
             </div>
           </div>
           <div className="flex justify-between mt-5">
-            <PostDialog postData={postData} email={email} fullName={fullName} />
+            <PostPreviewForMobile postData={postData} email={email} fullName={fullName} />
             <div className="flex w-full justify-end md:gap-x-5 gap-x-2">
               <CancelFormAlertDialog />
               <CreatePostAlertDialog isSubmitting={isSubmitting} />
