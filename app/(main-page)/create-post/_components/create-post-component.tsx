@@ -102,7 +102,7 @@ export default function CreatePostComponent({
           className="flex flex-col gap-y-5"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center md:text-3xl text-xl ">SKAPA ETT INLÄGG</h1>
+          <h1 className="text-center md:text-3xl text-xl ">Skapa ett inlägg</h1>
           <Controller
             name="postTypePicker"
             control={control}

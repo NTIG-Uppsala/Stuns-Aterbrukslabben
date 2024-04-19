@@ -10,7 +10,7 @@ interface DeletePostProps {
   postEmail: string;
   postId: number;
   postTitle: string;
-  comment: string;
+  comment?: string;
 }
 
 export default async function deletePost({

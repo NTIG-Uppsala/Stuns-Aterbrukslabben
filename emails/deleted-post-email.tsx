@@ -5,7 +5,7 @@ import { Section, Text } from "@react-email/components";
 import EmailTemplate from "./components/email-template";
 
 interface DeletedPostEmailProps {
-  comment: string;
+  comment?: string;
   title: string;
 }
 
@@ -24,7 +24,7 @@ export default function DeletedPostEmail({
             brutit våra regler. Om du tror att det har skett ett fel och inte
             känner igen detta kan du höra av dig till oss.
           </Text>
-          {comment && comment.length > 0 && (
+          {comment && (
             <Section>
               <Text className="font-semibold">Kommentar från moderator</Text>
               <Text>{comment}</Text>
