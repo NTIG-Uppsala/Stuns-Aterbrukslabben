@@ -1,6 +1,7 @@
 "use client";
 
 import { Clock, MapPin, User } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -29,8 +30,21 @@ export default function PostComponent({
   });
   return (
     <article className="md:pt-10 pt-3 md:px-16 px-6 md:pb-6 pb-4 md:max-w-screen-md max-w-[360px] bg-secondary rounded-2xl mx-auto">
-      {/* Post image should replace the div below */}
-      <div className="aspect-[4/3] md:mt-0 mt-2 md:mx-10 bg-primary rounded-md" />
+      <Image
+        src={
+          postData.category === "inventarie"
+            ? "/images/inventory.webp"
+            : postData.category === "förbrukningsvara"
+            ? "/images/consumables.webp"
+            : postData.category === "instrument/maskin"
+            ? "/images/instrument.webp"
+            : ""
+        }
+        alt="Inläggets bild"
+        width={600}
+        height={450}
+        className="aspect-[4/3] w-full rounded-md"
+      />
       <div className="w-full flex flex-col gap-y-1">
         <div className="flex pt-2 md:text-base text-xs justify-between">
           <section className="flex gap-x-1 items-center capitalize">
