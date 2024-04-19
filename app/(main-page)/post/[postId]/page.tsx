@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
-import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
+
 import getPostData from "../../utils/get-post-data";
+import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostComponent from "../_components/post-component";
 import PostModerationActions from "../_components/post-moderation-actions";
 

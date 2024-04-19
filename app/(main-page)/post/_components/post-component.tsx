@@ -6,11 +6,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { Post } from "@prisma/client";
 
-import creationDateToString from "../../utils/creation-date-to-string";
 import ContactMeDialog from "./contact-me-dialog";
+import creationDateToString from "../../utils/creation-date-to-string";
 import getPostTypeSpecificData from "../../utils/get-post-type-specific-data";
 
-interface PostProps {
+interface PostComponentProps {
   post: Post;
   email: string;
   fullName: string;
@@ -22,7 +22,7 @@ export default function PostComponent({
   email,
   fullName,
   isPreview,
-}: PostProps) {
+}: PostComponentProps) {
   const creationDateString = creationDateToString(post.createdAt);
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: post.postType,
