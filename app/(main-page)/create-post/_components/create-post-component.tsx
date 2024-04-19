@@ -76,7 +76,7 @@ export default function CreatePostComponent({
 
   const categoryList = ["förbrukningsvara", "instrument/maskin", "inventarie"];
 
-  // UseState to prohibit multiple successful submissions of the form
+  // UseState to prevent multiple successful submissions of the form
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
