@@ -1,12 +1,13 @@
 import Link from "next/link";
 
+import DeletePostButton from "@/components/delete-post-button";
 import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
+import { getUserId } from "@/utils/get-user-id";
 
 import getPostData from "../../utils/get-post-data";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostComponent from "../_components/post-component";
 import PostModerationActions from "../_components/post-moderation-actions";
-import { checkRole } from "@/utils/check-role";
 
 interface PostIdPageProps {
   params: {
@@ -16,6 +17,7 @@ interface PostIdPageProps {
 
 export default async function PostIdPage({ params }: PostIdPageProps) {
   const postData = await getPostData(Number(params.postId));
+  const userId = getUserId();
 
   if (postData) {
     const { firstName, lastName, email } = await getNameAndEmailFromUserId({
@@ -29,15 +31,21 @@ export default async function PostIdPage({ params }: PostIdPageProps) {
       <div className="md:max-w-screen-md max-w-[360px] mt-5 mx-auto">
         <PostComponent postData={postData} email={email} fullName={fullName} />
         <div className="w-full flex justify-end md:mt-[-24px] mt-[-16px]">
-          {checkRole("admin") ||
-            (checkRole("moderator") && (
-              <PostModerationActions
-                postId={postData.id}
-                postEmail={email}
-                postTitle={postData.title}
-                postUserRole={postUserRole}
-              />
-            ))}
+          {userId === postData.userId ? (
+            <DeletePostButton
+              postId={postData.id}
+              postEmail={email}
+              postTitle={postData.title}
+              redirectPath="/"
+            />
+          ) : (
+            <PostModerationActions
+              postId={postData.id}
+              postEmail={email}
+              postTitle={postData.title}
+              postUserRole={postUserRole}
+            />
+          )}
         </div>
       </div>
     );
