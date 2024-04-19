@@ -17,7 +17,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-interface ComboboxProps {
+interface MunicipalityPickerProps {
   municipality: string;
   setMunicipality: (...event: any[]) => void;
   list: string[];
@@ -27,7 +27,7 @@ export default function MunicipalityPicker({
   municipality,
   setMunicipality,
   list,
-}: ComboboxProps) {
+}: MunicipalityPickerProps) {
   const [open, setOpen] = useState(false);
 
   return (

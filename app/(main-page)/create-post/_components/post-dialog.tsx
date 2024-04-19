@@ -1,7 +1,4 @@
 "use client";
-import type { Post } from "@prisma/client";
-
-import PostComponent from "../../post/_components/post-component";
 
 import {
   Dialog,
@@ -11,6 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import type { Post } from "@prisma/client";
+
+import PostComponent from "../../post/_components/post-component";
 
 interface PostDialogProps {
   postData: Post;
@@ -25,7 +25,7 @@ export default function PostDialog({
 }: PostDialogProps) {
   return (
     <Dialog>
-      <DialogTrigger className="md:hidden block whitespace-nowrap bg-primary py-1 md:px-4 px-3 rounded-sm md:text-base text-sm">
+      <DialogTrigger className="md:hidden block whitespace-nowrap bg-primary md:px-4 px-3 rounded-sm md:text-base text-sm">
         Se inlägg
       </DialogTrigger>
       <DialogContent>
