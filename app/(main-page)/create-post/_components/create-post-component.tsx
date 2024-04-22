@@ -114,9 +114,10 @@ export default function CreatePostComponent({
           />
           <div className="flex md:gap-x-8 gap-x-4 justify-between">
             <div className="flex flex-col w-full">
-              <FormLabel content="Förnamn" />
+              <FormLabel htmlFor="firstName" labelText="Förnamn" />
               <fieldset disabled>
                 <input
+                  id="firstName"
                   {...register("firstName", { required: "Förnamn saknas" })}
                   className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                   value={firstName}
@@ -128,11 +129,12 @@ export default function CreatePostComponent({
             </div>
             <div className="flex flex-col w-full">
               <div className="flex justify-between">
-                <FormLabel content="Efternamn" />
+                <FormLabel htmlFor="lastName" labelText="Efternamn" />
                 <FormHint content="Förnamn, efternamn och mejladress kan ändras via din profilsida" />
               </div>
               <fieldset disabled>
                 <input
+                  id="lastName"
                   {...register("lastName", { required: "Efternamn saknas" })}
                   className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                   value={lastName}
@@ -145,14 +147,16 @@ export default function CreatePostComponent({
             </div>
           </div>
           <div className="flex w-full flex-col">
-            <FormLabel content="Mejladress" />
+            <FormLabel htmlFor="email" labelText="Mejladress" />
             <fieldset disabled>
               <input
+                id="email"
                 {...register("email", { required: "Mejladress saknas" })}
                 type="email"
                 className="bg-primary w-full md:text-base text-sm px-2 py-1 rounded-sm"
                 value={email}
                 readOnly
+                autoComplete="off"
               />
             </fieldset>
             {errors.email?.message && (
@@ -161,10 +165,11 @@ export default function CreatePostComponent({
           </div>
           <div className="flex w-full flex-col">
             <div className="flex justify-between">
-              <FormLabel content="Titel" />
+              <FormLabel htmlFor="title" labelText="Titel" />
               <FormHint content="Max 40 tecken. Inkludera aldrig personuppgifter av något slag." />
             </div>
             <input
+              id="title"
               {...register("title", {
                 required: "Titel saknas",
                 maxLength: { value: 40, message: "Max 40 tecken" },
@@ -188,10 +193,11 @@ export default function CreatePostComponent({
 
           <div className="flex w-full flex-col">
             <div className="flex justify-between">
-              <FormLabel content="Beskrivning" />
+              <FormLabel htmlFor="description" labelText="Beskrivning" />
               <FormHint content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag." />
             </div>
             <textarea
+              id="description"
               {...register("description", {
                 required: "Beskrivning saknas",
                 maxLength: { value: 2000, message: "Max 2000 tecken" },
@@ -215,7 +221,7 @@ export default function CreatePostComponent({
           </div>
           <div className="flex flex-col w-full">
             <div className="flex justify-between">
-              <FormLabel content="Kategori" />
+              <h2 className="font-medium md:text-base text-sm">Kategori</h2>
               <FormHint content="Välj den kategori som bäst överensstämmer med produkten" />
             </div>
             <Controller
@@ -237,7 +243,7 @@ export default function CreatePostComponent({
           <div className="flex justify-between">
             <div className="flex flex-col">
               <div className="flex justify-between">
-                <FormLabel content="Kommun" />
+                <h2 className="font-medium md:text-base text-sm">Kommun</h2>
                 <FormHint content="Välj den kommun där produkten kan hämtas/överlämnas" />
               </div>
               <Controller
@@ -260,7 +266,9 @@ export default function CreatePostComponent({
             </div>
             <div className="flex flex-col">
               <div className="flex justify-between">
-                <FormLabel content="Slutdatum (frivilligt)" />
+                <h2 className="font-medium md:text-base text-sm">
+                  Slutdatum (frivilligt)
+                </h2>
                 <FormHint content="Ange sista datum då inlägget är aktuellt. Om ej ifylld får du en påminnelse efter sex månader." />
               </div>
               <Controller
