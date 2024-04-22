@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import DeletePostButton from "@/components/delete-post-button";
+import DeleteOwnPostButton from "../_components/delete-own-post-button";
 import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import { getUserId } from "@/utils/get-user-id";
 
@@ -32,12 +32,7 @@ export default async function PostIdPage({ params }: PostIdPageProps) {
         <PostComponent postData={postData} email={email} fullName={fullName} />
         <div className="w-full flex justify-end md:mt-[-24px] mt-[-16px]">
           {userId === postData.userId ? (
-            <DeletePostButton
-              postId={postData.id}
-              postEmail={email}
-              postTitle={postData.title}
-              redirectPath="/"
-            />
+            <DeleteOwnPostButton postData={postData} redirectPath="/" />
           ) : (
             <PostModerationActions
               postId={postData.id}

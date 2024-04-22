@@ -33,3 +33,15 @@ model SoonExpiringPosts {
   postId              Int
   postLink            String
 }
+
+model ArchivedPosts {
+  id                  Int        @id @default(autoincrement())
+  title               String     @db.VarChar(40)
+  description         String?    @db.Text
+  postType            String
+  category            String
+  location            String
+  createdAt           DateTime
+  hasCustomExpirationDate  Boolean
+  archivedAt          DateTime   @default(now())
+}

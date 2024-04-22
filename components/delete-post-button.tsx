@@ -22,7 +22,6 @@ interface DeletePostButtonProps {
   postTitle: string;
   redirectPath?: string;
   postEmail: string;
-  withComment?: boolean;
 }
 
 export default function DeletePostButton({
@@ -30,7 +29,6 @@ export default function DeletePostButton({
   postTitle,
   redirectPath,
   postEmail,
-  withComment,
 }: DeletePostButtonProps) {
   const router = useRouter();
   const [comment, setComment] = useState("");
@@ -63,30 +61,26 @@ export default function DeletePostButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          {withComment && (
-            <input
-              className="rounded-md p-2 w-full hidden sm:block"
-              type="text"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              onSubmit={(e) => e.preventDefault()}
-              placeholder="Kommentar (frivilligt)"
-            />
-          )}
+          <input
+            className="rounded-md p-2 w-full hidden sm:block"
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            onSubmit={(e) => e.preventDefault()}
+            placeholder="Kommentar (frivilligt)"
+          />
           <AlertDialogCancel>Avbryt</AlertDialogCancel>
           <AlertDialogAction variant="destructive" onClick={onDelete}>
             Ta bort
           </AlertDialogAction>
-          {withComment && (
-            <input
-              className="rounded-md p-2 w-full block sm:hidden mb-2"
-              type="text"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              onSubmit={(e) => e.preventDefault()}
-              placeholder="Kommentar (frivilligt)"
-            />
-          )}
+          <input
+            className="rounded-md p-2 w-full block sm:hidden mb-2"
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            onSubmit={(e) => e.preventDefault()}
+            placeholder="Kommentar (frivilligt)"
+          />
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
