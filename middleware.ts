@@ -7,6 +7,7 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/terms-of-service",
+    "/faq",
     "/api/webhooks(.*)",
     "/api/send-mail-to-expiring-posts(.*)",
     "/delete(.*)",
