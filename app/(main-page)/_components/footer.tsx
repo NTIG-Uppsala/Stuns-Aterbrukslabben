@@ -8,6 +8,12 @@ export default function Footer() {
       <div className="flex justify-around max-w-[1000px] py-10 mx-auto items-center w-full">
         <Logo />
         <Link
+          href="/faq"
+          className="md:text-base text-sm font-semibold hover:underline"
+        >
+          Vanliga frågor
+        </Link>
+        <Link
           href="/terms-of-service"
           className="md:text-base text-sm font-semibold hover:underline"
         >
