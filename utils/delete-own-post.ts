@@ -5,14 +5,14 @@ import { Post } from "@prisma/client";
 
 interface DeletePostProps {
   postData: Post;
-  reason: string;
+  successfulPost: Boolean;
 }
 
 export default async function deletePost({
   postData,
-  reason,
+  successfulPost,
 }: DeletePostProps) {
-  if (reason === "Avslutad")
+  if (successfulPost)
     try {
       await db.archivedPost.create({
         data: {

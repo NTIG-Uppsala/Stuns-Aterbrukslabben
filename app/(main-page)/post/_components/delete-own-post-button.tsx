@@ -1,9 +1,8 @@
 "use client";
 
+import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { Controller, useForm, SubmitHandler } from "react-hook-form";
 
 import {
   AlertDialog,
@@ -15,13 +14,13 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 import deleteOwnPost from "@/utils/delete-own-post";
 import { Post } from "@prisma/client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 import FormLabel from "../../create-post/_components/form-label";
 import FormErrorParagraph from "../../create-post/_components/form-error-paragraph";
-import { Button } from "@/components/ui/button";
 
 interface DeleteOwnPostButtonProps {
   postData: Post;
@@ -37,19 +36,18 @@ export default function DeleteOwnPostButton({
   redirectPath,
 }: DeleteOwnPostButtonProps) {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
   const router = useRouter();
-  const [reason, setReason] = useState("");
 
-  const onDelete = async () => {
+  const onDelete = async (data: Inputs) => {
+    const successfulPost = data.reason === "Successful" ? true : false;
     const result = await deleteOwnPost({
       postData,
-      reason,
+      successfulPost,
     });
-    setReason("");
     if (result && result.error) {
       toast.error(result.error);
     } else if (result && result.data) {
@@ -77,19 +75,26 @@ export default function DeleteOwnPostButton({
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
           <span className="text-base font-semibold">
-            Varför vill du ta bort inlägget?
+            Resulterade inlägget i en donation?
           </span>
-          <RadioGroup
-            className="flex items-center"
-            value={reason}
-            onValueChange={(value) => setReason(value)}
-            {...register("reason", { required: "Välj ett alternativ" })}
-          >
-            <FormLabel content="Avslutad" />
-            <RadioGroupItem value="Avslutad" />
-            <FormLabel content="Annat" />
-            <RadioGroupItem value="Annat" />
-          </RadioGroup>
+
+          <Controller
+            name="reason"
+            control={control}
+            rules={{ required: "Välj ett alternativ" }}
+            render={({ field: { onChange, value } }) => (
+              <RadioGroup
+                className="flex items-center"
+                value={value}
+                onValueChange={(value) => onChange(value)}
+              >
+                <FormLabel content="Ja" />
+                <RadioGroupItem value="Successful" />
+                <FormLabel content="Nej" />
+                <RadioGroupItem value="Unsuccessful" />
+              </RadioGroup>
+            )}
+          />
           {errors.reason?.message && (
             <FormErrorParagraph content={errors.reason.message} />
           )}
