@@ -67,15 +67,14 @@ export default function Navbar() {
               />
               <p
                 className={cn(
-                  "md:flex hidden text-xl font-medium",
+                  "md:block hidden text-xl font-medium",
                   source_sans_3.className
                 )}
               >
                 Skapa inlägg
               </p>
             </Link>
-            <div className="md:block hidden bg-black bg-opacity-70 w-[1px] h-1/2 " />
-            <div className="md:hidden block bg-black bg-opacity-70 w-[1px] h-2/5 " />
+            <div className="md:block hidden bg-black bg-opacity-70 w-[1px] md:h-1/2 h-2/5" />
             <div className="md:block hidden">
               <UserButton
                 afterSignOutUrl="/"
