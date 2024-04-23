@@ -23,7 +23,8 @@ export default function TermsOfServicePage() {
           <br />
           Du samtycker till att använda Återbrukslabbet endast för lagliga
           ändamål och i enlighet med dessa användarvillkor. Det är förbjudet att
-          använda plattformen för olaglig eller stötande verksamhet.
+          använda plattformen för olaglig eller stötande verksamhet. Det är även
+          förbjudet att utbyta pengar mot varor på plattformen.
         </li>
         <li>
           <span className="font-semibold">
@@ -66,9 +67,7 @@ export default function TermsOfServicePage() {
         dessa användarvillkor och förbinder dig att följa dem. Om du inte
         godkänner villkoren, vänligen avstå från att använda tjänsten.
       </p>
-      <p className="text-lg mt-4">
-        Tack för att du valt Återbrukslabbet!
-      </p>
+      <p className="text-lg mt-4">Tack för att du valt Återbrukslabbet!</p>
     </div>
   );
 }
