@@ -16,32 +16,29 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import deletePost from "@/utils/delete-post";
+import type { Post } from "@prisma/client";
 
 interface DeletePostButtonProps {
-  postId: number;
-  postTitle: string;
+  postData: Post;
   redirectPath?: string;
-  postEmail: string;
 }
 
 export default function DeletePostButton({
-  postId,
-  postTitle,
+  postData,
   redirectPath,
-  postEmail,
 }: DeletePostButtonProps) {
   const router = useRouter();
   const [comment, setComment] = useState("");
 
   const onDelete = async () => {
-    const result = await deletePost({ postId, postEmail, postTitle, comment });
+    const result = await deletePost({ postData, comment });
     setComment("");
     if (result && result.error) {
       toast.error(result.error);
     } else if (result && result.data) {
       redirectPath && router.push(redirectPath);
       router.refresh();
-      toast.success(postTitle + " " + result.data);
+      toast.success(postData.title + " " + result.data);
     } else {
       toast.error("Något gick fel");
     }

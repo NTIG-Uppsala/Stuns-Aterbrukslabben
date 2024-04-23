@@ -34,9 +34,7 @@ export default async function PostIdPage({ params }: PostIdPageProps) {
         <DeleteOwnPostButton postData={postData} redirectPath="/" />
       ) : checkRole("admin") || checkRole("moderator") ? (
         <PostModerationActions
-          postId={postData.id}
-          postEmail={email}
-          postTitle={postData.title}
+          postData={postData}
           postUserRole={postUserRole}
         />
       ) : undefined;
