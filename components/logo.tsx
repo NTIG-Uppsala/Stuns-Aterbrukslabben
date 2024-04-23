@@ -8,21 +8,10 @@ import { prompt } from "@/app/fonts";
 export default function Logo() {
   return (
     <Link href="/" className="flex md:gap-x-2 gap-x-1 items-center">
-      <Image
-        className="md:block hidden"
-        src={logo}
-        alt="Website logo"
-        width={40}
-        height={40}
-      />
-      <Image
-        className="md:hidden block"
-        src={logo}
-        alt="Website logo"
-        width={35}
-        height={35}
-      />
-      <div className={cn("md:text-2xl text-lg", prompt.className)}>Återbrukslabbet</div>
+      <Image src={logo} alt="Website logo" width={50} height={50} />
+      <div className={cn("md:block hidden text-2xl", prompt.className)}>
+        Återbrukslabbet
+      </div>
     </Link>
   );
 }

@@ -26,7 +26,12 @@ export default function Navbar() {
           <SignedIn>
             {(checkRole("admin") || checkRole("moderator")) && (
               <Link href="/admin">
-                <LockKeyhole strokeWidth={1} className="md:hidden block" />
+                <LockKeyhole
+                  strokeWidth={1}
+                  width={30}
+                  height={30}
+                  className="md:hidden block"
+                />
                 <p
                   className={cn(
                     "text-xl font-medium md:block hidden",
@@ -38,7 +43,12 @@ export default function Navbar() {
               </Link>
             )}
             <Link href={`/profile/${userId}`}>
-              <BookUser strokeWidth={1} className="md:hidden block" />
+              <BookUser
+                strokeWidth={1}
+                width={30}
+                height={30}
+                className="md:hidden block"
+              />
               <p
                 className={cn(
                   "text-xl font-medium md:block hidden",
@@ -49,8 +59,13 @@ export default function Navbar() {
               </p>
             </Link>
             <Link href="/create-post">
-              <PlusSquare strokeWidth={1} className="md:hidden block" />
-              <div className="md:flex hidden bg-cyan-600 text-white rounded-md px-4 py-[6px] gap-x-2 items-center">
+              <PlusSquare
+                strokeWidth={1}
+                width={30}
+                height={30}
+                className="md:hidden block"
+              />
+              <div className="md:flex hidden rounded-md px-4 py-[6px] gap-x-2 items-center">
                 <p
                   className={cn("text-xl font-medium", source_sans_3.className)}
                 >
