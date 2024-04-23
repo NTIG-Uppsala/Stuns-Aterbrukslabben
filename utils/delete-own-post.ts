@@ -5,16 +5,16 @@ import { Post } from "@prisma/client";
 
 interface DeletePostProps {
   postData: Post;
-  successfulPost: Boolean;
+  deletionReason: string;
 }
 
 export default async function deletePost({
   postData,
-  successfulPost,
+  deletionReason,
 }: DeletePostProps) {
-  if (successfulPost)
-    try {
-      await db.archivedPost.create({
+  try {
+    if (deletionReason) {
+      await db.archivedPosts.create({
         data: {
           title: postData.title,
           description: postData.description,
@@ -23,11 +23,13 @@ export default async function deletePost({
           location: postData.location,
           createdAt: postData.createdAt,
           hasCustomExpirationDate: postData.hasCustomExpirationDate,
+          deletionReason: deletionReason,
         },
       });
-    } catch (err) {
-      return { error: "Kunde inte arkivera inlägg" };
     }
+  } catch (err) {
+    return { error: "Kunde inte arkivera inlägg" };
+  }
 
   try {
     await db.post.delete({

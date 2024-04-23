@@ -36,12 +36,13 @@ model SoonExpiringPosts {
 
 model ArchivedPosts {
   id                  Int        @id @default(autoincrement())
+  deletionReason      String
+  archivedAt          DateTime   @default(now())
+  createdAt           DateTime
   title               String     @db.VarChar(40)
   description         String?    @db.Text
   postType            String
   category            String
   location            String
-  createdAt           DateTime
   hasCustomExpirationDate  Boolean
-  archivedAt          DateTime   @default(now())
 }

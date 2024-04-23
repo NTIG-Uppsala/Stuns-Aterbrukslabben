@@ -43,10 +43,9 @@ export default function DeleteOwnPostButton({
   const router = useRouter();
 
   const onDelete = async (data: Inputs) => {
-    const successfulPost = data.reason === "Successful" ? true : false;
     const result = await deleteOwnPost({
       postData,
-      successfulPost,
+      deletionReason: data.reason,
     });
     if (result && result.error) {
       toast.error(result.error);
@@ -89,9 +88,9 @@ export default function DeleteOwnPostButton({
                 onValueChange={(value) => onChange(value)}
               >
                 <FormLabel content="Ja" />
-                <RadioGroupItem value="Successful" />
+                <RadioGroupItem value="successful" />
                 <FormLabel content="Nej" />
-                <RadioGroupItem value="Unsuccessful" />
+                <RadioGroupItem value="unsuccessful" />
               </RadioGroup>
             )}
           />

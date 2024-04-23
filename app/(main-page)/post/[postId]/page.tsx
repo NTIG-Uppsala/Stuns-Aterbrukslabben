@@ -8,6 +8,7 @@ import getPostData from "../../utils/get-post-data";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostComponent from "../_components/post-component";
 import PostModerationActions from "../_components/post-moderation-actions";
+import { checkRole } from "@/utils/check-role";
 
 interface PostIdPageProps {
   params: {
@@ -27,21 +28,27 @@ export default async function PostIdPage({ params }: PostIdPageProps) {
       userId: postData.userId,
     });
     const fullName = firstName + " " + lastName;
+
+    const deleteButton =
+      userId === postData.userId ? (
+        <DeleteOwnPostButton postData={postData} redirectPath="/" />
+      ) : checkRole("admin") || checkRole("moderator") ? (
+        <PostModerationActions
+          postId={postData.id}
+          postEmail={email}
+          postTitle={postData.title}
+          postUserRole={postUserRole}
+        />
+      ) : undefined;
+
     return (
       <div className="md:max-w-screen-md max-w-[360px] mt-5 mx-auto">
-        <PostComponent postData={postData} email={email} fullName={fullName} />
-        <div className="w-full flex justify-end md:mt-[-24px] mt-[-16px]">
-          {userId === postData.userId ? (
-            <DeleteOwnPostButton postData={postData} redirectPath="/" />
-          ) : (
-            <PostModerationActions
-              postId={postData.id}
-              postEmail={email}
-              postTitle={postData.title}
-              postUserRole={postUserRole}
-            />
-          )}
-        </div>
+        <PostComponent
+          postData={postData}
+          email={email}
+          fullName={fullName}
+          deleteButton={deleteButton}
+        />
       </div>
     );
   } else {
