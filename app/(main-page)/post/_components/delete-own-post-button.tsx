@@ -19,8 +19,8 @@ import deleteOwnPost from "@/utils/delete-own-post";
 import { Post } from "@prisma/client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-import FormLabel from "../../create-post/_components/form-label";
 import FormErrorParagraph from "../../create-post/_components/form-error-paragraph";
+import FormLabel from "../../create-post/_components/form-label";
 
 interface DeleteOwnPostButtonProps {
   postData: Post;

@@ -4,9 +4,9 @@ import { checkRole } from "@/utils/check-role";
 import Pagination from "@/components/pagination";
 import SearchBar from "@/components/search-bar";
 
+import ExportArchivesButton from "./_components/export-archives-button";
 import getUserData from "./utils/get-user-data";
 import UserCard from "./_components/user-card";
-import ExportArchivesButton from "./_components/export-archives-button";
 
 interface AdminDashboardProps {
   searchParams: { search?: string; page?: string };

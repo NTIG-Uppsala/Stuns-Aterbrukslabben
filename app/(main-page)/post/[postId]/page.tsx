@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { checkRole } from "@/utils/check-role";
 import DeleteOwnPostButton from "../_components/delete-own-post-button";
 import getNameAndEmailFromUserId from "@/utils/get-name-and-email-from-user-id";
 import { getUserId } from "@/utils/get-user-id";
@@ -8,7 +9,6 @@ import getPostData from "../../utils/get-post-data";
 import getUserRoleFromUserId from "../../utils/get-user-role-from-user-id";
 import PostComponent from "../_components/post-component";
 import PostModerationActions from "../_components/post-moderation-actions";
-import { checkRole } from "@/utils/check-role";
 
 interface PostIdPageProps {
   params: {
