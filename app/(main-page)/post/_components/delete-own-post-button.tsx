@@ -69,14 +69,12 @@ export default function DeleteOwnPostButton({
           <AlertDialogDescription>
             Detta kommer
             <span className="font-bold"> permanent</span> ta bort inlägget.
-            <br />
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
           <span className="text-base font-semibold">
             Resulterade inlägget i en donation?
           </span>
-
           <Controller
             name="reason"
             control={control}
