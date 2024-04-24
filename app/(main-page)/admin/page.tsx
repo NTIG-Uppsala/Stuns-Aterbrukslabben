@@ -6,6 +6,7 @@ import SearchBar from "@/components/search-bar";
 
 import getUserData from "./utils/get-user-data";
 import UserCard from "./_components/user-card";
+import ExportArchivesButton from "./_components/export-archives-button";
 
 interface AdminDashboardProps {
   searchParams: { search?: string; page?: string };
@@ -32,6 +33,10 @@ export default async function AdminDashboard({
 
   return (
     <div className="max-w-screen-md mx-auto p-3 pt-10">
+      <div className="flex flex-col text-center items-center mb-10 p-3 w-full bg-white rounded-md">
+        <label className="text-xl pb-3">Exportera arkiverade inlägg</label>
+        <ExportArchivesButton />
+      </div>
       <SearchBar labelText={labelText} itemsFoundCount={queriedUserCount} />
       <div className="flex flex-col items-center mx-auto gap-y-3 pt-6">
         {usersList.map((user) => {

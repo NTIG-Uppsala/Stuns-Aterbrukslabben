@@ -47,7 +47,7 @@ export default async function deletePost({
         location: postData.location,
         createdAt: postData.createdAt,
         hasCustomExpirationDate: postData.hasCustomExpirationDate,
-        deletionReason: "Moderated",
+        deletionReason: "Modererad",
       },
     });
   } catch (err) {
