@@ -33,7 +33,7 @@ export default async function DeletePostByMailPage({
   }
 
   const response = await deletePostsByIds({ postsIds: [soonExpiringPost.id] });
-  if (response.error) {
+  if (response && response.error) {
     console.error(response.error);
     return <div>..Ojdå, något gick fel</div>;
   }
