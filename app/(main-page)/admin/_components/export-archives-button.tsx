@@ -6,10 +6,10 @@ import { saveAs } from "file-saver";
 
 import { Button } from "@/components/ui/button";
 
-import ExportArchivedPosts from "../utils/export-archived-posts";
+import GetArchivedPosts from "../utils/get-archived-posts";
 
 const onExport = async () => {
-  const archivedPosts = await ExportArchivedPosts();
+  const archivedPosts = await GetArchivedPosts();
 
   if (!archivedPosts) {
     toast.error("Inga arkiverade inlägg hittades");
