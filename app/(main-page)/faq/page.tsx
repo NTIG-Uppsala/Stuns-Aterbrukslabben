@@ -7,7 +7,7 @@ import {
 
 export default function FAQPage() {
   return (
-    <div className="flex flex-col w-[85ch] max-w-[100%] mx-auto px-6 py-8 md:mt-16 mt-12 rounded-md bg-secondary">
+    <div className="flex flex-col w-[85ch] max-w-full mx-auto px-6 py-8 md:mt-16 mt-12 rounded-md bg-secondary">
       <h1 className="md:text-2xl text-lg font-semibold mb-4">
         Vanliga frågor och svar
       </h1>
