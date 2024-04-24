@@ -13,7 +13,9 @@ export default function FAQPage() {
       </h1>
       <Accordion type="multiple">
         <AccordionItem value="item-1">
-          <AccordionTrigger>Vad är Återbrukslabbet?</AccordionTrigger>
+          <AccordionTrigger className="text-start">
+            Vad är Återbrukslabbet?
+          </AccordionTrigger>
           <AccordionContent className="text-base">
             Återbrukslabbet är en webbplats där du kan lägga upp inlägg för att
             skänka bort eller efterfråga begagnad labbutrustning. Meningen är
@@ -30,18 +32,18 @@ export default function FAQPage() {
           <AccordionContent className="text-base">
             En förbrukningsvara är menad att användas under en begränsad tid och
             behöver ersättas eller förnyas regelbundet. Förbrukningsvaror kan
-            inkludera saker som kemikalier, filter eller handskar. <br /> <br />{" "}
-            Ett instrument/maskin är ett verktyg som används inom labb för att
-            mäta värden eller utföra olika funktioner. Instrument/maskiner kan
-            inkludera mikroskop, spektrometrar och voltmetrar. <br /> <br />{" "}
-            Inventarie är hjälpmedel som används i labbmiljöer för att
-            underlätta i experiment. Inventarie kan inkludera kolvar, vågar och
-            provrör. <br /> <br /> Välj den kategori du anser att din produkt
-            bäst hör till när du skapar ett inlägg.
+            inkludera saker som kemikalier, filter eller handskar. <br /> <br />
+            Instrument/maskiner är verktyg som används inom laboratium för att
+            mäta värden eller utföra olika processer. Instrument/maskiner kan
+            inkludera mikroskop, PCR-maskiner, spektrometrar och voltmetrar.{" "}
+            <br /> <br /> Inventarie är hjälpmedel som används i labbmiljöer för
+            att underlätta i experiment. Inventarie kan inkludera kolvar, vågar,
+            resistorer och provrör. <br /> <br /> Välj den kategori du anser att
+            din produkt bäst överensstämmer med när du skapar ett inlägg.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
-          <AccordionTrigger>
+          <AccordionTrigger className="text-start">
             Får jag ta betalt för det jag erbjuder?
           </AccordionTrigger>
           <AccordionContent className="text-base">
@@ -53,8 +55,8 @@ export default function FAQPage() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-4">
-          <AccordionTrigger>
-            Hur fungerar slutdatum på ett inlägg?
+          <AccordionTrigger className="text-start">
+            Hur fungerar slutdatum för ett inlägg?
           </AccordionTrigger>
           <AccordionContent className="text-base">
             Om du sätter ett slutdatum på ditt inlägg kommer inlägget bli
@@ -65,7 +67,7 @@ export default function FAQPage() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
-          <AccordionTrigger>
+          <AccordionTrigger className="text-start">
             Varför syns slutdatum bara på vissa inlägg?
           </AccordionTrigger>
           <AccordionContent className="text-base">
@@ -75,7 +77,7 @@ export default function FAQPage() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-6">
-          <AccordionTrigger>
+          <AccordionTrigger className="text-start">
             Ett av mina inlägg verkar vara borttaget?
           </AccordionTrigger>
           <AccordionContent className="text-base">
@@ -85,6 +87,20 @@ export default function FAQPage() {
             det bryter mot våra användarvillkor. Om ett av dina inlägg är
             borttagna borde du ha fått ett mejl på din primära mejladress med
             anledningen.
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-7">
+          <AccordionTrigger className="text-start">
+            När jag tar bort mitt inlägg blir jag frågad om inlägget resulterade
+            i en donation?
+          </AccordionTrigger>
+          <AccordionContent className="text-base">
+            Om du försöker ta bort ditt inlägg skulle vi gärna vilja veta om
+            inlägget resulterade i en lyckad donation. Det vill säga att
+            labbutrustningen blev skänkt. En donation kan vara lyckad även om
+            inte all labbutrustning på inlägget blev donerat. Vi frågar om denna
+            information enbart för statistik och för att hitta
+            förbättringsmöjligheter.
           </AccordionContent>
         </AccordionItem>
       </Accordion>
