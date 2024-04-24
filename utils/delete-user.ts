@@ -2,7 +2,6 @@
 
 import { checkRole } from "@/utils/check-role";
 import { clerkClient } from "@clerk/nextjs";
-import { db } from "@/lib/db";
 
 import DeleteUserEmail from "../emails/deleted-user-email";
 import getUserEmail from "./get-user-email";
@@ -30,17 +29,6 @@ export default async function deleteUser({ id, comment }: DeleteUserProps) {
     return { error: "Obehörig" };
   }
 
-  let deletedPosts;
-  try {
-    deletedPosts = await db.post.deleteMany({
-      where: {
-        userId: id,
-      },
-    });
-  } catch {
-    return { error: "Kunde inte ta bort inlägg" };
-  }
-
   try {
     sendMail({
       toMail: userEmail,
@@ -57,5 +45,5 @@ export default async function deleteUser({ id, comment }: DeleteUserProps) {
     return { error: "Kunde inte ta bort användare" };
   }
 
-  return { data: userEmail, deletedPostCount: deletedPosts.count };
+  return { data: userEmail };
 }

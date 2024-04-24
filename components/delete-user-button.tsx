@@ -40,11 +40,6 @@ export default function DeleteUserButton({
       redirectPath && router.push(redirectPath);
       router.refresh();
       toast.success(result.data + " Borttagen");
-      if (result.deletedPostCount && result.deletedPostCount > 1) {
-        toast.success(result.deletedPostCount + " inlägg borttagna");
-      } else if (result.deletedPostCount && result.deletedPostCount === 1) {
-        toast.success(result.deletedPostCount + " inlägg borttaget");
-      }
     } else {
       toast.error("Något gick fel");
     }
