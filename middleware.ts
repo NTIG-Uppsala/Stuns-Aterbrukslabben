@@ -8,6 +8,7 @@ export default authMiddleware({
     "/",
     "/terms-of-service",
     "/faq",
+    "/about",
     "/api/webhooks(.*)",
     "/api/send-mail-to-expiring-posts(.*)",
     "/delete(.*)",

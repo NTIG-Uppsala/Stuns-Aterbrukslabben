@@ -16,6 +16,12 @@ export default function Footer() {
         >
           Användarvillkor
         </Link>
+        <Link
+          href="/about"
+          className="md:text-base text-sm font-semibold hover:underline"
+        >
+          Om oss
+        </Link>
       </div>
     </footer>
   );
