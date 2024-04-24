@@ -1,15 +1,15 @@
 "use client";
 
-import { toast } from "sonner";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 
-import GetArchivedPosts from "../utils/get-archived-posts";
+import getArchivedPosts from "../utils/get-archived-posts";
 
 const onExport = async () => {
-  const archivedPosts = await GetArchivedPosts();
+  const archivedPosts = await getArchivedPosts();
 
   if (!archivedPosts) {
     toast.error("Inga arkiverade inlägg hittades");

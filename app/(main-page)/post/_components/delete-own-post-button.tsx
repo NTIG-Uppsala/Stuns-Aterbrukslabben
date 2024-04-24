@@ -19,8 +19,8 @@ import deleteOwnPost from "@/utils/delete-own-post";
 import { Post } from "@prisma/client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-import FormLabel from "../../create-post/_components/form-label";
 import FormErrorParagraph from "../../create-post/_components/form-error-paragraph";
+import FormLabel from "../../create-post/_components/form-label";
 
 interface DeleteOwnPostButtonProps {
   postData: Post;
@@ -69,14 +69,12 @@ export default function DeleteOwnPostButton({
           <AlertDialogDescription>
             Detta kommer
             <span className="font-bold"> permanent</span> ta bort inlägget.
-            <br />
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
           <span className="text-base font-semibold">
             Resulterade inlägget i en donation?
           </span>
-
           <Controller
             name="reason"
             control={control}
