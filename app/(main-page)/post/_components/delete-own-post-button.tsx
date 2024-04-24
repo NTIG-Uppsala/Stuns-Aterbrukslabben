@@ -60,7 +60,7 @@ export default function DeleteOwnPostButton({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="text-destructive font-semibold hover:opacity-80">
+      <AlertDialogTrigger className="text-destructive font-semibold md:text-base text-sm hover:opacity-80">
         Ta bort inlägg
       </AlertDialogTrigger>
       <AlertDialogContent>
