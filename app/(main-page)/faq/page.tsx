@@ -35,7 +35,7 @@ export default function FAQPage() {
             inkludera saker som kemikalier, filter eller handskar. <br /> <br />
             Instrument/maskiner är verktyg som används inom laboratium för att
             mäta värden eller utföra olika processer. Instrument/maskiner kan
-            inkludera mikroskop, PCR-maskiner, spektrometrar och voltmetrar.{" "}
+            inkludera mikroskop, PCR-maskiner, spektrometrar och voltmetrar.
             <br /> <br /> Inventarie är hjälpmedel som används i labbmiljöer för
             att underlätta i experiment. Inventarie kan inkludera kolvar, vågar,
             resistorer och provrör. <br /> <br /> Välj den kategori du anser att

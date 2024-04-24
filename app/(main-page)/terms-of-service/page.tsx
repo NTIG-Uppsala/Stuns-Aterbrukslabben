@@ -10,16 +10,14 @@ export default function TermsOfServicePage() {
       </p>
       <ol className="flex flex-col gap-y-4 list-decimal md:px-8 px-4 mt-2">
         <li>
-          <span className="font-semibold">Ansvar för kontoinformation: </span>{" "}
+          <span className="font-semibold">Ansvar för kontoinformation:</span>
           <br />
           Du ansvarar för att tillhandahålla korrekt och uppdaterad information
           vid skapandet av ditt konto. Det är också ditt ansvar att skydda ditt
           lösenord och att inte dela dina inloggningsuppgifter med andra.
         </li>
         <li>
-          <span className="font-semibold">
-            Korrekt användning av tjänsten:{" "}
-          </span>
+          <span className="font-semibold">Korrekt användning av tjänsten:</span>
           <br />
           Du samtycker till att använda Återbrukslabbet endast för lagliga
           ändamål och i enlighet med dessa användarvillkor. Det är förbjudet att
@@ -27,9 +25,7 @@ export default function TermsOfServicePage() {
           förbjudet att utbyta pengar mot varor på plattformen.
         </li>
         <li>
-          <span className="font-semibold">
-            Integritet och personuppgifter:{" "}
-          </span>
+          <span className="font-semibold">Integritet och personuppgifter:</span>
           <br />
           Vi respekterar din integritet och kommer att hantera dina
           personuppgifter i enlighet med gällande lagstiftning. Genom att
@@ -37,14 +33,14 @@ export default function TermsOfServicePage() {
           personuppgifter i enlighet med densamma.
         </li>
         <li>
-          <span className="font-semibold">Innehållsansvar: </span>
+          <span className="font-semibold">Innehållsansvar:</span>
           <br />
           Du ansvarar för allt innehåll som du publicerar eller delar på
           Återbrukslabbet. Det är förbjudet att dela material som bryter mot
           upphovsrätten, är stötande, olagligt eller på annat sätt kränkande.
         </li>
         <li>
-          <span className="font-semibold">Begränsningar av ansvar: </span>
+          <span className="font-semibold">Begränsningar av ansvar:</span>
           <br />
           Återbrukslabbet friskriver sig från ansvar för eventuella skador eller
           förluster som uppstår till följd av användningen av tjänsten. Vi
@@ -52,9 +48,7 @@ export default function TermsOfServicePage() {
           dess tillgänglighet eller funktionalitet.
         </li>
         <li>
-          <span className="font-semibold">
-            Ändringar av användarvillkoren:{" "}
-          </span>
+          <span className="font-semibold">Ändringar av användarvillkoren:</span>
           <br />
           Vi förbehåller oss rätten att när som helst ändra dessa
           användarvillkor. Eventuella ändringar kommer att meddelas på
