@@ -31,17 +31,65 @@ export default function AboutPage() {
       <div className="flex flex-col">
         Utvecklare våren 2024:
         <div>
+          Simon Clavensjö,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="mailto:simon@clavensjo.se"
+          >
+            simon@clavensjo.se
+          </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://www.linkedin.com/in/simon-clavensj%C3%B6-a6059021b/"
+          >
+            LinkedIn
+          </a>
+        </div>
+        <div>
           Lukas Gustafsson,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:lukashansgustafsson@gmail.com"
           >
-            Email
+            lukashansgustafsson@gmail.com
           </a>
           ,{" "}
           <a
             className="hover:underline text-blue-600"
-            href="www.linkedin.com/in/lukas-gustafsson-b4296b293"
+            href="https://www.linkedin.com/in/lukas-gustafsson-b4296b293/"
+          >
+            LinkedIn
+          </a>
+        </div>
+        <div>
+          Mohamad Hamdan,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="mailto:Hamdan756@icloud.com"
+          >
+            Hamdan756@icloud.com
+          </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://www.linkedin.com/in/mohamad-hamdan-874670297/"
+          >
+            LinkedIn
+          </a>
+        </div>
+        <div>
+          Ambjörn Hogmark,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="mailto:ambehog04@gmail.com"
+          >
+            ambehog04@gmail.com
+          </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://www.linkedin.com/in/ambj%C3%B6rn-hogmark-a86801293/"
           >
             LinkedIn
           </a>
