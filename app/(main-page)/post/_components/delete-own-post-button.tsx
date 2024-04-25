@@ -85,9 +85,9 @@ export default function DeleteOwnPostButton({
                 value={value}
                 onValueChange={(value) => onChange(value)}
               >
-                <FormLabel content="Ja" />
+                <FormLabel labelText="Ja" />
                 <RadioGroupItem value="Lyckad" />
-                <FormLabel content="Nej" />
+                <FormLabel labelText="Nej" />
                 <RadioGroupItem value="Olyckad" />
               </RadioGroup>
             )}
