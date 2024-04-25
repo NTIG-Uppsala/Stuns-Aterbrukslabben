@@ -18,10 +18,10 @@ export default function FAQPage() {
           </AccordionTrigger>
           <AccordionContent className="text-base">
             Återbrukslabbet är en webbplats där du kan lägga upp inlägg för att
-            skänka bort eller efterfråga begagnad labbutrustning. Meningen är
-            att användare ska kunna skänka bort labbutrustning för att det ska
-            användas i ett pedagogiskt syfte istället för att utrustningen
-            slängs i onödan.
+            skänka bort eller efterfråga begagnad labbutrustning. Syftet är att
+            användare ska kunna donera och efterfråga labbutrustning för
+            användning i ett pedagogiskt syfte. Detta istället för att
+            utrustningen till exempel slängs i onödan.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
@@ -60,10 +60,14 @@ export default function FAQPage() {
           </AccordionTrigger>
           <AccordionContent className="text-base">
             Om du sätter ett slutdatum på ditt inlägg kommer inlägget bli
-            borttaget på den dagen du satte. Du kommer också bli frågad på mejl
-            om du skulle vilja förlänga inlägget både en vecka och en dag innan
-            slutdatumet. Om du inte sätter ett datum kommer slutdatumet
-            automatiskt vara om 6 månader.
+            borttaget på ditt valda datum. När ditt slutdatum närmar sig kommer
+            du få påminnelser på din mejl. Om du väljer att inte sätta ett
+            slutdatum kommer du få påminnelser efter 6 månader att förlänga
+            inlägget om det fortfarande är aktuellt, annars kommer det tas bort.
+            <br />
+            <br />
+            Detta görs för att hålla Återbrukslabbet uppdaterat och säkerställa
+            att inläggen som finns på sidan är aktuella.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
@@ -81,12 +85,11 @@ export default function FAQPage() {
             Ett av mina inlägg verkar vara borttaget?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Om du märker att ett av dina inlägg skulle vara borttaget kan det
-            bero på att inlägget har nått sitt slutdatum och du inte förlängt
-            det. Det kan också vara att en moderator tagit bort ditt inlägg om
-            det bryter mot våra användarvillkor. Om ett av dina inlägg är
-            borttagna borde du ha fått ett mejl på din primära mejladress med
-            anledningen.
+            Om du märker att ett av dina inlägg är borttaget kan det bero på att
+            inlägget har nått sitt slutdatum utan att du har förlängt det. Det
+            kan också bero på att en moderator har tagit bort ditt inlägg om det
+            bryter mot våra användarvillkor. Om ett av dina inlägg är borttagna
+            bör du ha fått ett mejl på din primära mejladress med anledningen.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-7">
@@ -95,10 +98,10 @@ export default function FAQPage() {
             i en donation?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Om du försöker ta bort ditt inlägg skulle vi gärna vilja veta om
-            inlägget resulterade i en lyckad donation. Det vill säga att
-            labbutrustningen blev skänkt. En donation kan vara lyckad även om
-            inte all labbutrustning på inlägget blev donerat. Vi frågar om denna
+            När du ska ta bort ditt inlägg vill vi gärna vilja veta om inlägget
+            resulterade i en lyckad donation. Det vill säga att labbutrustning
+            blev skänkt. En donation kan vara lyckad även om inte all
+            labbutrustning på inlägget blev donerat. Vi frågar om denna
             information enbart för statistik och för att hitta
             förbättringsmöjligheter.
           </AccordionContent>
