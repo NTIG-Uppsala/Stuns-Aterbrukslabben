@@ -34,7 +34,7 @@ export default async function DeletePostByMailPage({
 
   const response = await deletePostsByIds({
     postsIds: [soonExpiringPost.id],
-    deletionReason: "Olyckad",
+    deletionReason: "Borttagen via mejl",
   });
   if (response && response.error) {
     console.error(response.error);
