@@ -72,9 +72,9 @@ export default function DeleteOwnPostButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
-          <span className="text-base font-semibold">
+          <h2 className="text-base font-semibold">
             Resulterade inlägget i en donation?
-          </span>
+          </h2>
           <Controller
             name="reason"
             control={control}
@@ -85,9 +85,9 @@ export default function DeleteOwnPostButton({
                 value={value}
                 onValueChange={(value) => onChange(value)}
               >
-                <FormLabel labelText="Ja" />
+                <h3>Ja</h3>
                 <RadioGroupItem value="Lyckad" />
-                <FormLabel labelText="Nej" />
+                <h3>Nej</h3>
                 <RadioGroupItem value="Olyckad" />
               </RadioGroup>
             )}
