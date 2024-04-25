@@ -21,7 +21,7 @@ const onExport = async () => {
 
   worksheet.columns = [
     { header: "Id", key: "id", width: 10 },
-    { header: "Resultat", key: "deletionReason", width: 20 },
+    { header: "Anledning", key: "deletionReason", width: 20 },
     { header: "Arkiveringsdatum", key: "archivedAt", width: 24 },
     { header: "Skapad", key: "createdAt", width: 24 },
     { header: "Plats", key: "location", width: 28 },
