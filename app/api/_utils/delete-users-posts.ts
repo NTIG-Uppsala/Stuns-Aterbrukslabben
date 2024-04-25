@@ -28,7 +28,7 @@ export default async function deleteUsersPosts({
     posts.forEach(async (post) => {
       await archivePost({
         postData: post,
-        deletionReason: "Användare bortagen",
+        deletionReason: "Användare borttagen",
       });
     });
   } catch {
