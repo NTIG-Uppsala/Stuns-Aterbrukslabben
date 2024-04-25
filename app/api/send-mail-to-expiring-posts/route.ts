@@ -103,7 +103,10 @@ export async function POST() {
     }
     postsToDeleteIds.push(post.id);
   }
-  await deletePostsByIds({ postsIds: postsToDeleteIds });
+  await deletePostsByIds({
+    postsIds: postsToDeleteIds,
+    deletionReason: "Utgånget inlägg",
+  });
   const mailAmount =
     postsExpiringInOneWeek.length +
     postsExpiringTomorrow.length +

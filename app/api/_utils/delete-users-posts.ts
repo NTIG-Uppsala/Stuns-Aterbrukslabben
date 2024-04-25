@@ -1,5 +1,6 @@
 "use server";
 
+import archivePost from "@/utils/archive-post";
 import { db } from "@/lib/db";
 
 interface DeleteUsersPostsProps {
@@ -25,18 +26,9 @@ export default async function deleteUsersPosts({
 
   try {
     posts.forEach(async (post) => {
-      await db.archivedPosts.create({
-        data: {
-          deletionReason: "Användare bortagen",
-          archivedAt: new Date(),
-          createdAt: post.createdAt,
-          location: post.location,
-          title: post.title,
-          description: post.description,
-          postType: post.postType,
-          category: post.category,
-          hasCustomExpirationDate: post.hasCustomExpirationDate,
-        },
+      await archivePost({
+        postData: post,
+        deletionReason: "Användare bortagen",
       });
     });
   } catch {

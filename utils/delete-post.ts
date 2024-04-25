@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import DeletedPostEmail from "@/emails/deleted-post-email";
 import type { Post } from "@prisma/client";
 
+import archivePost from "./archive-post";
 import getNameAndEmailFromUserId from "./get-name-and-email-from-user-id";
 import sendMail from "./send-mail";
 
@@ -38,18 +39,7 @@ export default async function deletePost({
   }
 
   try {
-    await db.archivedPosts.create({
-      data: {
-        title: postData.title,
-        description: postData.description,
-        postType: postData.postType,
-        category: postData.category,
-        location: postData.location,
-        createdAt: postData.createdAt,
-        hasCustomExpirationDate: postData.hasCustomExpirationDate,
-        deletionReason: "Modererad",
-      },
-    });
+    await archivePost({ postData, deletionReason: "Modererad" });
   } catch (err) {
     return { error: "Kunde inte arkivera inlägg" };
   }

@@ -1,11 +1,15 @@
 import { db } from "@/lib/db";
 
+import archivePost from "./archive-post";
+
 interface DeletePostsByIdProps {
   postsIds: number[];
+  deletionReason: string;
 }
 
 export default async function deletePostsByIds({
   postsIds,
+  deletionReason,
 }: DeletePostsByIdProps) {
   const [posts] = await db.$transaction([
     db.post.findMany({
@@ -27,19 +31,7 @@ export default async function deletePostsByIds({
 
   try {
     posts.forEach(async (post) => {
-      await db.archivedPosts.create({
-        data: {
-          deletionReason: "Utgånget inlägg",
-          archivedAt: new Date(),
-          createdAt: post.createdAt,
-          location: post.location,
-          title: post.title,
-          description: post.description,
-          postType: post.postType,
-          category: post.category,
-          hasCustomExpirationDate: post.hasCustomExpirationDate,
-        },
-      });
+      await archivePost({ postData: post, deletionReason });
     });
   } catch {
     return { error: "Failed to archive user's posts" };
