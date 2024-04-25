@@ -27,7 +27,7 @@ export default async function deleteUsersPosts({
     posts.forEach(async (post) => {
       await db.archivedPosts.create({
         data: {
-          deletionReason: "Användare bortagen",
+          deletionReason: "Användare borttagen",
           archivedAt: new Date(),
           createdAt: post.createdAt,
           location: post.location,
