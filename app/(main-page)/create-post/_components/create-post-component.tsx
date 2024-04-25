@@ -36,7 +36,7 @@ interface FormInputs {
   description: string;
   categoryPicker: string;
   municipalityPicker: string;
-  datePicker: Date;
+  datePicker: any;
 }
 
 export default function CreatePostComponent({
@@ -80,6 +80,13 @@ export default function CreatePostComponent({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
+    // Adjust the date created by the datePicker component to midnight in UTC time
+    data.datePicker = new Date(
+      data.datePicker.getTime() -
+        data.datePicker.getTimezoneOffset() * 60 * 1000
+    );
+    // Make the date into an ISOString to remove unnecessary information regarding timezone from the object
+    data.datePicker = data.datePicker.toISOString().split("T")[0];
     setIsSubmitting(true);
     const result = await createPost({ data });
     if (result && result.error) {
