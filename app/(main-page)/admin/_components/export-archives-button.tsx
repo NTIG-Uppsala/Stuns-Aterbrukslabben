@@ -12,12 +12,12 @@ const onExport = async () => {
   const archivedPosts = await getArchivedPosts();
 
   if (!archivedPosts) {
-    toast.error("Inga arkiverade inlägg hittades");
+    toast.error("Inga arkiverade annonser hittades");
     return;
   }
 
   const workbook = new ExcelJS.Workbook();
-  const worksheet = workbook.addWorksheet("Arkiverade inlägg");
+  const worksheet = workbook.addWorksheet("Arkiverade annonser");
 
   worksheet.columns = [
     { header: "Id", key: "id", width: 10 },
@@ -27,7 +27,7 @@ const onExport = async () => {
     { header: "Plats", key: "location", width: 28 },
     { header: "Titel", key: "title", width: 32 },
     { header: "Beskrivning", key: "description", width: 32 },
-    { header: "Inläggstyp", key: "postType", width: 20 },
+    { header: "Annonstyp", key: "postType", width: 20 },
     { header: "Kategori", key: "category", width: 24 },
     { header: "Angett slutdatum", key: "hasCustomExpirationDate", width: 16 },
   ];
@@ -48,7 +48,7 @@ const onExport = async () => {
     saveAs(new Blob([buffer]), `ArkiveradeInlagg.xlsx`);
   });
 
-  return toast.success("Arkiverade inlägg exporterade");
+  return toast.success("Arkiverade annonser exporterade");
 };
 
 export default function ExportArchivesButton() {

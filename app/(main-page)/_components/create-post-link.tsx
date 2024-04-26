@@ -8,7 +8,7 @@ export default function CreatePostLink() {
       href="/create-post"
     >
       <Plus className="md:w-6 md:h-6 w-4 h-4" />
-      <p className="md:text-lg text-xs">Skapa inlägg</p>
+      <p className="md:text-lg text-xs">Skapa annons</p>
     </Link>
   );
 }

@@ -12,7 +12,7 @@ export default async function getArchivedPosts() {
   }
 
   if (!posts) {
-    return { error: "Inga arkiverade inlägg hittades" };
+    return { error: "Inga arkiverade annonser hittades" };
   } else {
     return posts;
   }

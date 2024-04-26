@@ -13,13 +13,13 @@ interface ExpiringPostsEmailsProps {
 export function PostExpiredCustomMail({ postTitle }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" har tagits bort`}
-      header={`Ditt inlägg "${postTitle}" har blivit borttaget`}
+      preview={`Din annons "${postTitle}" har tagits bort`}
+      header={`Din annons "${postTitle}" har blivit borttaget`}
       main={
         <>
           <Text>
-            Din valda tidsperiod för ditt inlägg har nu gått ut. Eftersom
-            inlägget inte förlängdes har det nu blivit borttaget.
+            Din valda tidsperiod för din annons har nu gått ut. Eftersom
+            annonsen inte förlängdes har det nu blivit borttaget.
           </Text>
         </>
       }
@@ -30,13 +30,13 @@ export function PostExpiredCustomMail({ postTitle }: ExpiringPostsEmailsProps) {
 export function PostExpiredMail({ postTitle }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" har tagits bort`}
-      header={`Ditt inlägg "${postTitle}" har blivit borttaget`}
+      preview={`Din annons "${postTitle}" har tagits bort`}
+      header={`Din annons "${postTitle}" har blivit borttaget`}
       main={
         <>
           <Text>
-            Det har nu gått 6 månader sen du publicerade inlägget eller förnyade
-            dess utgångsdatum. Eftersom inlägget inte förlängdes har det nu
+            Det har nu gått 6 månader sen du publicerade annonsen eller förnyade
+            dess utgångsdatum. Eftersom annonsen inte förlängdes har det nu
             blivit borttaget.
           </Text>
         </>
@@ -52,14 +52,14 @@ export function PostExpiresInAWeekCustomMail({
 }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
-      header={`Ditt inlägg "${postTitle}" tas snart bort`}
+      preview={`Din annons "${postTitle}" kommer tas bort om en vecka`}
+      header={`Din annons "${postTitle}" tas snart bort`}
       main={
         <>
           <Text>
-            Din valda tidsperiod för inlägget har snart gått ut. Du kan förlänga
-            inlägget om det fortfarande är aktuellt eller så kan du ta bort
-            inlägget. Om inget görs kommer inlägget att tas bort om en vecka.
+            Din valda tidsperiod för annonsen har snart gått ut. Du kan förlänga
+            annonsen om det fortfarande är aktuellt eller så kan du ta bort den.
+            Om inget görs kommer annonsen att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -76,7 +76,7 @@ export function PostExpiresInAWeekCustomMail({
             </Button>
           </Section>
           <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-            Gå till inlägg
+            Gå till annons
           </Link>
         </>
       }
@@ -91,15 +91,15 @@ export function PostExpiresInAWeekMail({
 }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" kommer tas bort om en vecka`}
-      header={`Ditt inlägg "${postTitle}" tas snart bort`}
+      preview={`Din annons "${postTitle}" kommer tas bort om en vecka`}
+      header={`Din annons "${postTitle}" tas snart bort`}
       main={
         <>
           <Text>
-            Det har snart gått 6 månader sen du publicerade inlägget eller
-            förnyade dess utgångsdatum. Du kan förlänga inlägget om det
-            fortfarande är aktuellt eller så kan du ta bort inlägget. Om inget
-            görs kommer inlägget att tas bort om en vecka.
+            Det har snart gått 6 månader sen du publicerade annonsen eller
+            förnyade dess utgångsdatum. Du kan förlänga annonsen om det
+            fortfarande är aktuellt eller så kan du ta bort den. Om inget görs
+            kommer annonsen att tas bort om en vecka.
           </Text>
           <Section className="mb-6">
             <Button
@@ -116,7 +116,7 @@ export function PostExpiresInAWeekMail({
             </Button>
           </Section>
           <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-            Gå till inlägg
+            Gå till annons
           </Link>
         </>
       }
@@ -131,14 +131,14 @@ export function PostExpiresTomorrowCustomMail({
 }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
-      header={`Ditt inlägg "${postTitle}" tas bort imorgon`}
+      preview={`Din annons "${postTitle}" kommer tas bort imorgon`}
+      header={`Din annons "${postTitle}" tas bort imorgon`}
       main={
         <>
           <Text>
-            Din valda tidsperiod för inlägget tar slut imorgon. Du kan förlänga
-            inlägget om det fortfarande är aktuellt eller så kan du ta bort
-            inlägget. Om inget görs kommer inlägget att tas bort imorgon.
+            Din valda tidsperiod för annonsen tar slut imorgon. Du kan förlänga
+            annonsen om det fortfarande är aktuellt eller så kan du ta bort den.
+            Om inget görs kommer annonsen att tas bort imorgon.
           </Text>
           <Section className="mb-6">
             <Button
@@ -155,7 +155,7 @@ export function PostExpiresTomorrowCustomMail({
             </Button>
           </Section>
           <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-            Gå till inlägg
+            Gå till annonsen
           </Link>
         </>
       }
@@ -170,15 +170,15 @@ export function PostExpiresTomorrowMail({
 }: ExpiringPostsEmailsProps) {
   return (
     <EmailTemplate
-      preview={`Ditt inlägg "${postTitle}" kommer tas bort imorgon`}
-      header={`Ditt inlägg "${postTitle}" tas bort imorgon`}
+      preview={`Din annons "${postTitle}" kommer tas bort imorgon`}
+      header={`Din annons "${postTitle}" tas bort imorgon`}
       main={
         <>
           <Text>
-            Det har snart gått 6 månader sen du publicerade inlägget eller
-            förnyade dess utgångsdatum. Du kan förlänga inlägget om det
-            fortfarande är aktuellt eller så kan du ta bort inlägget. Om inget
-            görs kommer inlägget att tas bort imorgon.
+            Det har snart gått 6 månader sen du publicerade annonsen eller
+            förnyade dess utgångsdatum. Du kan förlänga annonsen om den
+            fortfarande är aktuellt eller så kan du ta bort den. Om inget görs
+            kommer annonsen att tas bort imorgon.
           </Text>
           <Section className="mb-6">
             <Button
@@ -195,7 +195,7 @@ export function PostExpiresTomorrowMail({
             </Button>
           </Section>
           <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/post/${postId}`}>
-            Gå till inlägg
+            Gå till annons
           </Link>
         </>
       }

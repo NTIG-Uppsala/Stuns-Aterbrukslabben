@@ -47,14 +47,14 @@ export default function DeletePostButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger className="text-destructive font-semibold hover:opacity-80">
-        Ta bort inlägg
+        Ta bort annons
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Är du säker?</AlertDialogTitle>
           <AlertDialogDescription>
             Detta kommer
-            <span className="font-bold"> permanent</span> ta bort inlägget.
+            <span className="font-bold"> permanent</span> ta bort annonsen.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

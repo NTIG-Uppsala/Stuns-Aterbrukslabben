@@ -82,7 +82,7 @@ export default function ChangeRoleButton({
               Detta kommer att göra{" "}
               <span className="font-semibold break-all">{email}</span> till
               moderator. <br /> Moderatorer har tillgång till fler funktioner så
-              som att ta bort inlägg och användare.
+              som att ta bort annonser och användare.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

@@ -34,7 +34,7 @@ export async function POST() {
     if (post.hasCustomExpirationDate) {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg går ut om en vecka",
+        subject: "Din annons går ut om en vecka",
         mailTemplate: PostExpiresInAWeekCustomMail({
           postTitle: post.title,
           postLink,
@@ -44,7 +44,7 @@ export async function POST() {
     } else {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg går ut om en vecka",
+        subject: "Din annons går ut om en vecka",
         mailTemplate: PostExpiresInAWeekMail({
           postTitle: post.title,
           postLink,
@@ -60,7 +60,7 @@ export async function POST() {
     if (post.hasCustomExpirationDate) {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg går ut imorgon",
+        subject: "Din annons går ut imorgon",
         mailTemplate: PostExpiresTomorrowCustomMail({
           postTitle: post.title,
           postLink,
@@ -70,7 +70,7 @@ export async function POST() {
     } else {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg går ut imorgon",
+        subject: "Din annons går ut imorgon",
         mailTemplate: PostExpiresTomorrowMail({
           postTitle: post.title,
           postLink,
@@ -87,7 +87,7 @@ export async function POST() {
     if (post.hasCustomExpirationDate) {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg har tagits bort",
+        subject: "Din annons har tagits bort",
         mailTemplate: PostExpiredCustomMail({
           postTitle: post.title,
         }),
@@ -95,7 +95,7 @@ export async function POST() {
     } else {
       sendMail({
         toMail: email,
-        subject: "Ditt inlägg har tagits bort",
+        subject: "Din annons har tagits bort",
         mailTemplate: PostExpiredMail({
           postTitle: post.title,
         }),
@@ -105,7 +105,7 @@ export async function POST() {
   }
   await deletePostsByIds({
     postsIds: postsToDeleteIds,
-    deletionReason: "Utgånget inlägg",
+    deletionReason: "Utgången annons",
   });
   const mailAmount =
     postsExpiringInOneWeek.length +

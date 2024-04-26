@@ -17,7 +17,7 @@ export default async function deletePost({
   try {
     await archivePost({ postData, deletionReason });
   } catch (err) {
-    return { error: "Kunde inte arkivera inlägg" };
+    return { error: "Kunde inte arkivera annons" };
   }
 
   try {
@@ -28,6 +28,6 @@ export default async function deletePost({
     });
     return { data: "borttagen" };
   } catch {
-    return { error: "Kunde inte ta bort inlägg" };
+    return { error: "Kunde inte ta bort annons" };
   }
 }

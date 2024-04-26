@@ -28,7 +28,7 @@ export default async function deletePost({
   try {
     sendMail({
       toMail: email,
-      subject: "Ditt inlägg har blivit borttaget",
+      subject: "Din annons har blivit borttaget",
       mailTemplate: DeletedPostEmail({
         comment: comment,
         title: postData.title,
@@ -41,7 +41,7 @@ export default async function deletePost({
   try {
     await archivePost({ postData, deletionReason: "Modererad" });
   } catch (err) {
-    return { error: "Kunde inte arkivera inlägg" };
+    return { error: "Kunde inte arkivera annons" };
   }
 
   try {
@@ -52,6 +52,6 @@ export default async function deletePost({
     });
     return { data: "borttagen" };
   } catch (err) {
-    return { error: "Kunde inte ta bort inlägg" };
+    return { error: "Kunde inte ta bort annons" };
   }
 }

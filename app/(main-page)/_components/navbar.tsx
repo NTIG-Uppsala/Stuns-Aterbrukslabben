@@ -55,7 +55,7 @@ export default function Navbar() {
                   source_sans_3.className
                 )}
               >
-                Mina inlägg
+                Mina annonser
               </p>
             </Link>
             <Link href="/create-post">
@@ -71,7 +71,7 @@ export default function Navbar() {
                   source_sans_3.className
                 )}
               >
-                Skapa inlägg
+                Skapa annons
               </p>
             </Link>
             <div className="md:block hidden bg-black bg-opacity-70 w-[1px] md:h-1/2 h-2/5" />

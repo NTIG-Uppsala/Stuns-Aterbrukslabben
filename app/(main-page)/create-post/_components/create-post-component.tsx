@@ -102,7 +102,7 @@ export default function CreatePostComponent({
           className="flex flex-col gap-y-5"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center md:text-3xl text-xl ">Skapa ett inlägg</h1>
+          <h1 className="text-center md:text-3xl text-xl ">Skapa en annons</h1>
           <Controller
             name="postTypePicker"
             control={control}
@@ -269,7 +269,7 @@ export default function CreatePostComponent({
                 <h2 className="font-medium md:text-base text-sm">
                   Slutdatum (frivilligt)
                 </h2>
-                <FormHint content="Ange sista datum då inlägget är aktuellt. Om ej ifylld får du en påminnelse efter sex månader." />
+                <FormHint content="Ange sista datum då annonsen är aktuell. Om ej ifylld får du en påminnelse efter sex månader." />
               </div>
               <Controller
                 name="datePicker"

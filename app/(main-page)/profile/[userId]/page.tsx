@@ -29,8 +29,8 @@ export default async function ProfilePage({
 
   const headerText =
     currentUserId === params.userId
-      ? "Mina inlägg"
-      : `${firstName} ${lastName}'s Inlägg`;
+      ? "Mina annonser"
+      : `${firstName} ${lastName}'s annonser`;
 
   const { postsList, queriedPostsCount } = await getPostDataFromDb({
     type: undefined,

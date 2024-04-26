@@ -56,7 +56,7 @@ export default function PostCard({
                   ? "/images/instrument.webp"
                   : "/images/image-missing.webp"
               }
-              alt="Inläggets bild"
+              alt="Annonsens bild"
               width={400}
               height={300}
               className="aspect-[4/3] w-full rounded-md"

@@ -42,7 +42,7 @@ export default function PostComponent({
             ? "/images/instrument.webp"
             : "/images/image-missing.webp"
         }
-        alt="Inläggets bild"
+        alt="annonsens bild"
         width={600}
         height={450}
         className="aspect-[4/3] w-full rounded-md"

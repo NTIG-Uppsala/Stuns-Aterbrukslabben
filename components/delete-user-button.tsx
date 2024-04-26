@@ -58,7 +58,7 @@ export default function DeleteUserButton({
             <span className="font-bold"> permanent</span> ta bort användaren
             <span className="font-semibold break-all"> {email} </span>
             och
-            <span className="font-bold"> alla</span> deras inlägg.
+            <span className="font-bold"> alla</span> deras annonser.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

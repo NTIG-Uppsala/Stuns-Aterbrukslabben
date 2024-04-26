@@ -25,7 +25,9 @@ export default function CreatePostAlertDialog({
       </AlertDialogTrigger>
       <AlertDialogContent className="max-w-2xl">
         <AlertDialogHeader>
-          <AlertDialogTitle className="flex justify-center">Skapa inlägg?</AlertDialogTitle>
+          <AlertDialogTitle className="flex justify-center">
+            Skapa annons?
+          </AlertDialogTitle>
           <h1 className="md:text-base text-sm text-center text-pretty">
             När du skänker eller tar emot begagnad utrustning, tänk på följande
           </h1>
@@ -66,7 +68,7 @@ export default function CreatePostAlertDialog({
             form="create-post-form"
             type="submit"
           >
-            Skapa inlägg
+            Skapa annons
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

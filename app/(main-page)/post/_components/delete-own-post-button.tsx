@@ -61,19 +61,19 @@ export default function DeleteOwnPostButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger className="text-destructive font-semibold md:text-base text-sm hover:opacity-80">
-        Ta bort inlägg
+        Ta bort annons
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Är du säker?</AlertDialogTitle>
           <AlertDialogDescription>
             Detta kommer
-            <span className="font-bold"> permanent</span> ta bort inlägget.
+            <span className="font-bold"> permanent</span> ta bort annonsen.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
           <h2 className="text-base font-semibold">
-            Resulterade inlägget i en donation?
+            Resulterade annonsen i en donation?
           </h2>
           <Controller
             name="reason"
