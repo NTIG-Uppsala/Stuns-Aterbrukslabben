@@ -1,3 +1,5 @@
+"use client";
+
 interface GetPostTypeSpecificDataProps {
   postType: string;
 }
