@@ -95,7 +95,7 @@ export default function DeleteOwnPostButton({
           {errors.reason?.message && (
             <FormErrorParagraph content={errors.reason.message} />
           )}
-          <AlertDialogFooter>
+          <AlertDialogFooter className="pt-8">
             <AlertDialogCancel>Avbryt</AlertDialogCancel>
             <Button variant="destructive" type="submit">
               Ta bort
