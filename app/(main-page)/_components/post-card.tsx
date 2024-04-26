@@ -1,3 +1,5 @@
+// Can only be used in client components
+
 import Image from "next/image";
 import Link from "next/link";
 
