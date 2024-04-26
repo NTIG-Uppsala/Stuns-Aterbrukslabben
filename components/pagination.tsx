@@ -83,7 +83,7 @@ export default function Pagination({
     return;
   } else {
     return (
-      <div className="flex justify-center items-center mt-4 gap-x-4">
+      <div className="flex justify-center items-center mt-8 gap-x-8">
         <div className="flex items-center">
           {pages > 5 && (
             <button onClick={() => handlePageChange(1)}>
@@ -94,7 +94,7 @@ export default function Pagination({
             <ChevronLeft className="md:h-6 md:w-6 h-4 w-4" />
           </button>
         </div>
-        <div className="flex justify-center gap-x-4 md:text-xl text-base">
+        <div className="flex justify-center gap-x-8 md:text-xl text-base">
           {pageButtons}
         </div>
         <div className="flex items-center">
