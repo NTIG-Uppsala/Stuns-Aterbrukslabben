@@ -72,29 +72,31 @@ export default function DeleteOwnPostButton({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <form onSubmit={handleSubmit(onDelete)}>
-          <h2 className="text-base font-semibold">
-            Resulterade annonsen i en donation?
-          </h2>
-          <Controller
-            name="reason"
-            control={control}
-            rules={{ required: "Välj ett alternativ" }}
-            render={({ field: { onChange, value } }) => (
-              <RadioGroup
-                className="flex items-center"
-                value={value}
-                onValueChange={(value) => onChange(value)}
-              >
-                <h3>Ja</h3>
-                <RadioGroupItem value="Lyckad" />
-                <h3>Nej</h3>
-                <RadioGroupItem value="Olyckad" />
-              </RadioGroup>
+          <div className="flex flex-col items-center md:items-start">
+            <h2 className="text-base font-semibold">
+              Resulterade annonsen i en donation?
+            </h2>
+            <Controller
+              name="reason"
+              control={control}
+              rules={{ required: "Välj ett alternativ" }}
+              render={({ field: { onChange, value } }) => (
+                <RadioGroup
+                  className="flex items-center"
+                  value={value}
+                  onValueChange={(value) => onChange(value)}
+                >
+                  <h3>Ja</h3>
+                  <RadioGroupItem value="Lyckad" />
+                  <h3>Nej</h3>
+                  <RadioGroupItem value="Olyckad" />
+                </RadioGroup>
+              )}
+            />
+            {errors.reason?.message && (
+              <FormErrorParagraph content={errors.reason.message} />
             )}
-          />
-          {errors.reason?.message && (
-            <FormErrorParagraph content={errors.reason.message} />
-          )}
+          </div>
           <AlertDialogFooter className="pt-8">
             <AlertDialogCancel>Avbryt</AlertDialogCancel>
             <Button variant="destructive" type="submit">
