@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { PostCategory } from "@/types/globals";
 
 import creationDateToString from "../utils/creation-date-to-string";
-import getPostColorAndExpirationText from "../utils/get-post-type-specific-data";
+import getPostTypeSpecificData from "../utils/get-post-type-specific-data";
 import { useEffect, useState } from "react";
 
 interface PostProps {
@@ -36,7 +36,7 @@ export default function PostCard({
   timezone,
 }: PostProps) {
   const [creationDateString, setCreationDateString] = useState("laddar...");
-  const { postTypeColor, expirationDateText } = getPostColorAndExpirationText({
+  const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType,
   });
 
