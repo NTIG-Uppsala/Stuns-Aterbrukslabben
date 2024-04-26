@@ -6,7 +6,7 @@ interface GetUserDataParams {
   usersPerPage: number;
 }
 
-export default async function GetUserData({
+export default async function getUserData({
   currentPage,
   query,
   usersPerPage,
