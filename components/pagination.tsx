@@ -49,7 +49,7 @@ export default function Pagination({
         pageButtons.push(
           <button
             key={pageIndex}
-            className="underline font-semibold p-4"
+            className="underline font-semibold md:p-4 p-2"
             onClick={() => handlePageChange(pageIndex)}
           >
             {pageIndex}
@@ -58,7 +58,7 @@ export default function Pagination({
       } else {
         pageButtons.push(
           <button
-            className="p-4"
+            className="md:p-4 p-2"
             key={pageIndex}
             onClick={() => handlePageChange(pageIndex)}
           >
@@ -87,8 +87,8 @@ export default function Pagination({
     return;
   } else {
     return (
-      <div className="flex justify-center items-center mt-4 gap-x-6">
-        <div className="flex items-center">
+      <div className="flex justify-center items-center mt-4 gap-x-2">
+        <div className="flex items-center p-2 gap-x-2">
           {pages > 5 && (
             <button onClick={() => handlePageChange(1)}>
               <ChevronFirst className="md:h-6 md:w-6 h-4 w-4" />
@@ -98,10 +98,10 @@ export default function Pagination({
             <ChevronLeft className="md:h-6 md:w-6 h-4 w-4" />
           </button>
         </div>
-        <div className="flex justify-center gap-x-4 md:text-xl text-base">
+        <div className="flex justify-center gap-x-2 md:text-xl text-base">
           {pageButtons}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center p-2 gap-x-2">
           <button onClick={() => handlePageChange(currentPage + 1)}>
             <ChevronRight className="md:h-6 md:w-6 h-4 w-4" />
           </button>
