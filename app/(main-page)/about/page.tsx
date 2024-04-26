@@ -61,6 +61,7 @@ export default function AboutPage() {
           >
             LinkedIn
           </a>
+          , planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga till dansare.
         </div>
         <div>
           Mohamad Hamdan,{" "}
