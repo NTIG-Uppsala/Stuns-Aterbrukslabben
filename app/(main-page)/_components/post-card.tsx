@@ -6,6 +6,7 @@ import { PostCategory } from "@/types/globals";
 
 import creationDateToString from "../utils/creation-date-to-string";
 import getPostColorAndExpirationText from "../utils/get-post-type-specific-data";
+import { useEffect, useState } from "react";
 
 interface PostProps {
   title: string;
@@ -32,10 +33,15 @@ export default function PostCard({
   hasCustomExpirationDate,
   timezone,
 }: PostProps) {
-  const creationDateString = creationDateToString(creationDate, timezone);
+  const [creationDateString, setCreationDateString] = useState("laddar...");
   const { postTypeColor, expirationDateText } = getPostColorAndExpirationText({
     postType,
   });
+
+  useEffect(() => {
+    const dateStr = creationDateToString(creationDate, timezone);
+    setCreationDateString(dateStr);
+  }, [creationDate, timezone]);
 
   return (
     <Link href={`/post/${postId}`}>
