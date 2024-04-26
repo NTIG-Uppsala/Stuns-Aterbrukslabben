@@ -23,7 +23,8 @@ export default async function createPost({ data }: CreatePostProps) {
         postType: data.postTypePicker,
         category: data.categoryPicker,
         location: data.municipalityPicker,
-        expiresAt: new Date(data.datePicker),
+        expiresAt:
+          data.datePicker !== undefined ? new Date(data.datePicker) : undefined,
         hasCustomExpirationDate: data.datePicker !== undefined,
       },
     });
