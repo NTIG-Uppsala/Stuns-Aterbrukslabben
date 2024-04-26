@@ -39,8 +39,8 @@ export default function PostCard({
   });
 
   useEffect(() => {
-    const dateStr = creationDateToString(creationDate, timezone);
-    setCreationDateString(dateStr);
+    const dateCreationString = creationDateToString(creationDate, timezone);
+    setCreationDateString(dateCreationString);
   }, [creationDate, timezone]);
 
   return (
