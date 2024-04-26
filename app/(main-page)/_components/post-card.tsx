@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +17,7 @@ interface PostProps {
   expirationDate: Date;
   creationDate: Date;
   hasCustomExpirationDate: boolean;
+  timezone: string;
 }
 
 export default function PostCard({
@@ -31,8 +30,9 @@ export default function PostCard({
   expirationDate,
   creationDate,
   hasCustomExpirationDate,
+  timezone,
 }: PostProps) {
-  const creationDateString = creationDateToString(creationDate);
+  const creationDateString = creationDateToString(creationDate, timezone);
   const { postTypeColor, expirationDateText } = getPostColorAndExpirationText({
     postType,
   });

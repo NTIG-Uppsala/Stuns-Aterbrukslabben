@@ -1,3 +1,5 @@
+"use client";
+
 import { Post } from "@prisma/client";
 
 import PostCard from "./post-card";
@@ -7,7 +9,8 @@ interface PostContainerProps {
   posts?: Post[];
 }
 
-export default async function PostContainer({ posts }: PostContainerProps) {
+export default function PostContainer({ posts }: PostContainerProps) {
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return (
     <div className="flex flex-col md:gap-y-3 gap-y-2 md:mt-6 mt-4">
       {posts && posts.length > 0 ? (
@@ -24,6 +27,7 @@ export default async function PostContainer({ posts }: PostContainerProps) {
               creationDate={post.createdAt}
               expirationDate={post.expiresAt}
               hasCustomExpirationDate={post.hasCustomExpirationDate}
+              timezone={timezone}
             />
           );
         })

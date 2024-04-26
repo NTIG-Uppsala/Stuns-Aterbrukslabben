@@ -26,7 +26,8 @@ export default function PostComponent({
   isPreview,
   deleteButton,
 }: PostComponentProps) {
-  const creationDateString = creationDateToString(postData.createdAt);
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const creationDateString = creationDateToString(postData.createdAt, timezone);
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: postData.postType,
   });
