@@ -3,6 +3,7 @@
 import { Clock, MapPin, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { Post } from "@prisma/client";
@@ -26,8 +27,20 @@ export default function PostComponent({
   isPreview,
   deleteButton,
 }: PostComponentProps) {
+  const [creationDateString, setCreationDateString] = useState("laddar...");
+  const [expirationDateString, setExpirationDateString] = useState("laddar...");
+
+  // UseEffect is used here to prevent hydration errors caused by differing times on server and client
+  useEffect(() => {
+    const dateCreationString = creationDateToString(
+      postData.createdAt,
+      timezone
+    );
+    setCreationDateString(dateCreationString);
+    setExpirationDateString(postData.expiresAt.toLocaleDateString("sv-SE"));
+  }, []);
+
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const creationDateString = creationDateToString(postData.createdAt, timezone);
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: postData.postType,
   });
@@ -74,7 +87,7 @@ export default function PostComponent({
           {postData.hasCustomExpirationDate && (
             <section className="text-red-500 text-end">
               <p>{expirationDateText}</p>
-              <p>{postData.expiresAt.toLocaleDateString("sv-SE")}</p>
+              <p>{expirationDateString}</p>
             </section>
           )}
         </div>

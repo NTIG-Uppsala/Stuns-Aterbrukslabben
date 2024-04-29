@@ -1,4 +1,4 @@
-// Can only be used in client components
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -17,17 +17,20 @@ interface PostCardProps {
 
 export default function PostCard({ postData, timezone }: PostCardProps) {
   const [creationDateString, setCreationDateString] = useState("laddar...");
+  const [expirationDateString, setExpirationDateString] = useState("laddar...");
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: postData.postType,
   });
 
+  // UseEffect is used here to prevent hydration errors caused by differing times on server and client
   useEffect(() => {
     const dateCreationString = creationDateToString(
       postData.createdAt,
       timezone
     );
     setCreationDateString(dateCreationString);
-  }, [postData.createdAt, timezone]);
+    setExpirationDateString(postData.expiresAt.toLocaleDateString("sv-SE"));
+  }, []);
 
   return (
     <Link href={`/post/${postData.id}`}>
@@ -88,7 +91,7 @@ export default function PostCard({ postData, timezone }: PostCardProps) {
               {postData.hasCustomExpirationDate && (
                 <div className="md:text-base text-[9px] text-end text-red-500">
                   <p>{expirationDateText}</p>
-                  <p>{postData.expiresAt.toLocaleDateString("sv-SE")}</p>
+                  <p>{expirationDateString}</p>
                 </div>
               )}
             </div>
