@@ -28,10 +28,10 @@ export default function AboutPage() {
         vara redo att tas i bruk nationellt.
       </div>
       <br />
-      <div className="flex flex-col">
-        Utvecklare våren 2024:
+      <div className="flex flex-col gap-y-2">
+        <h2 className="text-xl">Utvecklare våren 2024:</h2>
         <div>
-          Simon Clavensjö,{" "}
+        <span className="font-semibold">Simon Clavensjö</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:simon@clavensjo.se"
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </a>
         </div>
         <div>
-          Lukas Gustafsson,{" "}
+          <span className="font-semibold">Lukas Gustafsson</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:lukashansgustafsson@gmail.com"
@@ -61,10 +61,19 @@ export default function AboutPage() {
           >
             LinkedIn
           </a>
-          , planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga till dansare.
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://lukasgurra.github.io/"
+          >
+            portfolio
+          </a>
+          <br />
+          Planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga
+          till dansare. Intresserad av frontend-utveckling och design.
         </div>
         <div>
-          Mohamad Hamdan,{" "}
+        <span className="font-semibold">Mohamad Hamdan</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:Hamdan756@icloud.com"
@@ -80,7 +89,7 @@ export default function AboutPage() {
           </a>
         </div>
         <div>
-          Ambjörn Hogmark,{" "}
+        <span className="font-semibold">Ambjörn Hogmark</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:ambehog04@gmail.com"
