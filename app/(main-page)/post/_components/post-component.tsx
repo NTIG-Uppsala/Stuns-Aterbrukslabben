@@ -104,7 +104,9 @@ export default function PostComponent({
           />
         </div>
       </div>
-      <div className="w-full flex justify-end">{deleteButton}</div>
+      {deleteButton && (
+        <div className="w-full flex justify-end">{deleteButton}</div>
+      )}
     </article>
   );
 }
