@@ -80,7 +80,7 @@ export default function CreatePostComponent({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
-    // Adjust the date created by the datePicker component to 10:00 UTC-time
+    // Adjust the date created by the datePicker component to 10:00 UTC
     if (data.datePicker) {
       data.datePicker = new Date(
         data.datePicker.getTime() -
