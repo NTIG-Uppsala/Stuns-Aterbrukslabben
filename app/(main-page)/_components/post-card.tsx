@@ -4,49 +4,33 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { PostCategory } from "@/types/globals";
+import type { Post } from "@prisma/client";
 
 import creationDateToString from "../utils/creation-date-to-string";
 import getPostTypeSpecificData from "../utils/get-post-type-specific-data";
 import { useEffect, useState } from "react";
 
-interface PostProps {
-  title: string;
-  postId: number;
-  description: string | null;
-  postType: string;
-  category: PostCategory;
-  location: string;
-  expirationDate: Date;
-  creationDate: Date;
-  hasCustomExpirationDate: boolean;
+interface PostCardProps {
+  postData: Post;
   timezone: string;
 }
 
-export default function PostCard({
-  title,
-  postId,
-  description,
-  postType,
-  category,
-  location,
-  expirationDate,
-  creationDate,
-  hasCustomExpirationDate,
-  timezone,
-}: PostProps) {
+export default function PostCard({ postData, timezone }: PostCardProps) {
   const [creationDateString, setCreationDateString] = useState("laddar...");
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
-    postType,
+    postType: postData.postType,
   });
 
   useEffect(() => {
-    const dateCreationString = creationDateToString(creationDate, timezone);
+    const dateCreationString = creationDateToString(
+      postData.createdAt,
+      timezone
+    );
     setCreationDateString(dateCreationString);
-  }, [creationDate, timezone]);
+  }, [postData.createdAt, timezone]);
 
   return (
-    <Link href={`/post/${postId}`}>
+    <Link href={`/post/${postData.id}`}>
       <div className="flex md:py-4 md:pr-4 py-2 pr-2 bg-secondary w-full rounded-xl">
         <div
           className={cn(
@@ -58,11 +42,11 @@ export default function PostCard({
           <section className="col-span-4">
             <Image
               src={
-                category === "inventarie"
+                postData.category === "inventarie"
                   ? "/images/inventory.webp"
-                  : category === "förbrukningsvara"
+                  : postData.category === "förbrukningsvara"
                   ? "/images/consumables.webp"
-                  : category === "instrument/maskin"
+                  : postData.category === "instrument/maskin"
                   ? "/images/instrument.webp"
                   : "/images/image-missing.webp"
               }
@@ -75,10 +59,10 @@ export default function PostCard({
           <section className="flex flex-col col-span-5 md:pl-4 pl-2">
             <div className="grow">
               <h3 className="md:text-2xl text-sm line-clamp-1 break-all">
-                {title}
+                {postData.title}
               </h3>
               <p className="md:text-base text-[10px] md:line-clamp-3 line-clamp-2 mt-1 break-words">
-                {description}
+                {postData.description}
               </p>
             </div>
             <div className="md:pt-0 pt-1">
@@ -89,10 +73,10 @@ export default function PostCard({
                     postTypeColor
                   )}
                 ></div>
-                <p className="md:text-sm text-[9px]">{postType}</p>
+                <p className="md:text-sm text-[9px]">{postData.postType}</p>
               </div>
               <p className="md:text-sm text-[8px] capitalize line-clamp-1 break-all">
-                {location}
+                {postData.location}
               </p>
             </div>
           </section>
@@ -101,10 +85,10 @@ export default function PostCard({
               <p className="md:text-base text-[9px] text-end md:pb-2 pt-1">
                 {creationDateString}
               </p>
-              {hasCustomExpirationDate && (
+              {postData.hasCustomExpirationDate && (
                 <div className="md:text-base text-[9px] text-end text-red-500">
                   <p>{expirationDateText}</p>
-                  <p>{expirationDate.toLocaleDateString("sv-SE")}</p>
+                  <p>{postData.expiresAt.toLocaleDateString("sv-SE")}</p>
                 </div>
               )}
             </div>

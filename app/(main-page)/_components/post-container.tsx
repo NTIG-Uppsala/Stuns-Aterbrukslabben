@@ -1,9 +1,8 @@
 "use client";
 
-import { Post } from "@prisma/client";
+import type { Post } from "@prisma/client";
 
 import PostCard from "./post-card";
-import { PostCategory } from "@/types/globals";
 
 interface PostContainerProps {
   posts?: Post[];
@@ -15,21 +14,7 @@ export default function PostContainer({ posts }: PostContainerProps) {
     <div className="flex flex-col md:gap-y-3 gap-y-2 md:mt-6 mt-4">
       {posts && posts.length > 0 ? (
         posts.map((post) => {
-          return (
-            <PostCard
-              key={post.id}
-              title={post.title}
-              postId={post.id}
-              description={post.description}
-              postType={post.postType}
-              category={post.category as PostCategory}
-              location={post.location}
-              creationDate={post.createdAt}
-              expirationDate={post.expiresAt}
-              hasCustomExpirationDate={post.hasCustomExpirationDate}
-              timezone={timezone}
-            />
-          );
+          return <PostCard key={post.id} postData={post} timezone={timezone} />;
         })
       ) : (
         <div className="flex justify-center md:mt-12 mt-8">
