@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import type { Post } from "@prisma/client";
 
 import creationDateToString from "../utils/creation-date-to-string";
 import getPostTypeSpecificData from "../utils/get-post-type-specific-data";
-import { useEffect, useState } from "react";
 
 interface PostCardProps {
   postData: Post;
