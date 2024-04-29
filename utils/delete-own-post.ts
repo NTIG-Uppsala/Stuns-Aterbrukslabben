@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/lib/db";
-import { Post } from "@prisma/client";
+import type { Post } from "@prisma/client";
 
 import archivePost from "./archive-post";
 

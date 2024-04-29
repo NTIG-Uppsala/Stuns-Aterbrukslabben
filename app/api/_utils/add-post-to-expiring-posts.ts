@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import makeRandomId from "@/utils/make-random-id";
-import { Post } from "@prisma/client";
+import type { Post } from "@prisma/client";
 
 interface AddPostToExpiringPostsProps {
   post: Post;

@@ -16,11 +16,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import deleteOwnPost from "@/utils/delete-own-post";
-import { Post } from "@prisma/client";
+import type { Post } from "@prisma/client";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 import FormErrorParagraph from "../../create-post/_components/form-error-paragraph";
-import FormLabel from "../../create-post/_components/form-label";
 
 interface DeleteOwnPostButtonProps {
   postData: Post;
