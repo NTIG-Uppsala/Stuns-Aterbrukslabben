@@ -4,7 +4,7 @@ import ChangeRoleEmail from "@/emails/change-role-email";
 import { checkRole } from "@/utils/check-role";
 import { clerkClient } from "@clerk/nextjs/server";
 import getUserEmail from "@/utils/get-user-email";
-import { Roles } from "@/types/globals";
+import type { Roles } from "@/types/globals";
 import sendMail from "@/utils/send-mail";
 
 interface ChangeRoleProps {

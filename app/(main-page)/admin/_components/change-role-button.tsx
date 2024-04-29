@@ -14,7 +14,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Roles } from "@/types/globals";
+import type { Roles } from "@/types/globals";
 
 import changeRole from "../utils/change-role";
 

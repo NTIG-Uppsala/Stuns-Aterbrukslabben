@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { PostCategory, PostType, SortOrder } from "@/types/globals";
+import type { PostCategory, PostType, SortOrder } from "@/types/globals";
 import { Prisma } from "@prisma/client";
 
 interface GetPostDataFromDbProps {

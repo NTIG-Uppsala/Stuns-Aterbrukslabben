@@ -1,5 +1,5 @@
 import Pagination from "@/components/pagination";
-import { PostType, PostCategory, SortOrder } from "@/types/globals";
+import type { PostType, PostCategory, SortOrder } from "@/types/globals";
 
 import FilterContainer from "./_components/filter-container";
 import getPostDataFromDb from "./utils/get-post-data-from-db";

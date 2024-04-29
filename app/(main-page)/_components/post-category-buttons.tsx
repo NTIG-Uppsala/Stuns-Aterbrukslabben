@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import handleSearchParamsChange from "@/utils/handle-search-params-change";
-import { PostCategory } from "@/types/globals";
+import type { PostCategory } from "@/types/globals";
 
 export default function PostCategoryButtons() {
   const pathname = usePathname();

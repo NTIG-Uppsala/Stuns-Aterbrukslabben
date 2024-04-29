@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { type SortOrder } from "@/types/globals";
+import type { SortOrder } from "@/types/globals";
 import handleSearchParamsChange from "@/utils/handle-search-params-change";
 
 export default function PostSortSelect() {
