@@ -80,17 +80,17 @@ export default function CreatePostComponent({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
-    // Adjust the date created by the datePicker component to midnight in UTC time
+    // Adjust the date created by the datePicker component to 10:00 UTC-time
     if (data.datePicker) {
       data.datePicker = new Date(
         data.datePicker.getTime() -
-          data.datePicker.getTimezoneOffset() * 60 * 1000
+          data.datePicker.getTimezoneOffset() * 60 * 1000 +
+          10 * 60 * 60 * 1000
       );
 
       // Make the date into an ISOString to remove unnecessary information regarding timezone from the object
-      data.datePicker = data.datePicker.toISOString().split("T")[0];
+      data.datePicker = data.datePicker.toISOString();
     }
-
     setIsSubmitting(true);
     const result = await createPost({ data });
     if (result && result.error) {
