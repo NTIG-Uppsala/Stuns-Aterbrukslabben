@@ -38,7 +38,7 @@ export default function Navbar() {
                     source_sans_3.className
                   )}
                 >
-                  Admin Panel
+                  Adminpanel
                 </p>
               </Link>
             )}
