@@ -30,6 +30,8 @@ export default function PostComponent({
   const [creationDateString, setCreationDateString] = useState("laddar...");
   const [expirationDateString, setExpirationDateString] = useState("laddar...");
 
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
   // UseEffect is used here to prevent hydration errors caused by differing times on server and client
   useEffect(() => {
     const dateCreationString = creationDateToString(
@@ -38,9 +40,8 @@ export default function PostComponent({
     );
     setCreationDateString(dateCreationString);
     setExpirationDateString(postData.expiresAt.toLocaleDateString("sv-SE"));
-  }, []);
+  }, [postData.createdAt, postData.expiresAt, timezone]);
 
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const { postTypeColor, expirationDateText } = getPostTypeSpecificData({
     postType: postData.postType,
   });

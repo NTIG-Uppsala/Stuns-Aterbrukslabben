@@ -30,7 +30,7 @@ export default function PostCard({ postData, timezone }: PostCardProps) {
     );
     setCreationDateString(dateCreationString);
     setExpirationDateString(postData.expiresAt.toLocaleDateString("sv-SE"));
-  }, []);
+  }, [postData.createdAt, postData.expiresAt, timezone]);
 
   return (
     <Link href={`/post/${postData.id}`}>
