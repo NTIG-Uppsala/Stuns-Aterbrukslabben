@@ -45,7 +45,7 @@ const onExport = async () => {
   });
 
   workbook.xlsx.writeBuffer().then((buffer) => {
-    saveAs(new Blob([buffer]), `ArkiveradeInlagg.xlsx`);
+    saveAs(new Blob([buffer]), `AterbrukslabbetArkiveradeInlagg.xlsx`);
   });
 
   return toast.success("Arkiverade annonser exporterade");
