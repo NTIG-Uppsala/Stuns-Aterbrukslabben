@@ -34,7 +34,7 @@ export default function Navbar() {
                 />
                 <p
                   className={cn(
-                    "text-xl font-medium md:block hidden",
+                    "text-xl hover:opacity-80 font-medium md:block hidden",
                     source_sans_3.className
                   )}
                 >
@@ -51,7 +51,7 @@ export default function Navbar() {
               />
               <p
                 className={cn(
-                  "text-xl font-medium md:block hidden",
+                  "text-xl hover:opacity-80 font-medium md:block hidden",
                   source_sans_3.className
                 )}
               >
@@ -67,7 +67,7 @@ export default function Navbar() {
               />
               <p
                 className={cn(
-                  "md:block hidden text-xl text-white bg-sky-600 rounded-md px-4 py-[6px] font-medium",
+                  "md:block hidden text-xl text-white bg-sky-600 hover:opacity-85 rounded-md px-4 py-[6px] font-medium",
                   source_sans_3.className
                 )}
               >
