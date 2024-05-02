@@ -36,9 +36,9 @@ export default function FAQPage() {
             <br /> <br />
             Förbrukningsvara – Sådant som förbrukas och regelbundet behöver
             ersättas, till exempel filterpapper, engångshandskar, pH-stickor,
-            reagenser och kemikalier.
+            reagens och kemikalier.
             <br /> <br />
-            Instrument/maskiner – Avancerade utrustning används för att utföra
+            Instrument/maskiner – Avancerad utrustning som används för att utföra
             mätningar eller olika processer, till exempel mikroskop,
             PCR-utrustning, pumpar, spektrometrar och voltmetrar.
             <br /> <br />
