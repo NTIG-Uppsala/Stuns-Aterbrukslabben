@@ -64,6 +64,13 @@ export default function AboutPage() {
           ,{" "}
           <a
             className="hover:underline text-blue-600"
+            href="https://github.com/lukasgurra"
+          >
+            Github
+          </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
             href="https://lukasgurra.github.io/"
           >
             portfolio
