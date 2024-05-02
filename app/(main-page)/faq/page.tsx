@@ -17,29 +17,36 @@ export default function FAQPage() {
             Vad är Återbrukslabbet?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Återbrukslabbet är en webbplats där du kan lägga upp inlägg för att
-            skänka bort eller efterfråga begagnad labbutrustning. Syftet är att
-            användare ska kunna donera och efterfråga labbutrustning för
-            användning i ett pedagogiskt syfte. Detta istället för att
-            utrustningen till exempel slängs i onödan.
+            Återbrukslabbet är en webbplats där du kan lägga upp annonser för
+            att skänka bort eller efterfråga begagnad labbutrustning. Syftet är
+            att användare ska kunna donera och efterfråga labbutrustning för
+            användning i undervisning. På så vis ökar undervisningens relevans,
+            avlastar skolbudgetar, sparar planetens resurser och gör lärandet
+            roligare.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
           <AccordionTrigger className="text-start">
-            Vad innebär kategorierna: <br /> förbrukningsvara, instrument/maskin
-            och inventarie?
+            Vad innebär kategorierna:
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            En förbrukningsvara är menad att användas under en begränsad tid och
-            behöver ersättas eller förnyas regelbundet. Förbrukningsvaror kan
-            inkludera saker som kemikalier, filter eller handskar. <br /> <br />
-            Instrument/maskiner är verktyg som används inom laboratium för att
-            mäta värden eller utföra olika processer. Instrument/maskiner kan
-            inkludera mikroskop, PCR-maskiner, spektrometrar och voltmetrar.
-            <br /> <br /> Inventarie är hjälpmedel som används i labbmiljöer för
-            att underlätta i experiment. Inventarie kan inkludera kolvar, vågar,
-            resistorer och provrör. <br /> <br /> Välj den kategori du anser att
-            din produkt bäst överensstämmer med när du skapar ett inlägg.
+            För att göra det lättare att leta bland annonser är dessa indelade i
+            tre kategorier; ”förbrukningsvara”, ”instrument/maskin”, samt
+            ”inventarie”
+            <br /> <br />
+            Förbrukningsvara – Sådant som förbrukas och regelbundet behöver
+            ersättas, till exempel filterpapper, engångshandskar, pH-stickor,
+            reagenser och kemikalier.
+            <br /> <br />
+            Instrument/maskiner – Avancerade utrustning används för att utföra
+            mätningar eller olika processer, till exempel mikroskop,
+            PCR-utrustning, pumpar, spektrometrar och voltmetrar.
+            <br /> <br />
+            Inventarie – Enklare utrustning som används på labb, till exempel
+            glasvaror, skyddsglasögon, labbrockar och verktyg.
+            <br /> <br />
+            Välj den kategori du anser att din produkt bäst överensstämmer med
+            när du skapar en annons.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
@@ -47,63 +54,53 @@ export default function FAQPage() {
             Får jag ta betalt för det jag erbjuder?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Nej, pengar får inte utbytas när produkter byter händer.
-            Återbrukslabbet får bara användas för att skänka bort labbutrustning
-            och ska inte användas som en marknadsplats. I vissa situationer kan
-            pengar utbytas mot frakt av utrustningen men då sker detta utbyte
-            utanför Återbrukslabbet och vi tar inte ansvar.
+            Nej, Återbrukslabbet får bara användas för att skänka labbutrustning
+            och får inte användas som en marknadsplats.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-4">
           <AccordionTrigger className="text-start">
-            Hur fungerar slutdatum för ett inlägg?
+            Hur fungerar slutdatum för en annons?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Om du sätter ett slutdatum på ditt inlägg kommer inlägget bli
-            borttaget på ditt valda datum. När ditt slutdatum närmar sig kommer
-            du få påminnelser på din mejl. Om du väljer att inte sätta ett
-            slutdatum kommer du få påminnelser efter 6 månader att förlänga
-            inlägget om det fortfarande är aktuellt, annars kommer det tas bort.
-            <br />
-            <br />
-            Detta görs för att hålla Återbrukslabbet uppdaterat och säkerställa
-            att inläggen som finns på sidan är aktuella.
+            Om ett slutdatum anges när annonsen skapas kommer annonsen tas bort
+            automatiskt det valda datumet. När slutdatumet närmar sig mejlas en
+            påminnelse till annonsens skapare med möjlighet att förlänga
+            slutdatumet. Om inget slutdatum väljs sätts detta automatiskt till 6
+            månader från det datum då annonsen skapas.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-5">
           <AccordionTrigger className="text-start">
-            Varför syns slutdatum bara på vissa inlägg?
+            Varför syns slutdatum bara på vissa annonser?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Om en användare sätter ett specifikt slutdatum på sitt inlägg kommer
-            det datumet visas på inlägget. Om inget slutdatum är satt kommer
-            inget slutdatum visas på inlägget.
+            Om en användare sätter ett specifikt slutdatum på sin annons kommer
+            det datumet att visas i annonsen. Om inget slutdatum är satt kommer
+            inget sådant visas.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-6">
           <AccordionTrigger className="text-start">
-            Ett av mina inlägg verkar vara borttaget?
+            En av mina annonser verkar vara borttagen?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            Om du märker att ett av dina inlägg är borttaget kan det bero på att
-            inlägget har nått sitt slutdatum utan att du har förlängt det. Det
-            kan också bero på att en moderator har tagit bort ditt inlägg om det
-            bryter mot våra användarvillkor. Om ett av dina inlägg är borttagna
-            bör du ha fått ett mejl på din primära mejladress med anledningen.
+            När en annons når sitt slutdatum plockas den bort automatiskt om
+            datumet inte förlängs. Annonser kan även raderas om de bryter mot
+            användarvillkoren. I samband med att annonser raderas sänds ett mejl
+            som informerar om detta, samt om orsaken.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-7">
           <AccordionTrigger className="text-start">
-            När jag tar bort mitt inlägg blir jag frågad om inlägget resulterade
+            När jag tar bort min annons blir jag frågad om annonsen resulterade
             i en donation?
           </AccordionTrigger>
           <AccordionContent className="text-base">
-            När du ska ta bort ditt inlägg vill vi gärna vilja veta om inlägget
-            resulterade i en lyckad donation. Det vill säga att labbutrustning
-            blev skänkt. En donation kan vara lyckad även om inte all
-            labbutrustning på inlägget blev donerat. Vi frågar om denna
-            information enbart för statistik och för att hitta
-            förbättringsmöjligheter.
+            Genom att analysera vilken typ av annonser som leder till att
+            utrustning och förbrukningsvaror får en ny ägare, samt i vilken
+            kommun detta sker, kan nya och bättre funktioner på Återbrukslabbet
+            utvecklas.
           </AccordionContent>
         </AccordionItem>
       </Accordion>
