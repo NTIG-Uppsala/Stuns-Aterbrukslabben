@@ -94,6 +94,18 @@ export default function AboutPage() {
           >
             LinkedIn
           </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://mohamadhamdan13.github.io/"
+          >
+            portfolio
+          </a>
+          <br />
+          Mönstrat och kommit in så kanske gör värnplikten, sökte frivilligt
+          vilket betyder att jag kan välja. Jag kollar även vidareutbildningar
+          inom mjukvaruutveckling inriktning frontend och design. Funderar 
+          även på att börja jobba direkt.
         </div>
         <div>
           <span className="font-semibold">Ambjörn Hogmark</span>,{" "}
