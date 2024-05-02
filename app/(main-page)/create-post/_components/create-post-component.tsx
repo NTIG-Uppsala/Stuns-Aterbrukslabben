@@ -107,7 +107,7 @@ export default function CreatePostComponent({
 
   return (
     <div className="flex flex-wrap justify-center gap-x-20 md:gap-y-6 gap-y-3 max-w-screen-xl mx-auto mt-10">
-      <div className="bg-secondary md:p-6 p-3 md:w-[600px] w-[360px] rounded-2xl">
+      <div className="bg-secondary h-fit md:p-6 p-3 md:w-[600px] w-[360px] rounded-2xl">
         <form
           id="create-post-form"
           className="flex flex-col gap-y-5"
