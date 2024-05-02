@@ -31,7 +31,7 @@ export default function AboutPage() {
       <div className="flex flex-col gap-y-2">
         <h2 className="text-xl">Utvecklare våren 2024:</h2>
         <div>
-        <span className="font-semibold">Simon Clavensjö</span>,{" "}
+          <span className="font-semibold">Simon Clavensjö</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:simon@clavensjo.se"
@@ -77,10 +77,10 @@ export default function AboutPage() {
           </a>
           <br />
           Planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga
-          till dansare. Intresserad av frontend-utveckling och design.
+          till danslärare. Intresserad av frontend-utveckling och design.
         </div>
         <div>
-        <span className="font-semibold">Mohamad Hamdan</span>,{" "}
+          <span className="font-semibold">Mohamad Hamdan</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:Hamdan756@icloud.com"
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </a>
         </div>
         <div>
-        <span className="font-semibold">Ambjörn Hogmark</span>,{" "}
+          <span className="font-semibold">Ambjörn Hogmark</span>,{" "}
           <a
             className="hover:underline text-blue-600"
             href="mailto:ambehog04@gmail.com"
