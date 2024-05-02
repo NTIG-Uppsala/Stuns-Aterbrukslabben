@@ -61,7 +61,6 @@ export default function SearchBar({
         onChange={handleSearchChange}
         defaultValue={searchParamValue?.toString()}
         autoComplete="on"
-        maxLength={30}
       />
     </form>
   );
