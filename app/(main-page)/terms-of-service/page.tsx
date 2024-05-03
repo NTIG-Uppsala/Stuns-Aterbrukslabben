@@ -22,7 +22,7 @@ export default function TermsOfServicePage() {
           Du samtycker till att använda Återbrukslabbet endast för lagliga
           ändamål och i enlighet med dessa användarvillkor. Det är förbjudet att
           använda plattformen för olaglig eller stötande verksamhet. Det är även
-          förbjudet att utbyta pengar mot varor på plattformen.
+          förbjudet att idka handel på plattformen.
         </li>
         <li>
           <span className="font-semibold">Integritet och personuppgifter:</span>
