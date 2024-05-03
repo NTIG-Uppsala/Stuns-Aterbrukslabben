@@ -83,27 +83,13 @@ On the website there exists an admin dashboard that is only accessible to users 
 npx prisma generate
 ```
 
-- Run this command to run prisma studio locally on your computer.
-
-```bash
-npx prisma studio
-```
-
-- Finally, run this command to push the local database you generated in prisma to your new PostgreSQL database. Do not do this if you already have a database!
-
-```bash
-npx prisma db push
-```
-
-If you make changes to the `schema.prisma` file in the prisma folder in the root of the project, run the following commands to migrate the database changes.
-
-```bash
-npx prisma generate
-```
+- Finally, run this command to push the local database you generated in prisma to your new PostgreSQL database. This is not necessary if you already have a setup database.
 
 ```bash
 npx prisma migrate dev
 ```
+
+For documentation on how to edit and deploy the database to production, refer to https://www.prisma.io/docs/orm/prisma-migrate/workflows/development-and-production
 
 ## Set up webhooks
 
