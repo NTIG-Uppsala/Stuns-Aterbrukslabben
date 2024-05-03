@@ -151,7 +151,7 @@ RESEND_SENDING_MAIL=example@yourdomain.com
 cp -r expiring-post-mail-automation ~/
 ```
 
-- Open the newly made copy of expiring-post-mail-automation.sh file and exchange "YOUR SECRET KEY HERE" to the MAIL_AUTOMATION_SECRET in your `.env` file. If you dont use the home directory you will have to edit the path of the output of the file to align with your path. **Note that the format of the script has to be kept the same or it will not work, after execution see result file for error**. There may be an easy fix but there was no time to look in to it.
+- Open the newly made copy of expiring-post-mail-automation.sh file and exchange "YOUR SECRET KEY HERE" to the MAIL_AUTOMATION_SECRET in your `.env` file. If you dont use the home directory you will have to edit the path of the output of the file to align with your path. **Note that the format of the script has to be kept the same or it will not work, after execution see result file for error**. There may be an easy fix in removing the backslash after the url but there was no time to look deeper in to it.
 
 - Exit the file and enter these two commands, make sure to exchange "YOUR_USERNAME" to your profile name.
 
