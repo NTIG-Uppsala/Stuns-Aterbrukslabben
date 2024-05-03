@@ -16,7 +16,7 @@ export default function UserCard({ user }: UserCardProps) {
       className="flex justify-between p-3 md:gap-x-20 gap-x-10 bg-secondary w-full rounded-md"
     >
       <div className="flex flex-col gap-y-2">
-        <div className="line-clamp-1">
+        <div className="break-all line-clamp-1">
           <Link href={`/profile/${user.id}`} className="hover:opacity-70">
             {user.firstName} {user.lastName}
           </Link>

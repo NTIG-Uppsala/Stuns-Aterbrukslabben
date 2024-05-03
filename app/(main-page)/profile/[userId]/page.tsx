@@ -48,9 +48,11 @@ export default async function ProfilePage({
         email={email}
         pageUserRole={pageUserRole}
       />
-      <div className="flex justify-between">
-        <p className="flex md:text-xl text-base">{headerText}</p>
-        <p className="flex md:text-xl text-base text-end">
+      <div className="grid grid-cols-12 grid-cols">
+        <p className="md:col-span-8 col-span-6 md:text-xl text-base break-word line-clamp-2">
+          {headerText}
+        </p>
+        <p className="text-end md:col-span-4 col-span-6 md:text-xl text-base">
           {queriedPostsCount} aktiva annonser
         </p>
       </div>

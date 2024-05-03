@@ -59,15 +59,15 @@ export default function ContactMeDialog({
               bär därför inget ansvar för utrustningens skick eller säkerhet.
             </p>
           </div>
-          <p className="flex justify-center text-lg md:pt-6 pt-2">{fullName}</p>
-          <div className="flex justify-center">
-            <a
-              className="flex w-fit justify-center hover:underline text-blue-600"
-              href={`mailto:${email}`}
-            >
-              {email}
-            </a>
-          </div>
+          <p className="text-center text-lg md:pt-6 pt-2 break-all line-clamp-1">
+            {fullName}
+          </p>
+          <a
+            className="w-fit mx-auto text-center hover:underline text-blue-600 break-all line-clamp-2"
+            href={`mailto:${email}`}
+          >
+            {email}
+          </a>
         </DialogHeader>
       </DialogContent>
     </Dialog>

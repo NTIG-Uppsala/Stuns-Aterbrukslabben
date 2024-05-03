@@ -106,9 +106,11 @@ export default function PostComponent({
           )}
           aria-disabled={isPreview}
         >
-          <User className="md:block hidden" size={18} />
-          <User className="md:hidden block" size={12} />
-          <p className="md:text-xl text-sm pl-1">{fullName}</p>
+          <User className="md:block hidden shrink-0" size={18} />
+          <User className="md:hidden block shrink-0" size={12} />
+          <p className="md:text-xl text-sm pl-1 break-all line-clamp-1">
+            {fullName}
+          </p>
         </Link>
         <div className="flex justify-between items-center">
           <ContactMeDialog

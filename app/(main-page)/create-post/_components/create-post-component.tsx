@@ -205,13 +205,13 @@ export default function CreatePostComponent({
           <div className="flex w-full flex-col">
             <div className="flex justify-between">
               <FormLabel htmlFor="description" labelText="Beskrivning" />
-              <FormHint content="Max 2000 tecken. Inkludera aldrig personuppgifter av något slag." />
+              <FormHint content="Max 1500 tecken. Inkludera aldrig personuppgifter av något slag." />
             </div>
             <textarea
               id="description"
               {...register("description", {
                 required: "Beskrivning saknas",
-                maxLength: { value: 2000, message: "Max 2000 tecken" },
+                maxLength: { value: 1500, message: "Max 1500 tecken" },
                 validate: {
                   emailValidation: (value) =>
                     value.match(/[\w-\.]+@([\w-]+\.)+[\w-]{2,4}/g) == null ||
