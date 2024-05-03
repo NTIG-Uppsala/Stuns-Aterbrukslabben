@@ -28,7 +28,7 @@ export default function AboutPage() {
         vara redo att tas i bruk nationellt.
       </div>
       <br />
-      <div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-3">
         <h2 className="text-xl font-semibold">Utvecklare våren 2024:</h2>
         <div>
           <span className="font-semibold">Simon Clavensjö</span>,{" "}
