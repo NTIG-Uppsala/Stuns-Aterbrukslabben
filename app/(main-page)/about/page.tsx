@@ -29,7 +29,7 @@ export default function AboutPage() {
       </div>
       <br />
       <div className="flex flex-col gap-y-2">
-        <h2 className="text-xl">Utvecklare våren 2024:</h2>
+        <h2 className="text-xl font-semibold">Utvecklare våren 2024:</h2>
         <div>
           <span className="font-semibold">Simon Clavensjö</span>,{" "}
           <a
