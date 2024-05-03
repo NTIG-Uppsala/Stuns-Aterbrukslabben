@@ -174,6 +174,6 @@ crontab -e
 
 - This will execute the expiring-post-mail-automation.sh script everyday at 12 pm as long as the server is running. The results of the script will be printed to a file named "results" in the directory of the script. Note that if you dont use your home directory you will have to change the path to align with your directory.
 
-- If you want you can change the time the emails are sent from 12 pm to your desired time however the cron job has to be set to run **only once a day**.
+- If you want you can change the time the emails are sent from 12 pm to your desired time however the cron job should be set to run **only once a day**.
 
 Now users will receive an email if one of their posts is within a week of it's expiration date. The email will let users extend the expiration date or delete the post immediately. If the post reaches it's expiration date it will be deleted.
