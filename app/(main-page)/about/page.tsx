@@ -59,9 +59,10 @@ export default function AboutPage() {
           >
             portfolio
           </a>
-          <br />
-          Planerar att plugga datavetenskap i Stockholm 2024/2027. Intresserad
-          av backend-utveckling.
+          <p>
+            Planerar att plugga datavetenskap i Stockholm 2024/2027. Intresserad
+            av backend-utveckling.
+          </p>
         </div>
         <div>
           <span className="font-semibold">Lukas Gustafsson</span>,{" "}
@@ -92,9 +93,10 @@ export default function AboutPage() {
           >
             portfolio
           </a>
-          <br />
-          Planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga
-          till danslärare. Intresserad av frontend-utveckling och design.
+          <p>
+            Planerar att plugga pedagogik i Uppsala 2024/2025 och sedan plugga
+            till danslärare. Intresserad av frontend-utveckling och design.
+          </p>
         </div>
         <div>
           <span className="font-semibold">Mohamad Hamdan</span>,{" "}
@@ -118,11 +120,12 @@ export default function AboutPage() {
           >
             portfolio
           </a>
-          <br />
-          Mönstrat och kommit in så kanske gör värnplikten, sökte frivilligt
-          vilket betyder att jag kan välja. Jag kollar även vidareutbildningar
-          inom mjukvaruutveckling inriktning frontend och design. Funderar även
-          på att börja jobba direkt.
+          <p>
+            Mönstrat och kommit in så kanske gör värnplikten, sökte frivilligt
+            vilket betyder att jag kan välja. Jag kollar även vidareutbildningar
+            inom mjukvaruutveckling inriktning frontend och design. Funderar
+            även på att börja jobba direkt.
+          </p>
         </div>
         <div>
           <span className="font-semibold">Ambjörn Hogmark</span>,{" "}
@@ -139,6 +142,19 @@ export default function AboutPage() {
           >
             LinkedIn
           </a>
+          ,{" "}
+          <a
+            className="hover:underline text-blue-600"
+            href="https://ambjorn-hogmark.github.io/"
+          >
+            portfolio
+          </a>
+          <p>
+            Under kommande år fram till 2028 hittar du mig mest troligt i
+            Stockholm där jag kommer att studera teknisk fysik. Inom
+            mjukvarudesign föredrar jag att arbeta med backend-utveckling men
+            behärskar även frontend.
+          </p>
         </div>
       </div>
       <br />
