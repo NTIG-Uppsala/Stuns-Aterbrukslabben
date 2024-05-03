@@ -99,7 +99,7 @@ This application uses webhooks to assign the member role on account creation and
 
 - Go to webhooks on your clerk dashboard, then press add Endpoint.
 
-- The endpoint URL should be your url + /api/webhooks for example https://stuns.ntig.dev/api/webhooks.
+- The endpoint URL should be your websites url + /api/webhooks for example https://YOUR_URL/api/webhooks
 
 - On filter events, user.created, user.deleted and session.created should be picked.
 
