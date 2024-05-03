@@ -150,7 +150,7 @@ export default function AboutPage() {
             portfolio
           </a>
           <p>
-            Under kommande år fram till 2028 hittar du mig mest troligt i
+            Under kommande år fram till 2029 hittar du mig mest troligt i
             Stockholm där jag kommer att studera teknisk fysik. Inom
             mjukvarudesign föredrar jag att arbeta med backend-utveckling men
             behärskar även frontend.
