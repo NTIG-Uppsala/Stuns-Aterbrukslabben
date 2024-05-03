@@ -49,7 +49,7 @@ export default async function ProfilePage({
         pageUserRole={pageUserRole}
       />
       <div className="grid grid-cols-12 grid-cols">
-        <p className="md:col-span-8 col-span-6 md:text-xl text-base break-word line-clamp-2">
+        <p className="md:col-span-8 col-span-6 md:text-xl text-base break-words line-clamp-2">
           {headerText}
         </p>
         <p className="text-end md:col-span-4 col-span-6 md:text-xl text-base">
